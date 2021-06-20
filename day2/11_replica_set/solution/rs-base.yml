@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: rs1
+  namespace: default
+  labels:
+    company: sages
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      company: sages
+  template:
+    metadata:
+      name: sages-pod2
+      labels:
+        company: sages
+    spec:
+      containers:
+      - name: sages-container
+        image: ewoutp/docker-nginx-curl

@@ -1,0 +1,12 @@
+FROM python:3.7.9
+
+WORKDIR /usr/src/app
+COPY python_backend/requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
+
+COPY python_backend/ .
+
+ENV LOG_LEVEL=INFO
+EXPOSE 5002
+
+CMD [ "python", "main.py" ]

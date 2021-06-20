@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: rs-db
+  namespace: default
+  labels:
+    company: sages
+    component: db
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      company: sages
+    matchExpressions:
+    - {key: component, operator: In, values: [db, rest]}
+  template:
+    metadata:
+      name: sages-pod2
+      labels:
+        company: sages
+        component: db
+    spec:
+      containers:
+      - name: sages-container
+        image: ewoutp/docker-nginx-curl
