@@ -33,3 +33,9 @@ kubectl delete rs replicate-my-app --cascade=false
 kubectl get rs
 kubectl get pod -o wide
 ```
+
+# Match Labels expressions vs MatchLabels
+`matchLabels`
+- works with AND
+`matchExpressions` 
+
