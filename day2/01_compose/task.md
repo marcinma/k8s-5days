@@ -23,6 +23,7 @@ verify running service
 
 2. Python service
 - add service with `my-python` image and expose on port `5002`
+- you can use hub image `marcinmakowski/python-api:redis`
 - add `depends_on:` to python to depend on redis
 - scale service `docker-compose up -d --scale web=3`
 - `docker-compose down` stops & removes all stuff (see help)
