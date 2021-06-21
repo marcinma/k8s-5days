@@ -46,6 +46,6 @@ docker-compose exec web /bin/bash
 
 - remove port forward
 - scale web
-- execute curl from python to web `docker-compose exec pyredis curl web`
+- execute curl from python to web `docker-compose exec python curl web`
 - see logs for web from docker-compose
 - see logs directly from docker

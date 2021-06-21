@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: az01
+  labels:
+    app: az01
+spec:
+  accessModes:
+    - ReadWriteOnce
+  storageClassName: with-retain
+  resources:
+    requests:
+      storage: 1Gi

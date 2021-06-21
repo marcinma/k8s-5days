@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-deployment-az01
+  labels:
+    app: myapp-az01
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: myapp-az01
+  template:
+    metadata:
+      name: myapp-pod-az01
+      labels:
+        app: myapp-az01
+    spec:
+      containers:
+      - name: myapp-container
+        image: ewoutp/docker-nginx-curl
+        ports:
+          - containerPort: 80
+        env:
+          - name: TEST
+            value: "20"
+        volumeMounts:
+          - name: nginx
+            mountPath: /usr/local/nginx/html
+      volumes:
+        - name: nginx
+          persistentVolumeClaim:
+            claimName: az01
