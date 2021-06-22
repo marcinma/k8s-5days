@@ -18,7 +18,7 @@ kubectl exec -ti myapp-pod curl <node-ip>:<node-port>
 # Expose using declarative approach
 
 ```sh
-kubectl create -f service.yaml
+kubectl create -f service.yml
 kubectl exec -ti myapp-pod curl my-app-service
 kubectl exec -ti myapp-pod curl my-app-service.default.svc.cluster.local
 

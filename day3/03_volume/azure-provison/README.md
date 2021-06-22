@@ -10,7 +10,6 @@ kubectl describe pvc az01
 kubectl get pv
 ```
 
-uncoment reclaim policy
 
 ```sh
 kubectl apply -f .

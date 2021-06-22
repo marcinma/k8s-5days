@@ -1,8 +1,8 @@
-version: '3'
+version: '3.7'
 services:
   web:
     build: .
     ports:
-    - "85:80"
+    - "8585-8590:80"
   redis:
     image: "redis:alpine"

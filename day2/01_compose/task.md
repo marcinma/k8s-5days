@@ -6,6 +6,7 @@ declarative approach to provide working containers with a managed sets.
 ```sh
 sudo apt install docker-compose
 ```
+https://docs.docker.com/compose/install/
 
 # Compose task
 
@@ -44,7 +45,7 @@ docker-compose exec web /bin/bash
 
 # Load balancing
 
-- remove port forward
+- remove (nginx) port forward
 - scale web
 - execute curl from python to web `docker-compose exec python curl web`
 - see logs for web from docker-compose

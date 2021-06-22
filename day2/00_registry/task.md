@@ -13,7 +13,7 @@ expected result
 {"repositories":[]}
 ```
 
-# Tag one of your previous images to match 
+# Tag one of your previous images to match repository address
 
 Use 127.0.0.1 address!
 
@@ -22,6 +22,11 @@ docker image tag <??>
 ```
 
 # Push image to new repostiory
+
+
+```sh
+docker image push <??>
+```
 
 Expected result after completed task
 
