@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sqrt-generator
+  labels:
+    app: sqrt
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: sqrt
+  template:
+    metadata:
+      labels:
+        app: sqrt
+    spec:
+      containers:
+        - name: sqrt-php
+          imagePullPolicy: IfNotPresent
+          image: marcinmakowski/php:loadtest
+          resources:
+            limits:
+              cpu: "5m"
+              memory: "100Mi"
+            requests:
+              cpu: "5m"
+              memory: "10Mi"

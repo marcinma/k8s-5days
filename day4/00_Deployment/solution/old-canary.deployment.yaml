@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: canary-deployment-old
+  labels:
+    app: canary-myapp
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: canary-myapp
+  template:
+    metadata:
+      name: canary-myapp-pod
+      labels:
+        app: canary-myapp
+    spec:
+      volumes:
+      - name: nginx
+        persistentVolumeClaim:
+          claimName: local01
+      containers:
+      - name: myapp-container
+        image: ewoutp/docker-nginx-curl
+        ports:
+          - containerPort: 80
+        volumeMounts:
+          - name: nginx
+            mountPath: /usr/local/nginx/html

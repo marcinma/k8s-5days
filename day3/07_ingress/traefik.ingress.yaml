@@ -8,7 +8,7 @@ metadata:
     traefik.frontend.rule.type: PathPrefixStrip
 spec:
   rules:
-  - host: trenersages0621.westeurope.cloudapp.azure.com
+  - host: test-{{env}}.westeurope.cloudapp.azure.com
     http:
       paths:
       - pathType: Prefix

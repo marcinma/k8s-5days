@@ -1,0 +1,23 @@
+apiVersion: batch/v1beta1
+kind: CronJob
+metadata:
+  name: hello
+spec:
+  schedule: "*/1 * * * *"
+  jobTemplate:
+    metadata:
+      labels:
+        origin: cron
+    spec:
+      backoffLimit: 2
+      template:
+        metadata:
+          labels:
+            origin: cron-job
+        spec:
+          containers:
+          - name: hello
+            image: busybox
+            args:
+            - notworking
+          restartPolicy: Never
