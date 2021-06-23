@@ -1,6 +1,3 @@
-vim  C:\Windows\System32\drivers\etc\hosts
-vim /etc/hosts
-
-
-http://maque.kubernetes:30163/login
-http://maque.kubernetes:31565/dashboard/
+kubectl create -f traefik-ingress/
+kubectl create -f traefik.ingress.yaml
+http://trenersages0621.westeurope.cloudapp.azure.com/dashboard/dashboard/

@@ -1,4 +1,4 @@
-apiVersion: extensions/v1beta1
+apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: python-ingress
@@ -8,10 +8,13 @@ metadata:
     traefik.frontend.rule.type: PathPrefixStrip
 spec:
   rules:
-  - host: kubernetes.docker.internal
+  - host: trenersages0621.westeurope.cloudapp.azure.com
     http:
       paths:
-      - path: /python
+      - pathType: Prefix
+        path: "/python"
         backend:
-          serviceName: python-service
-          servicePort: 5002
+          service:
+            name: python-service
+            port:
+              number: 5002

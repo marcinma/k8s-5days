@@ -9,7 +9,7 @@
 - one with label `component: rest`
 
 3. Create each replica set
-4. Remove rs that _matches db but not rest_ with `--cascade=orphan`
+4. Remove rs that _matches_ db but not _rest_ with `--cascade=orphan`
 5. check pods
-6. Sale RS that matches both to 0 - all pods will be removed
+6. Scale RS that matches both to 0 - all pods will be removed
 

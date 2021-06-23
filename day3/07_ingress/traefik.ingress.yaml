@@ -1,4 +1,4 @@
-apiVersion: extensions/v1beta1
+apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: traefik
@@ -8,10 +8,13 @@ metadata:
     traefik.frontend.rule.type: PathPrefixStrip
 spec:
   rules:
-  - host: marcin-kubernetes
+  - host: trenersages0621.westeurope.cloudapp.azure.com
     http:
       paths:
-      - path: /dashboard
+      - pathType: Prefix
+        path: "/dashboard"
         backend:
-          serviceName: traefik
-          servicePort: 8080
+          service:
+            name: traefik
+            port:
+              number: 8080

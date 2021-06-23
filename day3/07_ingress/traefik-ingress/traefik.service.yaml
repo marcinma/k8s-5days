@@ -15,4 +15,4 @@ spec:
       port: 8080
   selector:
     app: traefik
-  type: NodePort
+  type: LoadBalancer
