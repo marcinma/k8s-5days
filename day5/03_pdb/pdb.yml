@@ -1,0 +1,10 @@
+# only for v1.21
+apiVersion: policy/v1
+kind: PodDisruptionBudget
+metadata:
+  name: zk-pdb
+spec:
+  maxUnavailable: 2
+  selector:
+    matchLabels:
+      keep: quorum2
