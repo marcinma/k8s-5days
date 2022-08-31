@@ -5,16 +5,18 @@ https://kubernetes.io/docs/tasks/administer-cluster/certificates/
 https://www.adaltas.com/en/2019/08/07/users-rbac-kubernetes/
 # User
 
+```sh
 openssl genrsa -out marcin.key 2048
 openssl req -new -key marcin.key -out marcin.csr -subj "/CN=marcin/O=workshop"
 openssl x509 -req -in marcin.csr -CA ./ca.crt -CAkey ./ca.key -CAcreateserial -out marcin.crt -days 500
+```
 
-
+```sh
 kubectl config set-credentials marcin --client-certificate=/home/maque/.certs/marcin.crt  --client-key=/home/maque/.certs/marcin.key
 kubectl config set-context marcin-context --cluster=kubernetes --namespace=default --user=marcin
 
 kubectl --context=marcin-context get pods
-
+```
 
 ```yaml
 kind: Role
