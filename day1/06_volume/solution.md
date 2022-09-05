@@ -5,6 +5,7 @@ docker container run --rm my-volume
 docker container run my-volume
 docker volume ls
 touch /tmp/something
+docker container run --rm -v /tmp:/data my-volume /data
 docker image build -t my-volume-la ./02_volume_la_solution
 docker container run --rm -v /tmp:/data my-volume-la /data
 ```
@@ -12,6 +13,7 @@ docker container run --rm -v /tmp:/data my-volume-la /data
 # RO nginx
 
 ```sh
+docker volume create my-volume
 docker container run -d -v my-volume:/data:ro --name n-read nginx
 docker container run -d -v my-volume:/data --name n-write nginx
 
@@ -26,4 +28,17 @@ touch: cannot touch '/data/test': Read-only file system
 
 ```sh
 docker container exec -ti n-read ls /data/
+```
+**output**
+```
+test
+```
+
+# Remove containers and volumes
+
+```sh
+docker container rm -f n-read
+docker container rm -f n-write
+docker container prune
+docker volume prune
 ```

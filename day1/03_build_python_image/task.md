@@ -14,10 +14,11 @@
 2. Verify with curl endpoint
 
 `curl localhost:<port_number>/healthz`
+3. Check logs
 
 # Connect apps
 
-1. Run container from image `redis` and expose it on port 6379 targeting 6379 port in container
+1. Run container from image `redis:5.0.10` and expose it on port 6379 targeting 6379 port in container
 2. Run python one more time with env parameter
 
 `docker container run -e REDIS_HOST=<host_ip> -d -P my-python`
@@ -32,6 +33,4 @@ curl localhost:32771/api/v1/info
 ```
 
 3. Update env LOG_LEVEL to DEBUG in run command
-
-
-check difference ing logs
+4. Check difference ing logs

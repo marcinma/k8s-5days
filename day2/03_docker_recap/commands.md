@@ -15,12 +15,14 @@ Image & Container
 
 ```sh
 docker image build -t my-nginx -f nginx/Dockerfile nginx/
-docker container stop my-nginx
-docker container srm my-nginx
-docker image build -t my-nginx -f nginx/Dockerfile nginx/
 docker container run --name my-nginx -d my-nginx
+docker container stop my-nginx
+docker container start my-nginx
+
 docker container run --rm --name my-nginx -d my-nginx
 docker container exec -ti my-nginx ls /usr/html
+docker container stop my-nginx
+docker container ls -a -f status=exited
 ```
 
 Registry

@@ -46,7 +46,7 @@ docker-compose exec web /bin/bash
 # Load balancing
 
 - remove (nginx) port forward
-- scale web
+- scale web service to 3 instances
 - execute curl from python to web `docker-compose exec python curl web`
 - see logs for web from docker-compose
 - see logs directly from docker

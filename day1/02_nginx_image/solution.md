@@ -35,6 +35,8 @@ Successfully built 81b11cf2df19
 Successfully tagged my-nginx:latest
 ```
 
+# Build with password and run it
+
 ```sh
 docker container rm my-nginx
 touch nginx/password
@@ -45,6 +47,8 @@ docker container run --name my-nginx -d my-nginx
 
 ```sh
 docker container exec -ti my-nginx /bin/sh
+ls
+exit
 docker container exec -ti my-nginx ls /usr/html
 ```
 
@@ -57,16 +61,57 @@ Dockerfile    default.conf  index.html    nginx.conf    password
 
 ```sh
 touch nginx/.dockerignore
+echo "Dockerfile" >> nginx/.dockerignore
 echo "password" >> nginx/.dockerignore
 docker container stop my-nginx
 docker container  rm my-nginx
-docker image build -t my-nginx -f nginx/Dockerfile nginx/
-docker container run --name my-nginx -d my-nginx
+docker image build -t my-nginx:1 -f nginx/Dockerfile nginx/
+docker container run --name my-nginx -d my-nginx:1
 docker container exec -ti my-nginx ls /usr/html
 ```
 
 **output**
 ```
-Dockerfile    default.conf  index.html    nginx.conf
+default.conf  index.html    nginx.conf
 ```
 
+# check nginx images
+```sh
+docker image ls | grep my-nginx
+```
+
+**output**
+```
+my-nginx                      1         24595e537fd5   About a minute ago   6.99MB
+my-nginx                      latest    9caa73c634db   4 minutes ago        6.99MB
+```
+
+# Port forward
+
+```sh
+docker container rm -f my-nginx
+docker container run --name my-nginx -p 8080:80 -d my-nginx:1
+curl localhost:8080
+```
+
+**output**
+```
+<!DOCTYPE html>
+<htmL>
+    <body>
+        Docker & K8S workshops!
+    </body>
+</htmL>
+```
+
+# Dynamic port
+
+```sh
+echo "EXPOSE 80" >> nginx/Dockerfile
+docker image build -t my-nginx:2 -f nginx/Dockerfile nginx/
+docker container rm -f my-nginx
+docker container run --name my-nginx -P -d my-nginx:2
+docker container port my-nginx
+curl localhost:49158
+docker container rm -f my-nginx
+```

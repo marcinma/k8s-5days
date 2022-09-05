@@ -11,4 +11,6 @@ FROM openjdk:11-jre-slim
 COPY --from=builder /app/build/libs/gs-spring-boot-docker-0.1.0.jar .
 EXPOSE 8080/tcp
 ENV MULTISTAGE="yes!"
+ARG GITHASH
+ENV GITHASH=${GITHASH}
 ENTRYPOINT [ "java", "-jar", "./gs-spring-boot-docker-0.1.0.jar"]

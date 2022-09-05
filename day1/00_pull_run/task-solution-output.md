@@ -45,25 +45,79 @@ For more examples and ideas, visit:
  https://docs.docker.com/get-started/
  ```
 
-## List all containers
+## Check listing options
+
+```sh
+docker container ls --help
+```
+
+## List working containers
 
 ```sh
 docker container ls
+```
+
+**output**
+```
+CONTAINER ID   IMAGE         COMMAND    CREATED          STATUS                      PORTS     NAMES
+```
+
+## List all containers
+
+```sh
 docker container ls -a
+```
+
+**output**
+```
+CONTAINER ID   IMAGE         COMMAND    CREATED          STATUS                      PORTS     NAMES
+743d95cfc646   hello-world   "/hello"   21 seconds ago   Exited (0) 20 seconds ago             mycontainer
+```
+
+## List all containers IDs
+
+```sh
 docker container ls -a -q
+```
+
+**output**
+```
+743d95cfc646
+```
+
+## List all containers by status or label
+
+```
 docker container ls -a -f status=exited
 docker container ls -a -f label=type=workshop
+```
+
+**output**
+```
+CONTAINER ID   IMAGE         COMMAND    CREATED         STATUS                     PORTS     NAMES
+2ab87c26c39f   hello-world   "/hello"   5 minutes ago   Exited (0) 5 minutes ago             mycontainer
 ```
 
 ## Check logs
 
 ```sh
+docker container logs 2ab87c26c39f
 docker container logs mycontainer
-docker container logs $(docker container ls -a -q)
 ``` 
 
 ## Remove
 
 ```sh
 docker container rm mycontainer
+```
+
+## Check container does not exist anymore
+
+```sh
+docker container ls -a
+```
+
+**output**
+```
+CONTAINER ID   IMAGE         COMMAND    CREATED          STATUS                      PORTS     NAMES
 ```

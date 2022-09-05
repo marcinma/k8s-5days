@@ -7,7 +7,9 @@
 # Attach volume
 
 1. Build image from `01_volume_ls`
-2. Run container 
+2. Run container from this image with flag `--rm`
+3. Check volumes
+4. Run container from this image without `--rm` flag and check volumes
 3. `touch /tmp/something`
 3. Run container with `-v /tmp:/data <image_name> /data`
 
@@ -18,6 +20,7 @@ File something should be displayed
 1. Create new Dockerfile
 2. Base image on previous
 3. Change CMD to execute `"ls", "-la","/data"`
+4. Run container from this image with attached volume to tmp folder
 
 # Create volume and add :ro flag
 

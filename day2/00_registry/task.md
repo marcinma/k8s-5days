@@ -13,7 +13,7 @@ expected result
 {"repositories":[]}
 ```
 
-# Tag one of your previous images to match repository address
+# Tag one of your previous images to match repository address with port
 
 Use 127.0.0.1 address!
 
