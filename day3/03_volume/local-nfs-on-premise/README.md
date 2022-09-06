@@ -10,7 +10,7 @@ sudo vim /etc/exports
 ```
 
 ```exports
-/var/nfs/general     127.0.0.1(rw,sync,root_squash,subtree_check)
+/var/nfs/general     127.0.0.1(rw,sync,root_squash,subtree_check) 192.168.0.101(rw,sync,root_squash,subtree_check)
 ```
 
 
@@ -29,3 +29,13 @@ sudo apt install cifs-utils
 1. create index.html on /var/nfs/general/00
 2. Expose NodePort
 3. Verify your index
+
+# Make pv and pvc
+
+```sh
+kubectl create -f pv-nfs00.yaml
+kubectl create -f pvc-local.yaml
+kubectl get pv
+kubectl get pvc
+kubectl create -f deployment-pv.yaml
+```

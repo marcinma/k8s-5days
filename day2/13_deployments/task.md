@@ -10,13 +10,14 @@ kubectl get pods
 ```
 
 # Use env variable
-uncomment  `env` list
+change  `env` to 250
 
 ```sh
 kubectl rollout history deployments/nginx-deployment
-kubectl apply -f deployment.yaml --record
+kubectl apply -f deployment.yaml
 
 kubectl rollout status deployment/nginx-deployment
+kubectl rollout history deployments/nginx-deployment
 kubectl rollout history deployment/nginx-deployment --revision=1
 kubectl rollout history deployment/nginx-deployment --revision=2
 kubectl annotate deployment/nginx-deployment kubernetes.io/change-cause="env updated"
@@ -34,7 +35,7 @@ env|grep TEST_ENV
 
 ```sh
 kubectl rollout undo deployment/nginx-deployment
-kubectl annotate deployment/nginx-deployment kubernetes.io/change-cause="env removed"
+kubectl annotate deployment/nginx-deployment kubernetes.io/change-cause="env reverted"
 kubectl rollout history deployments/nginx-deployment
 
 kubectl exec -ti $(kubectl get pods -l app=myapp -o jsonpath='{.items[0].metadata.name}') /bin/bash

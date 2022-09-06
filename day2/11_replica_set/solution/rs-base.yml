@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: ReplicaSet
 metadata:
-  name: rs1
+  name: rs-base
   namespace: default
   labels:
     company: sages

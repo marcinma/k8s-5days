@@ -14,6 +14,7 @@ spec:
       name: canary-myapp-pod
       labels:
         app: canary-myapp
+        version: new
     spec:
       volumes:
       - name: nginx

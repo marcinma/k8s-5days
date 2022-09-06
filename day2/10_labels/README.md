@@ -18,6 +18,8 @@ kubectl get pods -A -l 'tier in(control-plane),component notin(kube-scheduler)'
 kubectl label pod/myapp-pod test-label=my-label
 kubectl get pods -l test-label=my-label
 kubectl get pods -l 'test-label in (my-label)'
+kubectl label pod/myapp-pod test-label-
+kubectl get pods -l test-label=my-label
 ```
 
 # Resources for set based selectors

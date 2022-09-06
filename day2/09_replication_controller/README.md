@@ -14,8 +14,11 @@ kubectl describe svc nginx
 
 kubectl exec -ti myapp-pod -- curl nginx
 
-kubectl logs -l app=nginx
+kubectl logs -f -l app=nginx
 
 
 kubectl delete -f replication-controller.yml
+kubectl get pods -l app=nginx
+kubectl describe svc nginx
+kubectl delete svc nginx
 ```

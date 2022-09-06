@@ -1,7 +1,7 @@
 apiVersion: batch/v1
 kind: CronJob
 metadata:
-  name: hello
+  name: curl-python
 spec:
   schedule: "*/1 * * * *"
   jobTemplate:
@@ -9,7 +9,7 @@ spec:
       labels:
         origin: cron
     spec:
-      backoffLimit: 2
+      # backoffLimit: 3
       template:
         metadata:
           labels:
@@ -17,7 +17,9 @@ spec:
         spec:
           containers:
           - name: hello
-            image: busybox
+            image: yauritux/busybox-curl
             args:
-            - notworking
-          restartPolicy: Never
+            - /bin/sh
+            - -c
+            - date; curl -XPOST python-service:5002/api/v1/info
+          restartPolicy: OnFailure
