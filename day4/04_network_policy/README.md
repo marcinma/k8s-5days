@@ -1,3 +1,5 @@
+# NetworkPolicy
+
 By default, pods are non-isolated
 An empty podSelector selects all pods in the namespace
 

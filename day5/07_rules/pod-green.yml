@@ -1,10 +1,10 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: black-pod
+  name: green-pod
 spec:
   nodeSelector:
-    color: black
+    color: green
   containers:
   - name: sec-ctx-demo
     image: busybox

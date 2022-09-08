@@ -1,4 +1,5 @@
-Are used for *non-identifying* information
+# Annotations
+You can use Kubernetes annotations to attach arbitrary non-identifying metadata to objects. 
 
 ```json
 "metadata": {

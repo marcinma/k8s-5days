@@ -11,7 +11,12 @@ kubectl describe svc python-service
 kubectl apply -f python-deployment.yml
 PO=$(kubectl get pods -l app=python -o jsonpath='{.items[0].metadata.name}')
 kubectl describe po $PO
+kubectl describe svc python-service
 kubectl apply -f redis-service.yml
 kubectl apply -f redis-deployment.yml
+kubectl get po
 kubectl describe po $PO
+kubectl describe svc python-service
+kubectl delete svc redis-service
+kubectl get po
 ```

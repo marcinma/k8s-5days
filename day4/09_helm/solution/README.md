@@ -1,5 +1,6 @@
 ```sh
 helm create py-redis
+cd py-redis
 mkdir out
 helm template --output-dir=./out .
 kubectl create ns helm-redis

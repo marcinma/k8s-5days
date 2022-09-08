@@ -12,7 +12,7 @@ spec:
   storageClassName: local-storage
   nfs:
     path: /var/nfs/general/03
-    server: 127.0.0.1
+    server: 192.168.0.102
   persistentVolumeReclaimPolicy: Recycle
 ---
 apiVersion: v1
@@ -29,7 +29,7 @@ spec:
   storageClassName: local-storage
   nfs:
     path: /var/nfs/general/04
-    server: 127.0.0.1
+    server: 192.168.0.102
   persistentVolumeReclaimPolicy: Recycle
 
 

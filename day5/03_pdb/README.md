@@ -2,4 +2,11 @@ For 1.21
 
 https://kubernetes.io/docs/concepts/workloads/pods/disruptions/
 
-kubectl drain node
+```sh
+kubectl taint nodes ubuntu2 key=value:NoSchedule
+kubectl create -f pdb.yml
+kubectl create -f deployment.yml
+kubectl drain ubuntu1 --ignore-daemonsets
+kubectl uncordon ubuntu1
+kubectl taint nodes ubuntu2 key=value:NoSchedule-
+```

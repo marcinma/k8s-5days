@@ -1,5 +1,11 @@
-1. https://kubernetes.io/docs/concepts/policy/pod-security-policy/
-2. https://kubernetes.io/docs/reference/access-authn-authz/admission-controllers/#podsecuritypolicy
+# Pod Security Policies
+
+PodSecurityPolicy was deprecated in Kubernetes v1.21, and removed from Kubernetes in v1.25.
+
+# Pod Security Admission
+
+https://kubernetes.io/docs/concepts/security/pod-security-admission/
+
 
 ```sh
 kubectl create -f pod-scx.yml
@@ -12,6 +18,7 @@ ps
 ls -l /data
 ```
 
+# Reading logs from containers
 
 ```sh
 kubectl create -f pod-log.yml

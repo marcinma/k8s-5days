@@ -16,6 +16,8 @@ spec:
         {{- include "py-redis.selectorLabels" . | nindent 8 }}
         app: {{ .Values.redis.name }}
     spec:
+      #securityContext:
+      #  runAsUser: 65534
       containers:
         - name: {{ .Chart.Name }}
           image: "{{ .Values.redis.image }}"

@@ -20,8 +20,8 @@ spec:
           image: marcinmakowski/php:loadtest
           resources:
             limits:
-              cpu: "5m"
+              cpu: "10m"
               memory: "100Mi"
             requests:
-              cpu: "5m"
+              cpu: "10m"
               memory: "10Mi"

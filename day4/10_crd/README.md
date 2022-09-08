@@ -1,3 +1,7 @@
+# Custom Resources
+
+Custom resources are extensions of the Kubernetes API.
+
 https://kubernetes.io/docs/concepts/extend-kubernetes/api-extension/custom-resources/
 
 # Create crd

@@ -1,3 +1,6 @@
+# Configmap
+A ConfigMap is an API object that lets you store configuration for other objects to use.
+
 ```sh
 kubectl delete -f pod-config.yaml
 kubectl apply -f pod-config.yaml

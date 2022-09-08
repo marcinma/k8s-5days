@@ -1,3 +1,6 @@
+# Service
+An abstract way to expose an application running on a set of Pods as a network service. Kubernetes gives Pods their own IP addresses and a single DNS name for a set of Pods, and can load-balance across them.
+
 # Manual expose
 
 ```sh

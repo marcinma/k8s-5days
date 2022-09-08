@@ -1,3 +1,6 @@
+# ReplicationController
+A ReplicationController ensures that a specified number of pod replicas are running at any one time.
+
 Legacy - deployment + replicaset is the recommended way to set up replication
 
 ```sh

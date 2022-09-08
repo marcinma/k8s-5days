@@ -1,3 +1,5 @@
+# Assigning Pods to Nodes
+
 https://kubernetes.io/docs/concepts/configuration/assign-pod-node/
 
 
@@ -44,4 +46,4 @@ kubectl get nodes -l color=red
 ```
 
 # Task
-make black pod run on 01 vm
+make red and green pods running on specific nodes using affinity rules

@@ -1,4 +1,4 @@
-dns: trenersages0621.westeurope.cloudapp.azure.com
+dns: demo.localdev.me
 
 redis:
   name: redis

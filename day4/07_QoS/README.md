@@ -14,8 +14,11 @@ kubectl create -f deployment.yaml -n test-1
 kubectl scale deployment -n test-1 nginx-readiness --replicas=3
 kubectl -n test-1 describe deploy nginx-readines
 kubectl -n test-1 describe rs $(kubectl -n test-1 get rs -o jsonpath='{.items[0].metadata.name}')
+kubectl -n test-1 get po
 ```
 
 ## Resource quotas
+
+A resource quota, defined by a ResourceQuota object, provides constraints that limit aggregate resource consumption per namespace.
 
 https://kubernetes.io/docs/concepts/policy/resource-quotas/

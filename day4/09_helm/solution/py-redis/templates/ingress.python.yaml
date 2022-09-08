@@ -3,18 +3,18 @@ kind: Ingress
 metadata:
   name: {{ .Values.python.name }}
   annotations:
-    kubernetes.io/ingress.class: "traefik"
-    traefik.frontend.rule.type: PathPrefixStrip
+    nginx.ingress.kubernetes.io/rewrite-target: /$2
   labels:
     {{- include "py-redis.labels" . | nindent 4 }}
     app: {{ .Values.python.name }}
 spec:
+  ingressClassName: nginx
   rules:
   - host: {{ .Values.dns }}
     http:
       paths:
       - pathType: Prefix
-        path: "/{{ .Values.python.name }}"
+        path: "/{{ .Values.python.name }}(/|$)(.*)"
         backend:
           service:
             name: {{ .Values.python.name }}

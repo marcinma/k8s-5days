@@ -1,3 +1,9 @@
+# Init Containers
+Specialized containers that run before app containers in a Pod.
+- Init containers always run to completion.
+- Each init container must complete successfully before the next one starts.
+
+
 https://kubernetes.io/docs/concepts/workloads/pods/init-containers/
 
 

@@ -1,3 +1,6 @@
+# Namespace
+In Kubernetes, namespaces provides a mechanism for isolating groups of resources within a single cluster. Names of resources need to be unique within a namespace, but not across namespaces
+
 ```sh
 kubectl get namespaces
 kubectl create namespace workshops
