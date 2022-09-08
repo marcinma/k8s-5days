@@ -8,7 +8,7 @@ metadata:
 spec:
   ingressClassName: nginx
   rules:
-  - host: trenersages0621.westeurope.cloudapp.azure.com
+  - host: demo.localdev.me
     http:
       paths:
       - pathType: Prefix

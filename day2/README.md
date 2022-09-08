@@ -110,7 +110,7 @@ curl -s https://packages.cloud.google.com/apt/dists/kubernetes-xenial/main/binar
 install specific version
 ```sh
 sudo apt-get update
-sudo apt-get install -y kubelet=1.25.0-00 kubeadm=1.25.0-00 kubectl=1.25.0-00
+sudo apt-get install -y kubelet=1.24.4-00 kubeadm=1.24.4-00 kubectl=1.24.4-00
 sudo apt-mark hold kubelet kubeadm kubectl
 ```
 
@@ -118,8 +118,8 @@ sudo apt-mark hold kubelet kubeadm kubectl
 
 ```sh
 sudo rm /etc/containerd/config.toml
-systemctl restart containerd
-systemctl restart docker
+sudo systemctl restart containerd
+sudo systemctl restart docker
 ```
 
 6. Install kubernetes with specific CIDR
@@ -147,6 +147,11 @@ kubectl create -f custom-resources.yaml
 check everything is ok
 ```sh
 watch kubectl get pods -n calico-system
+```
+
+see containers
+```sh
+sudo ctr --namespace k8s.io containers ls
 ```
 
 8. Allow schedule on control plane
