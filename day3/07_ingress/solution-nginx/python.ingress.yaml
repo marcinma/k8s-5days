@@ -12,7 +12,7 @@ spec:
     http:
       paths:
       - pathType: Prefix
-        path: "/python"
+        path: "/python(/|$)(.*)"
         backend:
           service:
             name: python-service

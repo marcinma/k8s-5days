@@ -1,7 +1,6 @@
 # Cronjob
 A CronJob creates Jobs on a repeating schedule.
 
-
 https://crontab.guru/#*/1_*_*_*_*
 
 ```sh
