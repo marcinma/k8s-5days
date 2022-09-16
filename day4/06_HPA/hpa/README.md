@@ -1,23 +1,24 @@
 
-# Beta version
+# Custom metrics  
 
 ```yaml
-apiVersion: autoscaling/v2beta1
+apiVersion: autoscaling/v2
 kind: HorizontalPodAutoscaler
 metadata:
-  name: resize-hpa
-  namespace: resize
+  name: php-apache
 spec:
   scaleTargetRef:
-    apiVersion: apps/v1beta1
+    apiVersion: apps/v1
     kind: Deployment
-    name: image-resizer
-  minReplicas: 2
+    name: php-apache
+  minReplicas: 1
   maxReplicas: 10
   metrics:
   - type: Resource
     resource:
-      name: memory
-      targetAverageUtilization: 60
+      name: cpu
+      target:
+        type: Utilization
+        averageUtilization: 50
 
 ```

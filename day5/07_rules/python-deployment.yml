@@ -10,7 +10,7 @@ spec:
    type: RollingUpdate
    rollingUpdate:
      maxUnavailable: 1
-     maxSurge: 1 # maximum above no replicas
+     maxSurge: 1 # maximum above of replicas
   selector:
     matchLabels:
       app: python-taints

@@ -1,0 +1,21 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: restart-job
+  labels:
+    project: workshop
+spec:
+  backoffLimit: 3
+  parallelism: 1
+  completions: 1
+  template:
+    metadata:
+      labels:
+        project: workshop
+    spec:
+      containers:
+        - name: echo
+          image: marcinmakowski/kubernetes:pod-creator.operator
+          command: ["exit 1"]
+      restartPolicy: OnFailure
+      #restartPolicy: Never
