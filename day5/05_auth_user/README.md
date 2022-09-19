@@ -1,6 +1,5 @@
 # Docs
 ref: https://kubernetes.io/docs/reference/access-authn-authz/authentication/
-https://kubernetes.io/docs/tasks/administer-cluster/certificates/
 
 https://www.adaltas.com/en/2019/08/07/users-rbac-kubernetes/
 # User

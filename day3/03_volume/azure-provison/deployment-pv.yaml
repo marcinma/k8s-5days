@@ -29,4 +29,5 @@ spec:
       volumes:
         - name: nginx
           persistentVolumeClaim:
-            claimName: az01
+            #claimName: az01
+            claimName: az01-with-retain

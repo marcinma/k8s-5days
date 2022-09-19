@@ -9,3 +9,12 @@ kubectl create -f preemptive-pod.yml
 kubectl get pod -l app=remove
 kubectl get po
 ```
+
+critical pods for **shutdownGracePeriodCriticalPods**
+
+```
+kubectl get PriorityClass
+NAME                      VALUE        GLOBAL-DEFAULT   AGE
+system-cluster-critical   2000000000   false            10d
+system-node-critical      2000001000   false            10d
+```
