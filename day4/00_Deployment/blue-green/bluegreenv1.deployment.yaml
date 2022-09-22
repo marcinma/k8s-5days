@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: bluegreen-v1-deployment
+  labels:
+    version: v1
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      version: v1
+  template:
+    metadata:
+      name: bluegreen-pod
+      labels:
+        version: v1
+    spec:
+      containers:
+      - name: myapp-container
+        image: ewoutp/docker-nginx-curl
+        ports:
+          - containerPort: 80
+        env:
+          - name: VERSION
+            value: V1

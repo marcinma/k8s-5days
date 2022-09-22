@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: bluegreen-service
+spec:
+  selector:
+    version: v1
+  ports:
+  - protocol: TCP
+    port: 80
