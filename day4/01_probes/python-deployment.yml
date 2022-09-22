@@ -5,6 +5,7 @@ metadata:
   labels:
     app: python
 spec:
+  minReadySeconds: 30
   replicas: 1
   strategy:
    type: RollingUpdate

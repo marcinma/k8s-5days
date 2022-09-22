@@ -2,10 +2,15 @@
 
 PodSecurityPolicy was deprecated in Kubernetes v1.21, and removed from Kubernetes in v1.25.
 
+https://kubernetes.io/docs/tasks/configure-pod-container/enforce-standards-namespace-labels/
+
+https://kubernetes.io/docs/concepts/security/pod-security-standards/
+
 # Pod Security Admission
 
 https://kubernetes.io/docs/concepts/security/pod-security-admission/
 
+# Security context
 
 ```sh
 kubectl create -f pod-scx.yml

@@ -1,7 +1,7 @@
 
 
 https://github.com/ContainerSolutions/k8s-deployment-strategies
-
+https://www.bluematador.com/blog/kubernetes-deployments-rolling-update-configuration
 
 ## Task
 

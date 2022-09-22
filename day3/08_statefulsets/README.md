@@ -22,3 +22,7 @@ kubectl get pvc
 kubectl get pv
 ```
 *Pods in a StatefulSet have a unique ordinal index and a stable network identity.*
+
+# Partition for canary update
+
+https://kubernetes.io/docs/tutorials/stateful-application/basic-stateful-set/#rolling-out-a-canary

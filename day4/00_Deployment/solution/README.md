@@ -10,5 +10,5 @@ echo "new">/usr/local/nginx/html/index.html
 kubectl exec -ti $NEW -- curl canary-service
 kubectl exec -ti $NEW -- curl canary-service
 kubectl exec -ti $NEW -- curl canary-service
-
+curl demo.localdev.me:30955/canary
 ```

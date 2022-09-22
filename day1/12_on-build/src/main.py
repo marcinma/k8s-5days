@@ -1,5 +1,5 @@
 """
-   Application entry
+    Application entry
 """
 from api.info import APP
 

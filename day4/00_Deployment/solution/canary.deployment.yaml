@@ -16,15 +16,8 @@ spec:
         app: canary-myapp
         version: new
     spec:
-      volumes:
-      - name: nginx
-        persistentVolumeClaim:
-          claimName: local02
       containers:
       - name: myapp-container
         image: ewoutp/docker-nginx-curl
         ports:
           - containerPort: 80
-        volumeMounts:
-          - name: nginx
-            mountPath: /usr/local/nginx/html
