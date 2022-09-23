@@ -19,7 +19,7 @@ kubectl --context=marcin-context get pods
 
 ```yaml
 kind: Role
-apiVersion: rbac.authorization.k8s.io/v1beta1
+apiVersion: rbac.authorization.k8s.io/v1
 metadata:
   namespace: workshop
   name: deployment-manager
@@ -31,7 +31,7 @@ rules:
 
 ```yaml
 kind: RoleBinding
-apiVersion: rbac.authorization.k8s.io/v1beta1
+apiVersion: rbac.authorization.k8s.io/v1
 metadata:
   name: deployment-manager-binding
   namespace: workshop
