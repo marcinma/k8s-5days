@@ -23,7 +23,10 @@ kubectl get all
 kubectl config set-context --current=true --namespace=default
 helm uninstall <>
 helm upgrade --install --atomic my-release .
-
+kubectl get all -n mynamespace
+helm upgrade --install --atomic my-release --values ./production.values.yaml .
+kubectl get all -n mynamespace
+helm rollback my-release
 kubectl get all -n mynamespace
 kubectl get secrets -n mynamespace
 
