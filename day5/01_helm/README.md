@@ -31,3 +31,8 @@ examples:
 
 - Keep image tag together with release
 - Be carefull with policies
+
+# Configmap update
+
+ annotations:
+    checksum/config: {{ include (print $.Template.BasePath "/postgresql.secret.yaml") . | sha256sum }}
