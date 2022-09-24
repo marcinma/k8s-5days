@@ -35,4 +35,4 @@ examples:
 # Configmap update
 
  annotations:
-    checksum/config: {{ include (print $.Template.BasePath "/postgresql.secret.yaml") . | sha256sum }}
+    checksum/secret: {{ include (print $.Template.BasePath "/postgresql.secret.yaml") . | sha256sum }}
