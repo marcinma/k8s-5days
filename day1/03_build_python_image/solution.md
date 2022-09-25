@@ -1,6 +1,7 @@
 # Init
 
 ```sh
+docker rmi my-python
 docker image build -t my-python -f Dockerfile.solution .
 docker container run --name my-python-service -P -d my-python
 docker container port my-python-service
