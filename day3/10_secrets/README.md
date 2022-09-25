@@ -13,3 +13,11 @@ kubectl logs secret-pod | grep USER
 kubectl logs secret-pod | grep PASSWORD
 kubectl get all
 ```
+
+# docker secret
+
+```sh
+kubectl create secret docker-registry docker-secret --docker-email=test@example.com --docker-username=test --docker-password=password --docker-server=example.com
+
+kubectl get secret docker-secret -o jsonpath='{.data.*}' | base64 -d
+```
