@@ -32,7 +32,13 @@ docker container exec -ti a1 curl n2
 docker network create network-b
 
 docker container run --network network-b -d --name b1 --net-alias n1 ewoutp/docker-nginx-curl
-docker container exec -ti b1  /bin/bash
-
 docker container run --network network-b -d --name b2 --net-alias n2 ewoutp/docker-nginx-curl
+
+docker container exec -ti b1  curl n2
+```
+
+# Connect & disconnect
+```sh
+docker network disconnect network-b b1
+docker container exec -ti b1  curl n2
 ```
