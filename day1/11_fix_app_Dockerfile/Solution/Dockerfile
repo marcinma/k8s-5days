@@ -6,7 +6,7 @@ COPY requirements.txt /home
 ARG PIP_EXTRA_INDEX_URL
 RUN pip install --no-cache --extra-index-url ${PIP_EXTRA_INDEX_URL} -r requirements.txt
 
-From python:3
+FROM python:3
 COPY --from=builder / /
 COPY fix-me.py /home
 
