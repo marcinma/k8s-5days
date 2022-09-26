@@ -1,5 +1,6 @@
 ```sh
-docker image build -t java-spring --build-arg GITHASH=ab99933 .
+HASH=$(git rev-parse --short HEAD)
+docker image build -t java-spring --build-arg GITHASH=$HASH .
 docker container run -d -P --name java-spring java-spring
 docker container port java-spring
 curl localhost:49164
