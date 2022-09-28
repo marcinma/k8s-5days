@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: myapp-pod
+  name: waiting-for-redis
   labels:
     app: myapp
 spec:
@@ -12,4 +12,4 @@ spec:
   initContainers:
   - name: init-myservice
     image: busybox:1.28
-    command: ['sh', '-c', 'echo init!']
+    command: ['sh', '-c', 'until nslookup redis-service; do echo waiting for redis-service; sleep 2; done;']

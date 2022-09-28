@@ -1,0 +1,1 @@
+Write deployment with cpu & memory limits and requests

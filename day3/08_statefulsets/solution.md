@@ -7,6 +7,8 @@ kubectl get pvc
 kubectl scale statefulset nginx-stsf --replicas=2
 kubectl exec -ti nginx-stsf-0 -- curl localhost
 kubectl exec -ti nginx-stsf-1 -- curl localhost
+kubectl delete pvc nginx-local-claim-nginx-stsf-3
+kubectl delete pvc nginx-local-claim-nginx-stsf-2
 ```
 
 **output**

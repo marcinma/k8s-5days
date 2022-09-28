@@ -5,3 +5,4 @@
 5. See created pvc for statefulset
 6. Scale back to 2 replicas
 7. curl localhost endpoint in each replica to see that same volume was assigned
+8. remove unused pvc
