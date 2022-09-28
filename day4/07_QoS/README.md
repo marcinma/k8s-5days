@@ -17,9 +17,10 @@ kubectl -n test-1 describe rs $(kubectl -n test-1 get rs -o jsonpath='{.items[0]
 kubectl -n test-1 get po
 ```
 
+https://kubernetes.io/docs/tasks/administer-cluster/manage-resources/memory-default-namespace/
+
 ## Resource quotas
 
 A resource quota, defined by a ResourceQuota object, provides constraints that limit aggregate resource consumption per namespace.
 
 https://kubernetes.io/docs/concepts/policy/resource-quotas/
-https://kubernetes.io/docs/tasks/administer-cluster/manage-resources/memory-default-namespace/

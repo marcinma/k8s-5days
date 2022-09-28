@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ResourceQuota
+metadata:
+  name: object-limit
+  namespace: limits
+spec:
+  hard:
+    cpu: "1"
+    memory: "1Gi"
