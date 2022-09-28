@@ -12,4 +12,4 @@ spec:
   initContainers:
   - name: init-myservice
     image: busybox:1.28
-    command: ['sh', '-c', 'echo init!']
+    command: ['sh', '-c', 'sleep 10']
