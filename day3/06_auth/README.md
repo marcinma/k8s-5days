@@ -12,7 +12,6 @@ kubectl logs -f pod-reader
 ```
 # Get the ServiceAccount token from within the Pod's container
 
-kubectl -n kube-system describe secret default
 
 ```sh
 TOKEN=$(kubectl exec -ti my-pod-reader -- cat /run/secrets/kubernetes.io/serviceaccount/token)
