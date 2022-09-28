@@ -22,3 +22,4 @@ kubectl -n test-1 get po
 A resource quota, defined by a ResourceQuota object, provides constraints that limit aggregate resource consumption per namespace.
 
 https://kubernetes.io/docs/concepts/policy/resource-quotas/
+https://kubernetes.io/docs/tasks/administer-cluster/manage-resources/memory-default-namespace/
