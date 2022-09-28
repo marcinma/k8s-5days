@@ -10,3 +10,4 @@ spec:
     - name: echo
       image: marcinmakowski/kubernetes:pod-creator.operator
       command: ["kubectl","get","pods","-o","wide"]
+  restartPolicy: Never

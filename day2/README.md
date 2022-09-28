@@ -8,8 +8,9 @@ https://docs.microsoft.com/en-us/cli/azure/install-azure-cli-linux?pivots=apt
 
 
 ```sh
-az login
-az aks get-credentials --resource-group DefaultResourceGroup-WEU  --name trener
+az login --tenant f37e3e30-0f6f-478b-952b-143b9f1b4aa2
+az account set --subscription aa746456-a787-436c-aa63-689f4a7ec42c
+az aks get-credentials --resource-group DefaultResourceGroup-WEU --name user1
 ```
 
 # Kubernetes on VMs
@@ -122,7 +123,7 @@ sudo systemctl restart containerd
 sudo systemctl restart docker
 ```
 
-6. Install kubernetes with specific CIDR
+6. `ON MASTER NODE`: Install kubernetes with specific CIDR
 
 ```sh
 sudo kubeadm init --pod-network-cidr=192.169.0.0/16
@@ -131,7 +132,7 @@ sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
 sudo chown $(id -u):$(id -g) $HOME/.kube/config
 ```
 
-7. Install network plugin calico https://projectcalico.docs.tigera.io/getting-started/kubernetes/quickstart
+7. `ON MASTER NODE`: Install network plugin calico https://projectcalico.docs.tigera.io/getting-started/kubernetes/quickstart
 
 ```sh
 kubectl create -f https://raw.githubusercontent.com/projectcalico/calico/v3.24.1/manifests/tigera-operator.yaml
@@ -154,16 +155,21 @@ see containers
 sudo ctr --namespace k8s.io containers ls
 ```
 
-8. Allow schedule on control plane
+8. `ON MASTER NODE`: Allow schedule on control plane
 
 ```sh
 kubectl taint nodes --all node-role.kubernetes.io/control-plane-
 ```
 
-9. Get join command
+9. `ON MASTER NODE`: Get join command
 
 ```sh
 kubeadm token create --print-join-command
+```
+
+10. On other nodes
+```sh
+kubeadm join 192.168.0.103:6443 --token u0l66l.o6ywx1hjuq9rr1w8 --discovery-token-ca-cert-hash sha256:9bde3990a42c229c39a371ef71b577eb4448e5b3e686cc07f339aa5e90a8b508
 ```
 
 ## reset node

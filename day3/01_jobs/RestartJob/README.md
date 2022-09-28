@@ -4,6 +4,8 @@ A Job creates one or more Pods and will continue to retry execution of the Pods 
 ```sh
 kubectl create -f job-restart.yaml
 kubectl get pods 
+kubectl get jobs
+kubectl describe job restart-job
 ```
 
 change restartPolicy
