@@ -4,9 +4,6 @@ metadata:
   name: sqrt-generator
   namespace: default
 spec:
-  behavior:
-    scaleDown:
-      stabilizationWindowSeconds: 30
   maxReplicas: 5
   minReplicas: 1
   scaleTargetRef:
