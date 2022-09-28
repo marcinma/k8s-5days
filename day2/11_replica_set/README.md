@@ -33,7 +33,7 @@ kubectl get pod -o wide
 kubectl apply -f replica-set.yaml
 kubectl get rs
 kubectl describe rs replicate-my-app
-kubectl delete rs replicate-my-app --cascade=false
+kubectl delete rs replicate-my-app --cascade=orphan
 kubectl get rs
 kubectl get pod -o wide
 ```
