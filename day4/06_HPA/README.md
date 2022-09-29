@@ -15,6 +15,10 @@ kubectl -n kube-system edit deploy metrics-server
 ```
 add `- --kubelet-insecure-tls` in `args`
 
+```sh
+kubectl get --raw "/apis/metrics.k8s.io/v1beta1/namespaces/default/pods"
+```
+
 # RUN
 
 https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale-walkthrough/
@@ -28,7 +32,7 @@ kubectl get hpa
 kubectl get svc sqrt-generator
 curl localhost:32402
 
-kubectl get --raw "/apis/metrics.k8s.io/v1beta1/namespaces/default/pods"
+
 
 for i in {1..10}; do kubectl exec -ti nginx-stsf-0 -- curl sqrt-generator & done
 watch kubectl get hpa
