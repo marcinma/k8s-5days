@@ -28,7 +28,7 @@ curl localhost:32402
 
 kubectl get --raw "/apis/metrics.k8s.io/v1beta1/namespaces/default/pods"
 
-for i in {1..10}; do curl localhost:32402 & done
+for i in {1..10}; do kubectl exec -ti nginx-stsf-0 -- curl sqrt-generator & done
 watch kubectl get hpa
 watch kubectl get pods
 ```
