@@ -2,6 +2,7 @@
 
 In Kubernetes, a HorizontalPodAutoscaler automatically updates a workload resource (such as a Deployment or StatefulSet), with the aim of automatically scaling the workload to match demand.
 
+# ON PREMISE ONLY
 *metric server required*
 
 ```sh
@@ -14,6 +15,7 @@ kubectl -n kube-system edit deploy metrics-server
 ```
 add `- --kubelet-insecure-tls` in `args`
 
+# RUN
 
 https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale-walkthrough/
 
