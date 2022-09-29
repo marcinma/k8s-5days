@@ -17,5 +17,5 @@ echo "old version" > index.html
 4. Both deployments should have different names but same match labels
 5. Create service for this deployment
 6. Create ingress attached to this service
-7. Attach ingress object so your dns name + `/canary` is availba
+7. Attach ingress object so your dns name + `/canary` is available
 8. Access through browser, traffic should hit both of them 50% of time
