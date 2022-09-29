@@ -2,4 +2,4 @@
 2. Create config map with redishost: <redis-service-name> . Configmap should be created as yml file
 3. Use config map in python deployment to set REDIS_HOST
 4. Use volumes in redis deployment to attach volume to `/data` folder
-5. Endpoint demo.localdev.me:<node-port>/python/healhtz should work
+5. Endpoint <endpoint_url>/python/healhtz should work
