@@ -34,7 +34,7 @@ curl localhost:32402
 
 
 
-for i in {1..10}; do kubectl exec -ti nginx-stsf-0 -- curl sqrt-generator & done
+for i in {1..10}; do kubectl exec -ti nginx-stsf-0 -- curl sqrt-generator &; done
 watch kubectl get hpa
 watch kubectl get pods
 ```
