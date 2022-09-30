@@ -22,6 +22,7 @@ type: kubernetes.io/service-account-token
 EOF
 
 kubectl get --namespace default secret kubeapps-operator-token -o go-template='{{.data.token | base64decode}}'
+kubectl port-forward -n kubeapps svc/kubeapps 8080:80
 ```
 
 kubectx kubens
