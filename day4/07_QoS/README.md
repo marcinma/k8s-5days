@@ -5,6 +5,7 @@ https://kubernetes.io/docs/concepts/policy/limit-range/
 ```sh
 kubectl create -f limitrange.yaml
 kubectl describe limitrange mem-limit-range
+kubectl create -f deployment.yaml
 ```
 
 ```sh
