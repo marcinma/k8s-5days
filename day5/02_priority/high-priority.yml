@@ -5,3 +5,4 @@ metadata:
 value: 10
 globalDefault: false
 description: "Some desc."
+#preemptionPolicy: PreemptLowerPriority <!--default

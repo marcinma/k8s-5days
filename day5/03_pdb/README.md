@@ -8,5 +8,6 @@ kubectl create -f pdb.yml
 kubectl create -f deployment.yml
 kubectl drain ubuntu1 --ignore-daemonsets
 kubectl uncordon ubuntu1
+(..remove comment..)
 kubectl taint nodes ubuntu2 key=value:NoSchedule-
 ```

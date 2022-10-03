@@ -29,5 +29,5 @@ kubectl get all -n mynamespace
 helm rollback my-release
 kubectl get all -n mynamespace
 kubectl get secrets -n mynamespace
-
+helm uninstall my-release
 ```

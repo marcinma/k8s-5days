@@ -10,6 +10,7 @@ kubectl -n helm-redis delete -R -f out/
 ```
 
 ```
+kubectl create ns helm-redis
 helm install pyredis -n helm-redis .
 kubectl -n helm-redis get svc
 # remove svc
