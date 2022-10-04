@@ -1,3 +1,10 @@
+## QoS
+
+```sh
+kubectl create -f pod-guaranted.yml
+kubectl describe po guaranted
+```
+
 ## Limit by default
 
 https://kubernetes.io/docs/concepts/policy/limit-range/

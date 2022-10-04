@@ -1,9 +1,6 @@
-# Ingress traefik
-An API object that manages external access to the services in a cluster, typically HTTP
+# Ingress minikube
 
-kubectl create -f traefik-ingress/
-kubectl create -f traefik.ingress.yaml
-http://trenersages0621.westeurope.cloudapp.azure.com/dashboard/dashboard/
+https://kubernetes.io/docs/tasks/access-application-cluster/ingress-minikube/
 
 # Nginx ingress controller
 

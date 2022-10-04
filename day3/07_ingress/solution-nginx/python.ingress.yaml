@@ -8,7 +8,7 @@ metadata:
 spec:
   ingressClassName: nginx
   rules:
-  - host: trener-09.westeurope.cloudapp.azure.com
+  - host: hello-world.info
     http:
       paths:
       - pathType: Prefix
