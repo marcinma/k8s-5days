@@ -13,6 +13,11 @@ The kubelet uses liveness probes to know when to restart a container
 The kubelet uses startup probes to know when a container application has started.
 It disables liveness and readiness checks until it succeeds
 
+Delete old stuff
+```sh
+kubectl delete deploy --all
+kubectl delete pod --all
+```
 
 ```sh
 kubectl create -f python-deployment.yml

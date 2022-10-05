@@ -8,10 +8,16 @@ kubectl get jobs
 kubectl describe job restart-job
 ```
 
-change restartPolicy
+change restartPolicy and check pods created
 
 ```sh
 kubectl delete -f job-restart.yaml
 kubectl create -f job-restart.yaml
 kubectl get pods 
+```
+
+delete job
+
+```sh
+kubectl delete -f job-restart.yaml
 ```

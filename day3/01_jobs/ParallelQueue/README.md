@@ -6,3 +6,8 @@ kubectl get job
 kubectl logs -f -l type=consumer
 ```
 
+at the end delete created jobs
+```sh
+kubectl delete job --all
+```
+

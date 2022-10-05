@@ -7,7 +7,7 @@ kubectl create -f sa.pod-reader.yaml
 kubectl create -f cluster-role.yaml
 kubectl create -f rbac.yaml
 kubectl create -f pod-kctl.yaml
-kubectl create -f pod.yaml
+kubectl create -f pod.yml
 kubectl logs -f pod-reader
 ```
 # Get the ServiceAccount token from within the Pod's container

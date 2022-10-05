@@ -1,9 +1,9 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: roling
+  name: rolling
   labels:
-    app: qos
+    app: rolling
 spec:
   replicas: 5
   strategy:
@@ -13,17 +13,13 @@ spec:
     type: RollingUpdate
   selector:
     matchLabels:
-      app: qos
+      app: rolling
   template:
     metadata:
-      name: qos-pod
+      name: rolling-pod
       labels:
-        app: qos
+        app: rolling
     spec:
-      initContainers:
-      - name: init-myservice
-        image: busybox:1.28
-        command: ['sh', '-c', 'sleep 60']
       containers:
       - name: myapp-container
         image: ewoutp/docker-nginx-curl
@@ -31,4 +27,4 @@ spec:
           - containerPort: 80
         env:
           - name: TESTENV
-            value: "30"
+            value: "40"

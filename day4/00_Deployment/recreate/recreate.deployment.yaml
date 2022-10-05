@@ -15,7 +15,7 @@ spec:
     metadata:
       name: recreate-pod
       labels:
-        version: v1
+        version: v2
         app: recreate
     spec:
       containers:
@@ -25,4 +25,4 @@ spec:
           - containerPort: 80
         env:
           - name: VERSION
-            value: V1
+            value: V2

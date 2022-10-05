@@ -13,6 +13,8 @@ https://kubernetes.io/docs/concepts/policy/limit-range/
 kubectl create -f limitrange.yaml
 kubectl describe limitrange mem-limit-range
 kubectl create -f deployment.yaml
+PO=$(kubectl get po -l app=readiness -o jsonpath='{.items[0].metadata.name}')
+kubectl describe po $PO
 ```
 
 ```sh

@@ -15,4 +15,4 @@
 7. Remove rs that _matches_ `rest` but not `db` with `--cascade=orphan`
 8. Check pods - either we have both `db` or `db` & `rest` - it is random!
 9. Scale RS that matches both to 0 - all pods except from point 4 are deleted
-
+10. At the end delete all pods

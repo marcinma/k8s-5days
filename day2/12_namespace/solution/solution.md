@@ -10,4 +10,5 @@ kubectl diff -f replica-set.yaml
 kubectl -n workshops exec -ti $PO -- curl my-app.workshops
 kubectl -n workshops get svc
 curl 192.168.0.101:31677
+kubectl delete ns workshops
 ```
