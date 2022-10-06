@@ -12,4 +12,6 @@ spec:
     resources:
       requests:
         cpu: 700m
+      limits:
+        cpu: 700m
   priorityClassName: high-priority

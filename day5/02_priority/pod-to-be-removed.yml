@@ -12,6 +12,8 @@ spec:
     resources:
       requests:
         cpu: 700m
+      limits:
+        cpu: 700m
 ---
 apiVersion: v1
 kind: Pod
@@ -26,6 +28,8 @@ spec:
     imagePullPolicy: IfNotPresent
     resources:
       requests:
+        cpu: 700m
+      limits:
         cpu: 700m
 ---
 apiVersion: v1
@@ -42,6 +46,8 @@ spec:
     resources:
       requests:
         cpu: 700m
+      limits:
+        cpu: 700m
 ---
 apiVersion: v1
 kind: Pod
@@ -56,4 +62,6 @@ spec:
     imagePullPolicy: IfNotPresent
     resources:
       requests:
+        cpu: 700m
+      limits:
         cpu: 700m
