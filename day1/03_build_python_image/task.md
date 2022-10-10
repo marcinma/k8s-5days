@@ -14,6 +14,7 @@
 2. Verify with curl endpoint
 
 `curl localhost:<port_number>/healthz`
+
 3. Check logs
 
 # Connect apps
