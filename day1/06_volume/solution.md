@@ -7,7 +7,7 @@ docker volume ls
 touch /tmp/something
 docker container run --rm -v /tmp:/data my-volume /data
 docker image build -t my-volume-la ./02_volume_la_solution
-docker container run --rm -v /tmp:/data my-volume-la /data
+docker container run --rm -v /tmp:/data my-volume-la
 ```
 
 # RO nginx
