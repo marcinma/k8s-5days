@@ -16,7 +16,7 @@ az aks get-credentials --resource-group DefaultResourceGroup-WEU --name user1
 # Kubernetes on VMs
 
 ## set static ip
-
+/etc/netplan/01-netcfg.yaml
 ```/etc/netplan/01-netcfg.yaml
 network:
   version: 2
