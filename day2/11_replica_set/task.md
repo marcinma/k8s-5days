@@ -1,7 +1,7 @@
 1. Create 3 yml replica sets
 - each is matching labels for `sages`
 - one matches expression with both `db` & `rest`, with `2` replicas
-- one matches expression `db` but not `rest`
+- one matches expression `rest` but not `db`
 
 2. Pods in RS should be 
 - each with label `company: sages`
