@@ -19,6 +19,6 @@ edit /etc/hosts to match
 192.168.0.101	demo.localdev.me
 ```
 
-on windows C:\Windows\System32\drivers\etc
+on windows C:\Windows\System32\drivers\etc\hosts
 
 curl demo.localdev.me:<node-port-ingress>/nginx
