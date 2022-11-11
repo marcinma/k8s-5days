@@ -26,3 +26,12 @@ kubectl get pv
 # Partition for canary update
 
 https://kubernetes.io/docs/tutorials/stateful-application/basic-stateful-set/#rolling-out-a-canary
+
+```
+kubectl edit sts nginx-stsf
+    # update partition to 1
+    # update env
+kubectl get po
+kubectl exec -ti nginx-stsf-1 -- env | grep TEST
+kubectl exec -ti nginx-stsf-0 -- env | grep TEST
+```
