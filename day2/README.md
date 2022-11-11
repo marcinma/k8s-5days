@@ -89,7 +89,7 @@ newgrp docker
 
 ## Install kubeadm
 1. install packages needed to use the Kubernetes 
-``sh
+```sh
 sudo apt-get update
 sudo apt-get install -y apt-transport-https ca-certificates curl
 ```

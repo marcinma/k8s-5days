@@ -12,3 +12,15 @@ kubectl create -f daemnoset.yaml
 kubectl get ds
 kubectl get pod -l app=ds -o wide
 ```
+
+## Node selector
+
+```sh
+kubectl create -f daemnoset-node-selector.yaml
+kubectl get ds
+kubectl get pod -l app=ds-node -o wide
+kubectl label node ubuntu2 color=red
+kubectl get pod -l app=ds-node -o wide
+kubectl label node ubuntu2 color-
+kubectl get pod -l app=ds-node -o wide
+```

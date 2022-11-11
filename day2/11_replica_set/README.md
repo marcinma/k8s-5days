@@ -9,7 +9,7 @@ kubectl get pod -o wide
 ```
 # change pod name
 ```sh
-kubectl apply -f pod.yaml
+kubectl apply -f pod.yml
 kubectl get pod -o wide
 ```
 

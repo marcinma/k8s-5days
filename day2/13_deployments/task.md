@@ -31,7 +31,7 @@ kubectl rollout history deployments/nginx-deployment
 # Exec container and check env exists:
 
 ```sh
-kubectl exec -ti $(kubectl get pods -l app=myapp -o jsonpath='{.items[0].metadata.name}') /bin/bash
+kubectl exec -ti $(kubectl get pods -l app=myapp -o jsonpath='{.items[0].metadata.name}') -- /bin/bash
 env|grep TEST_ENV
 ```
 
@@ -42,11 +42,11 @@ kubectl rollout undo deployment/nginx-deployment
 kubectl annotate deployment/nginx-deployment kubernetes.io/change-cause="env reverted"
 kubectl rollout history deployments/nginx-deployment
 
-kubectl exec -ti $(kubectl get pods -l app=myapp -o jsonpath='{.items[0].metadata.name}') /bin/bash
+kubectl exec -ti $(kubectl get pods -l app=myapp -o jsonpath='{.items[0].metadata.name}') -- /bin/bash
 env|grep TEST_ENV
 
 kubectl rollout undo deployment/nginx-deployment --to-revision=2
-kubectl exec -ti <container_name>  /bin/bash
+kubectl exec -ti <container_name> -- /bin/bash
 env|grep TEST_ENV
 ```
 

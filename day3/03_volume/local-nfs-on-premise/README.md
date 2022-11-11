@@ -10,7 +10,7 @@ sudo vim /etc/exports
 ```
 
 ```exports
-/var/nfs/general     127.0.0.1(rw,sync,root_squash,subtree_check) 192.168.0.101(rw,sync,root_squash,subtree_check) 192.168.0.102(rw,sync,root_squash,subtree_check)
+/var/nfs/general     127.0.0.1(rw,sync,insecure,no_root_squash,no_subtree_check) 192.168.0.101(rw,sync,insecure,no_root_squash,no_subtree_check) 192.168.0.102(rw,sync,insecure,no_root_squash,no_subtree_check)
 ```
 
 

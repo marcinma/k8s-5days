@@ -1,7 +1,7 @@
 # Cronjob
 A CronJob creates Jobs on a repeating schedule.
 
-https://crontab.guru/#*/1_*_*_*_*
+[crontab.guru](https://crontab.guru/#*/1_*_*_*_*)
 
 ```sh
 kubectl get cronjob
@@ -10,11 +10,11 @@ kubectl get cronjob
 kubectl get job -l origin=cron
 kubectl get pod -l origin=cron-job
 kubectl logs -l origin=cron-job
+kubectl create job --from=cronjob/hello my-new-job
 kubectl delete -f cronjob.hello.yaml
 kubectl get job -l origin=cron
 kubectl get pod -l origin=cron-job
 
-kubectl create job --from=cronjob/hello my-new-job
 ```
 
 remove everything

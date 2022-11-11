@@ -26,7 +26,7 @@ https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale-walkth
 ```sh
 kubectl create -f hpa/sqrt.deployment.yaml
 kubectl create -f hpa/sqrt.service.yaml
-kubectl create -f hpa/hpa.yaml
+kubectl create -f hpa/hpa-v2.yml
 kubectl get hpa
 
 kubectl get svc sqrt-generator

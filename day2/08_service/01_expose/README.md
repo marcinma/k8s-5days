@@ -15,7 +15,7 @@ kubectl get service
 
 Node port is exposed on each Azure VM
 ```sh
-kubectl exec -ti myapp-pod curl <node-ip>:<node-port>
+kubectl exec -ti myapp-pod -- curl <node-ip>:<node-port>
 ```
 
 # Expose using declarative approach

@@ -8,4 +8,5 @@ kubectl describe resourcequota object-limit -n limits
 (..update requests & limits...)
 kubectl replace -f deployment.yaml
 kubectl get rs -n limits
+kubectl describe rs nginx-qos-5b9ff48f8c -n limits
 ```

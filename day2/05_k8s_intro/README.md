@@ -8,13 +8,12 @@ https://docs.microsoft.com/en-us/cli/azure/install-azure-cli-linux?pivots=apt
 
 
 ```sh
-az login
-az aks get-credentials --resource-group DefaultResourceGroup-WEU  --name trener
+az login --tenant f37e3e30-0f6f-478b-952b-143b9f1b4aa2
+az account set --subscription aa746456-a787-436c-aa63-689f4a7ec42c
+az aks get-credentials --resource-group DefaultResourceGroup-WEU --name trener
 ```
 
 *install kubectl*
-
-
 
 
 Do this first!
@@ -32,45 +31,41 @@ kubectl cluster-info
 Really verbose
 
 ```sh
-kubectl get pods -v=9
+kubectl -n kube-system get pods -v=9
 ```
 
-Get pods for my project
+Show pods labels
+```sh
+kubectl -n kube-system get pods --show-labels
+```
+
+Get pods by label
 
 ```sh
 kubectl get pods -l app=myapp
+kubectl -n kube-system get pods -l k8s-app=kube-dns
 ```
 
 Get specific pod name
 
 ```sh
 kubectl get pods -l app=myapp -o jsonpath='{.items[0].metadata.name}'
+kubectl -n kube-system get pods -l k8s-app=kube-dns -o jsonpath='{.items[0].metadata.name}'
 ```
 
 Gell all logs
 
 ```sh
 kubectl logs -l app=myapp
+kubectl -n kube-system logs  -l k8s-app=kube-dns
 ```
 
-Some hardcore stuff
-
-```sh
-kubectl delete svc --all
-```
-
-List all Persistent Volumes sorted by their name
-
-```sh
-kubectl get pv | grep -v NAME | sort -k 2 -rh
-```
-
-Save the manifest of a running pod
+Get the manifest of a running pod
 ```sh
 kubectl get pod <name> -o yaml > pod.yml
 
 ```
 
 ```sh
-kubectl get all
+kubectl -n kube-system get all
 ```

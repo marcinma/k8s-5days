@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: nginx-ds-node-selector
+  labels:
+    app: ds
+spec:
+  selector:
+    matchLabels:
+      app: ds-node
+  template:
+    metadata:
+      name: ds-pod
+      labels:
+        app: ds-node
+    spec:
+      nodeSelector:
+        color: red
+      containers:
+      - name: myapp-container
+        image: ewoutp/docker-nginx-curl
+        ports:
+          - containerPort: 80
