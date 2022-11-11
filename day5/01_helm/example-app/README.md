@@ -9,7 +9,8 @@ sudo mv linux-amd64/helm /usr/local/bin/helm
 ```sh
 helm template --output-dir=./output .
 helm template --output-dir=./output --values ./production.values.yaml .
-
+helm template --output-dir=./output --values ./production.values.yaml --set postgresqlWriter.tag=release-2 .
+cat ./output/example-project/templates/postgresql.cronjob.yaml
 ```
 
 ```sh
