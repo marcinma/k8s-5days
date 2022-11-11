@@ -5,6 +5,7 @@ docker container run -d -P --name java-spring java-spring
 docker container port java-spring
 curl localhost:49164
 docker exec -ti java-spring env | grep GITHASH
+docker container rm -f java-spring
 ```
 
 **output**
