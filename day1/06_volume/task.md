@@ -19,8 +19,8 @@ File something should be displayed
 
 1. Create new Dockerfile
 2. Base image on previous
-3. Change CMD to execute `"ls", "-la","/data"`
-4. Run container from this image with attached volume to tmp folder
+3. Change CMD to execute `"-la","/data"`
+4. Run container from this image with attached volume /data to tmp folder
 
 # Create volume and add :ro flag
 
