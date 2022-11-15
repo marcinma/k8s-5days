@@ -19,7 +19,12 @@ kubectl create -f ingress.example.yml
 minikube ip
 ```
 
-edit /etc/hosts 
+edit /etc/hosts or C:\Windows\System32\drivers\etc\hosts
+```hosts
+192.168.1.145	hello-world.info
+```
+
+ 
 ```sh
 kubectl get ing
 curl hello-world.info

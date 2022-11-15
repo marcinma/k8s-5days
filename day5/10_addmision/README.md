@@ -7,4 +7,7 @@ kubectl create -f rbac.yml
 kubectl create -f deployment.yml
 kubectl logs -l app=sample-mutating-webhook
 kubectl create -f webhook.yml
+kubectl create cm nginx-conf --from-file=nginx.conf=./nginx.conf
+kubectl create -f pod.yml
+kubectl describe po demo-pod
 ```

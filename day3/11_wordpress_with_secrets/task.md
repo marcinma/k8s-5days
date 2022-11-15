@@ -1,0 +1,8 @@
+# Wordpress Task
+
+1. Recreate wordpress with mysql using secrets and configmaps
+2. Wordpress should have ingress
+3. User and Password envs should come from secret in both mysql and wordpress
+4. Other common env should come from configmap
+5. Mysql should be statefulset
+6. Consider using `envFrom`
