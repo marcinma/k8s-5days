@@ -3,8 +3,8 @@ StatefulSet is the workload API object used to manage stateful applications.
 Manages the deployment and scaling of a set of Pods, and provides guarantees about the ordering and uniqueness of these Pods.
 
 ref:
-https://kubernetes.io/docs/tutorials/stateful-application/basic-stateful-set/
-https://kubernetes.io/docs/tutorials/stateful-application/cassandra/
+- https://kubernetes.io/docs/tutorials/stateful-application/basic-stateful-set/
+- https://kubernetes.io/docs/tutorials/stateful-application/cassandra/
 
 
 ```sh
