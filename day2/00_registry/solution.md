@@ -4,7 +4,7 @@ curl 127.0.0.1:5000/v2/_catalog
 ```
 
 **output**
-```
+```json
 {"repositories":[]}
 ```
 
@@ -15,6 +15,6 @@ curl 127.0.0.1:5000/v2/_catalog
 ```
 
 **output**
-```
+```json
 {"repositories":["my-nginx"]}
 ```
