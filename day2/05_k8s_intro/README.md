@@ -2,8 +2,8 @@
 
 *Install az*
 
-https://docs.microsoft.com/en-us/cli/azure/install-azure-cli-windows?tabs=azure-cli
-https://docs.microsoft.com/en-us/cli/azure/install-azure-cli-linux?pivots=apt
+- https://docs.microsoft.com/en-us/cli/azure/install-azure-cli-windows?tabs=azure-cli
+- https://docs.microsoft.com/en-us/cli/azure/install-azure-cli-linux?pivots=apt
 
 
 
