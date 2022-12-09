@@ -21,4 +21,12 @@ curl -k -H "Authorization: Bearer $TOKEN" $API_SERVER/api/v1
 curl -k -H "Authorization: Bearer $TOKEN" $API_SERVER/api/v1/namespaces/default/pods
 ```
 
+# On Minikube
+
+```sh
+TOKEN=$(kubectl exec -ti my-pod-reader -- cat /run/secrets/kubernetes.io/serviceaccount/token)
+API_SERVER=https://$(minikube ip):8443
+curl -k -H "Authorization: Bearer $TOKEN" $API_SERVER/api/v1
+curl -k -H "Authorization: Bearer $TOKEN" $API_SERVER/api/v1/namespaces/default/pods
+```
 
