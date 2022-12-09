@@ -1,3 +1,4 @@
+```sh
 kubectl apply -f .
 PYPO=$(kubectl get pods -l app=python -o jsonpath='{.items[0].metadata.name}')
 kubectl exec -ti $PYPO -- curl localhost:5002/healthz
@@ -9,3 +10,4 @@ kubectl get po --watch
 kubectl scale deployment redis-deployment --replicas=1
 kubectl get po --watch
 kubectl exec -ti $PYPO -- curl localhost:5002/api/v1/info
+```
