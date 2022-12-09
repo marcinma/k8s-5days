@@ -1,5 +1,6 @@
 # Wordpress Task
 
+0. Remove limit range `mem-limit-range`
 1. Recreate wordpress with mysql using secrets and configmaps
 2. Wordpress should have ingress
 3. User and Password envs should come from secret in both mysql and wordpress
