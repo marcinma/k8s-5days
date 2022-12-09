@@ -8,8 +8,6 @@ kubectl describe job hello-1624472880
 kubectl delete cronjob hello
 ```
 
-check backoff limit
-
 # task
 
 patch redis deploy to have image *redis:7.0.5*

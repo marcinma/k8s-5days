@@ -24,12 +24,10 @@ edit /etc/hosts or C:\Windows\System32\drivers\etc\hosts
 192.168.1.145	hello-world.info
 ```
 
- 
 ```sh
 kubectl get ing
 curl hello-world.info
 ```
-
 
 add v2 image
 
@@ -39,3 +37,27 @@ kubectl expose deployment web2 --port=8080 --type=NodePort
 kubectl create -f ingress.example.v2.yml
 curl hello-world.info/v2
 ```
+
+# With port forward
+
+```hosts
+127.0.0.1	hello-world.info
+```
+
+```sh
+kubectl -n ingress-nginx port-forward svc/ingress-nginx-controller 8080:80
+```
+
+hit `http://hello-world.info:8080/`
+
+# With minikube service
+
+```hosts
+127.0.0.1	hello-world.info
+```
+
+```sh
+minikube service --url -n ingress-nginx ingress-nginx-controller
+```
+
+hit `http://hello-world.info:<exposed-port>/v2`
