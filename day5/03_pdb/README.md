@@ -3,11 +3,19 @@ For 1.21
 https://kubernetes.io/docs/concepts/workloads/pods/disruptions/
 
 ```sh
+kubectl delete po --all
 kubectl taint nodes ubuntu2 key=value:NoSchedule
 kubectl create -f pdb.yml
-kubectl create -f deployment.yml
-kubectl drain ubuntu1 --ignore-daemonsets
+kubectl apply -f deployment.yml
+
+kubectl drain ubuntu1 --ignore-daemonsets 
+# or
+kubectl drain ubuntu1 --ignore-daemonsets  --delete-emptydir-data --force
+
 kubectl uncordon ubuntu1
-(..remove comment..)
+# remove quorum comment
 kubectl taint nodes ubuntu2 key=value:NoSchedule-
+kubectl apply -f deployment.yml
+kubectl drain ubuntu1 --ignore-daemonsets  --delete-emptydir-data --force
+kubectl uncordon ubuntu1
 ```
