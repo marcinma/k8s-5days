@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    node.type: nginx
+  name: nginx
+  namespace: app
+spec:  
+  replicas: 1
+  selector:
+    matchLabels:
+      node.type: nginx
+  template:
+    metadata:
+      labels:
+        node.type: nginx
+    spec: 
+      securityContext: 
+        runAsUser:  10001
+        runAsGroup: 20001
+        runAsNonRoot: true
+      containers:
+        - name: nginx  
+          image: ewoutp/docker-nginx-curl
+          resources:
+            requests:
+              memory: "64Mi"
+              cpu: "250m"
+            limits:
+              memory: "128Mi"
+              cpu: "500m"
+          securityContext:
+            runAsUser:  30001
+            runAsGroup: 40001
+            allowPrivilegeEscalation: false 
+            readOnlyRootFilesystem: true
+            seccompProfile:
+              type: RuntimeDefault
+            capabilities:
+                drop:
+                  - ALL

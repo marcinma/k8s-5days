@@ -1,3 +1,4 @@
 ```sh
-kubectl create ns app
+kubectl apply -f namespace.yml
+kubectl apply -f deployment.nginx.yml
 ```
