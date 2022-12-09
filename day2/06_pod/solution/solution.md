@@ -9,6 +9,9 @@ kubectl logs python
 kubectl describe pod python
 ```
 
+with `kubectl proxy`:
+http://localhost:8001/api/v1/namespaces/default/pods/python:5002/proxy/healthz
+
 **output**
 ```
 map[5002/tcp:{}]

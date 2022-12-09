@@ -1,4 +1,5 @@
-FROM alpine:latest
+#FROM alpine:latest <-- don't use latest!
+FROM alpine:3.6
 RUN apk add --update nginx && \
     rm -rf /var/cache/apk/* && \
     mkdir -p /tmp/nginx

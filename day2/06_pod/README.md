@@ -14,6 +14,13 @@ kubectl port-forward pod/myapp-pod 8282:80
 curl localhost:8282
 ```
 
+or
+```sh
+kubectl proxy
+```
+
+http://localhost:8001/api/v1/namespaces/default/pods/myapp-pod/proxy/
+
 **output**
 
 ```
