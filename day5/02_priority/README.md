@@ -4,6 +4,7 @@ Pods can have priority. Priority indicates the importance of a Pod relative to o
 ```sh
 kubectl delete limitrange mem-limit-range
 kubectl create -f high-priority.yml
+kubectl get pc
 kubectl create -f pod-to-be-removed.yml 
 kubectl get pod -l app=remove
 kubectl create -f preemptive-pod.yml
