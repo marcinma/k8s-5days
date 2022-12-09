@@ -6,6 +6,7 @@ You describe a desired state in a Deployment, and the Deployment Controller chan
 
 ```sh
 kubectl create -f deployment.yaml
+kubectl get deploy
 kubectl get rs
 kubectl get pods
 kubectl scale deployment/nginx-deployment --replicas=0
