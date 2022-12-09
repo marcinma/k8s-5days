@@ -11,17 +11,14 @@ kubectl get job -l origin=cron
 kubectl get pod -l origin=cron-job
 kubectl logs -l origin=cron-job
 kubectl create job --from=cronjob/hello my-new-job
+kubectl get job -l origin=cron
 kubectl delete -f cronjob.hello.yaml
 kubectl get job -l origin=cron
 kubectl get pod -l origin=cron-job
 
 ```
 
-remove everything
-```sh
-kubectl delete cronjob --all
-kubectl delete job --all
-```
+
 
 Consider missing resources
 
