@@ -22,6 +22,7 @@ kubectl delete pod --all
 ```sh
 kubectl create -f python-deployment.yml
 PO=$(kubectl get pods -l app=python -o jsonpath='{.items[0].metadata.name}')
+kubectl get po $PO
 kubectl describe po $PO
 kubectl create -f redis-deployment.yml
 ```

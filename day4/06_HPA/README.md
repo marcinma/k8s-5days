@@ -26,8 +26,9 @@ watch kubectl get pods
 # V2
 
 ```sh
-kubectl create -f hpa-v2/deployment.yaml
+kubectl create -f hpa-v2/deployment.yml
 kubectl create -f hpa-v2/hpa-v2.yml
+kubectl get hpa
 kubectl run -i --tty load-generator --rm --image=busybox:1.28 --restart=Never -- /bin/sh -c "while sleep 0.01; do wget -q -O- http://php-apache; done"
 kubectl get hpa
 kubectl get deployment php-apache
