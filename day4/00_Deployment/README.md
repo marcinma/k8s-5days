@@ -1,7 +1,7 @@
 
 
-https://github.com/ContainerSolutions/k8s-deployment-strategies
-https://www.bluematador.com/blog/kubernetes-deployments-rolling-update-configuration
+- https://github.com/ContainerSolutions/k8s-deployment-strategies
+- https://www.bluematador.com/blog/kubernetes-deployments-rolling-update-configuration
 
 Ramped deployment is default with **type**: `RollingUpdate`
 

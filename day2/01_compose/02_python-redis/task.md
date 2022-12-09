@@ -9,9 +9,9 @@
 - you can use hub image `marcinmakowski/python-api:redis`
 - add `depends_on:` to python to depend on redis
 - scale service `docker-compose up -d --scale web=3`
+- `docker-compose exec python curl web` should access created index.html
 - `docker-compose down` stops & removes all stuff (see help)
 - run single service `docker-compose up -d python`, should start redis
-- `docker-compose exec python curl web` should access created index.html
 - `docker-compose logs`
 - `docker-compose logs -f web`
 

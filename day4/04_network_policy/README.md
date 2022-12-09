@@ -19,8 +19,8 @@ https://kubernetes.io/docs/concepts/services-networking/network-policies/
 
 ## Deep into network
 
-ref: https://sookocheff.com/post/kubernetes/understanding-kubernetes-networking-model/
-ref: https://thenewstack.io/hackers-guide-kubernetes-networking/
+- ref: https://sookocheff.com/post/kubernetes/understanding-kubernetes-networking-model/
+- ref: https://thenewstack.io/hackers-guide-kubernetes-networking/
 
 # Compare CNI
 
