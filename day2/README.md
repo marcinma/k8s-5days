@@ -159,6 +159,7 @@ sudo ctr --namespace k8s.io containers ls
 
 ```sh
 kubectl taint nodes --all node-role.kubernetes.io/control-plane-
+kubectl taint nodes --all node-role.kubernetes.io/master-
 ```
 
 9. `ON MASTER NODE`: Get join command
