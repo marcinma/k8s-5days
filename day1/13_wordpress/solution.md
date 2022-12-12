@@ -12,3 +12,8 @@ docker container rm -f wordpress mysql
 docker network rm cms
 docker volume rm mysqldb
 ```
+
+With MariaDB
+```
+docker container run --name mysql --network cms -e MARIADB_USER=exampleuser -e MARIADB_PASSWORD=examplepass -e MARIADB_DATABASE=exampledb -e MARIADB_ROOT_PASSWORD=examplepass -d -v mysqldb:/var/lib/mysql mariadb:10.9.4
+```

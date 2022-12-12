@@ -49,7 +49,8 @@ docker container exec -ti b1  curl n2
 
 connect again
 ```sh
-docker network connect network-b b1
+docker network connect network-b b1 --alias n1
 docker network inspect network-b
 docker container exec -ti b1  curl n2
+docker container exec -ti b2  curl n1
 ```
