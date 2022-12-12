@@ -58,6 +58,11 @@ kubectl describe svc my-app-service
 ```
  - check endpoints
 
+# Restart one by one
+
+```sh
+kubectl rollout restart deploy nginx-deployment
+```
 
 # Debug information:
 ```sh
@@ -65,7 +70,26 @@ kubectl logs -f -l app=myapp
 kubectl describe rs <replica_set_name>
 ```
 
+# Create vs Apply vs Replace
+
 ```sh
-kubectl replace
-kubectl replace --force  # deletes & creates
+kubectl delete -f deployment.yaml
+kubectl create -f deployment.yaml
+kubectl describe deploy nginx-deployment
+kubectl get deploy nginx-deployment -o jsonpath='{.metadata.annotations}'
+kubectl apply -f deployment-to-replace.yaml
+kubectl describe deploy nginx-deployment
+kubectl get deploy nginx-deployment -o jsonpath='{.metadata.annotations}'
+kubectl replace -f deployment-to-replace.yaml
+kubectl describe deploy nginx-deployment
+kubectl get deploy nginx-deployment -o jsonpath='{.metadata.annotations}'
+kubectl replace --force --save-config -f deployment-to-replace.yaml # deletes & creates
+kubectl get deploy nginx-deployment -o jsonpath='{.metadata.annotations}'
 ```
+
+
+# ReplicaSet History limit
+
+.spec.revisionHistoryLimit is set by default to 10
+
+

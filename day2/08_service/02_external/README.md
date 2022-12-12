@@ -1,3 +1,7 @@
+# External Name
+
+When you create a service of type ExternalName, the Kubernetes DNS service is instead populated with a CNAME record
+
 ```sh
 kubectl create -f google-svc.yml
 kubectl exec -ti myapp-pod -- curl google-service

@@ -21,6 +21,7 @@ Do this first!
 ```sh
 kubectl config current-context
 kubectl config get-contexts
+kubectl get componentstatuses
 ```
 
 info:
