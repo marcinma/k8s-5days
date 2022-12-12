@@ -29,3 +29,19 @@ kubectl create secret docker-registry docker-secret --docker-email=test@example.
 
 kubectl get secret docker-secret -o jsonpath='{.data.*}' | base64 -d
 ```
+
+Such secret then can be used in imagePullSecrets
+
+```yaml
+apiVersion: v1
+kind: Pod
+metadata:
+    name: nginx
+spec:
+    containers:
+    - name: nginx
+      image: nginx
+      imagePullPolicy: Always
+    imagePullSecrets:
+    - name: docker-secret
+```

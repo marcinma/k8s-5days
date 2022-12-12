@@ -1,5 +1,5 @@
 # Annotations
-You can use Kubernetes annotations to attach arbitrary non-identifying metadata to objects. 
+You can use Kubernetes annotations to attach arbitrary non-identifying metadata to objects. When in doubt, add information to an object as an annotation and promote it to a label if you find yourself wanting to use it in a selector. Size of keys + size of values for all annotations can't be longer than 256 kB.
 
 ```json
 "metadata": {
