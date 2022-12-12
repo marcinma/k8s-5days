@@ -62,7 +62,7 @@ EXPOSE 80
 ```
 
 2. Rebuild image as my-nginx:2 
-3. Remove previous my-nginx contaienr
+3. Remove previous my-nginx container
 4. Run container one more time with dynamic port assigned
 
 ```sh
