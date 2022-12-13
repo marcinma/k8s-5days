@@ -12,6 +12,14 @@ kubectl delete -f deny.network.policy.yaml
 kubectl exec -ti nginx-stsf-0 -- curl stsf-service.default #  work
 
 ```
+
+## Own dns config
+
+```sh
+kubectl create -f pod-dnsConfig.yml
+kubectl exec -ti dnsconfig-pod -- cat /etc/resolv.conf
+```
+
 # Docs
 
 https://kubernetes.io/docs/concepts/services-networking/network-policies/
