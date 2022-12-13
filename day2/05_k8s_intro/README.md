@@ -19,6 +19,7 @@ az aks get-credentials --resource-group DefaultResourceGroup-WEU --name trener
 Do this first!
 
 ```sh
+kubectl get nodes
 kubectl config current-context
 kubectl config get-contexts
 kubectl get componentstatuses

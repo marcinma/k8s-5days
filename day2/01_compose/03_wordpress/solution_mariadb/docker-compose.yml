@@ -1,0 +1,29 @@
+version: '3.7'
+
+services:
+
+  wordpress:
+    image: wordpress:php7.4
+    ports:
+      - 8080:80
+    environment:
+      WORDPRESS_DB_HOST: db
+      WORDPRESS_DB_USER: exampleuser
+      WORDPRESS_DB_PASSWORD: examplepass
+      WORDPRESS_DB_NAME: exampledb
+    volumes:
+      - wordpress:/var/www/html
+
+  db:
+    image: mariadb:10.9.4
+    environment:
+      MARIADB_DATABASE: exampledb
+      MARIADB_USER: exampleuser
+      MARIADB_PASSWORD: examplepass
+      MARIADB_ROOT_PASSWORD: examplepass
+    volumes:
+      - mariadb:/var/lib/mysql
+
+volumes:
+  wordpress:
+  mariadb:

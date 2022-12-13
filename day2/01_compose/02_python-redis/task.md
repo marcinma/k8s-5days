@@ -5,12 +5,12 @@
 - use image `nginx:1.15.5`
 
 2. Python service
-- add service with `my-python` image and expose on port `5002`
-- you can use hub image `marcinmakowski/python-api:redis`
+- add service with `python` image builded in day1/03_build_python_image and expose on port `5002`
+- alternatively you can use hub image `marcinmakowski/python-api:redis`
 - add `depends_on:` to python to depend on redis
-- remove (nginx) port forward
+- don't use port forward nginx
 - scale service `docker-compose up -d --scale web=3`
-- `docker-compose exec python curl web` should access created index.html
+- `docker-compose exec python curl web` should access created index.htm
 - `docker-compose down` stops & removes all stuff (see help)
 - run single service `docker-compose up -d python`, should start redis
 
