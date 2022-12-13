@@ -15,5 +15,5 @@ Create wordpress site fronted with mysql backend
     - MYSQL_PASSWORD 
     - MYSQL_DATABASE
     - MYSQL_RANDOM_ROOT_PASSWORD=1
-6. Run containers and check everything wokrs
+6. Run containers and check everything works
 7. At the end remove containers, network and volumes
