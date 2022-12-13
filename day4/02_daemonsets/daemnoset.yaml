@@ -5,6 +5,12 @@ metadata:
   labels:
     app: ds
 spec:
+  minReadySeconds: 20
+  updateStrategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 0
+      maxSurge: 2
   selector:
     matchLabels:
       app: ds
@@ -15,7 +21,11 @@ spec:
         app: ds
     spec:
       containers:
-      - name: myapp-container
+      - name: myapp-ds
         image: ewoutp/docker-nginx-curl
         ports:
           - containerPort: 80
+        env:
+          - name: TEST
+            value: TEST
+
