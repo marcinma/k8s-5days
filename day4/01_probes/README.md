@@ -11,7 +11,7 @@ The kubelet uses liveness probes to know when to restart a container
 
 **Startups**
 The kubelet uses startup probes to know when a container application has started.
-It disables liveness and readiness checks until it succeeds
+It disables liveness and readiness checks until it succeeds. If a container fails its startup probe, then the container is killed and follows the pod's restartPolicy
 
 Delete old stuff
 ```sh

@@ -5,7 +5,7 @@ Role-based access control (RBAC) is a method of regulating access to computer or
 ```sh
 kubectl create -f sa.pod-reader.yaml
 kubectl create -f cluster-role.yaml
-kubectl create -f rbac.yaml
+kubectl create -f cluster-role-binding.yaml
 kubectl create -f pod-kctl.yaml
 kubectl create -f pod.yml
 kubectl logs -f pod-reader
@@ -19,6 +19,7 @@ API_SERVER=https://trener-dns-1a789921.hcp.westeurope.azmk8s.io:443
 curl -k -H "Authorization: Bearer $TOKEN" $API_SERVER/api
 curl -k -H "Authorization: Bearer $TOKEN" $API_SERVER/api/v1
 curl -k -H "Authorization: Bearer $TOKEN" $API_SERVER/api/v1/namespaces/default/pods
+curl -k -H "Authorization: Bearer $TOKEN" $API_SERVER/api/v1/namespaces/kube-system/pods
 ```
 
 # On Minikube

@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: conflict-a
+  namespace: default
+  labels:
+    some: other-label
+spec:
+  replicas: 2
+  selector:
+    matchExpressions:
+    - {key: app, operator: In, values: [myapp]}
+  template:
+    metadata:
+      name: myapp-pod-new
+      labels:
+        app: myapp
+    spec:
+      containers:
+      - name: myapp-container
+        image: ewoutp/docker-nginx-curl

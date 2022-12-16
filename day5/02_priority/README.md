@@ -2,7 +2,9 @@
 Pods can have priority. Priority indicates the importance of a Pod relative to other Pods. If a Pod cannot be scheduled, the scheduler tries to preempt (evict) lower priority Pods to make scheduling of the pending Pod possible.
 
 ```sh
-kubectl delete limitrange mem-limit-range
+kubectl delete deploy --all
+kubectl delete sts --all
+kubectl delete ds --all
 kubectl create -f high-priority.yml
 kubectl get pc
 kubectl create -f pod-to-be-removed.yml 

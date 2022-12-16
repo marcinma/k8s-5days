@@ -26,4 +26,6 @@ spec:
   names:
     kind: PodCreator
     plural: podcreators
+    shortNames:
+    - pcs # check!
   scope: Namespaced

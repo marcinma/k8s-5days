@@ -34,8 +34,8 @@ spec:
         ports:
           - containerPort: 80
         env:
-          - name: TEST
-            value: RETEST
+          - name: VERSION
+            value: V1
         volumeMounts:
         - name: nginx-local-claim
           mountPath: /usr/local/nginx/html

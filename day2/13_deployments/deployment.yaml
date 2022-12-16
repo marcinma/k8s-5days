@@ -22,4 +22,4 @@ spec:
           - containerPort: 80
         env:
           - name: TEST_ENV
-            value: "231"
+            value: "240"

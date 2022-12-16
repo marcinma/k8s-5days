@@ -3,6 +3,6 @@ kind: PriorityClass
 metadata:
   name: low-priority
 value: 1
-globalDefault: false
+globalDefault: false # indicates that the value of this PriorityClass should be used for Pods without a priorityClassName
 description: "Some desc."
 preemptionPolicy: Never # ahead of other pods, but not preempt current running

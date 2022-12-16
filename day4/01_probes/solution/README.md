@@ -4,6 +4,7 @@ kubectl create secret generic redis-secret --from-literal REDIS_HOST=redis-servi
 ```
 # or from yaml
 ```sh
+kubectl delete deploy python-deployment redis-deployment
 kubectl apply -f python-configmap.yml
 kubectl apply -f redis-secret.yml
 kubectl apply -f python-service.yml

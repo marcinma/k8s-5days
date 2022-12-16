@@ -1,18 +1,15 @@
-##---
-# Source: example-project/templates/postgresql.cronjob.yaml
-
-
 ---
-apiVersion: batch/v1beta1
+# Source: example-project/templates/postgresql.cronjob.yaml
+apiVersion: batch/v1
 kind: CronJob
 metadata:
-  name: writer.customer-a
+  name: writer-customer-a
   namespace: mynamespace
   labels:
     project: workshops
     databaseName: customer-a
 spec:
-  schedule: "* 30 * * *"
+  schedule: "* 20 * * *"
   jobTemplate:
     metadata:
       labels:
@@ -27,9 +24,9 @@ spec:
         spec:       
           restartPolicy: OnFailure
           containers:
-            - name: writer.customer-a
+            - name: writer-customer-a
               imagePullPolicy: "IfNotPresent"
-              image: "127.0.0.1:5000/postgresql-writer:release-1"
+              image: "127.0.0.1:5000/postgresql-writer:release-2"
               resources:
                 requests:
                   cpu: "100m"
@@ -50,23 +47,23 @@ spec:
                     secretKeyRef:
                       name: postgresql
                       key: password
-                - name: POSTGRES_PASSWORD
+                - name: POSTGRES_USERNAME
                   valueFrom:
                     secretKeyRef:
                       name: postgresql
                       key: username
-
 ---
-apiVersion: batch/v1beta1
+# Source: example-project/templates/postgresql.cronjob.yaml
+apiVersion: batch/v1
 kind: CronJob
 metadata:
-  name: writer.customer-b
+  name: writer-customer-b
   namespace: mynamespace
   labels:
     project: workshops
     databaseName: customer-b
 spec:
-  schedule: "* 35 * * *"
+  schedule: "* 20 * * *"
   jobTemplate:
     metadata:
       labels:
@@ -81,9 +78,9 @@ spec:
         spec:       
           restartPolicy: Never
           containers:
-            - name: writer.customer-b
+            - name: writer-customer-b
               imagePullPolicy: "IfNotPresent"
-              image: "127.0.0.1:5000/postgresql-writer:release-1"
+              image: "127.0.0.1:5000/postgresql-writer:release-2"
               resources:
                 requests:
                   cpu: "100m"
@@ -104,7 +101,7 @@ spec:
                     secretKeyRef:
                       name: postgresql
                       key: password
-                - name: POSTGRES_PASSWORD
+                - name: POSTGRES_USERNAME
                   valueFrom:
                     secretKeyRef:
                       name: postgresql

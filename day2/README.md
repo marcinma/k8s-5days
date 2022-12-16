@@ -177,5 +177,14 @@ kubeadm join 192.168.0.103:6443 --token u0l66l.o6ywx1hjuq9rr1w8 --discovery-toke
 
 ```sh
 sudo kubeadm reset
-sudo iptables -F && sudo iptables -t nat -F && sudo iptables -t mangle -F && sudo iptables -X
+sudo rm -rf /etc/cni /etc/kubernetes /var/lib/dockershim /var/lib/etcd /var/lib/kubelet /var/run/kubernetes ~/.kube/*
+
+sudo iptables -F && sudo iptables -X &&\
+sudo iptables -t nat -F && sudo iptables -t nat -X &&\
+sudo iptables -t raw -F &&  sudo iptables -t raw -X &&\
+sudo iptables -t mangle -F &&  sudo iptables -t mangle -X
+
+sudo systemctl restart containerd
+sudo systemctl restart docker
+sudo ctr --namespace k8s.io containers rm $(sudo ctr --namespace k8s.io containers ls -q)
 ```

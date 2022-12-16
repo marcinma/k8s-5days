@@ -10,28 +10,32 @@ ref:
 ```sh
 kubectl create -f nginx.statefulset.yaml
 
-kubectl exec -ti nginx-stsf-0 -- /bin/bash
-echo "nginx-stsf-0">index.html
-kubectl exec -ti nginx-stsf-1 -- /bin/bash
-echo "nginx-stsf-1">index.html
+kubectl exec -ti nginx-stsf-0 -- /bin/bash -c 'echo "nginx-stsf-0">index.html'
+kubectl exec -ti nginx-stsf-1 -- /bin/bash -c 'echo "nginx-stsf-1">index.html'
 
 kubectl exec -ti nginx-stsf-0 -- curl localhost
 kubectl exec -ti nginx-stsf-0 -- curl nginx-stsf-1.stsf-service
 kubectl exec -ti nginx-stsf-0 -- curl nginx-stsf-1.stsf-service.default.svc.cluster.local
 kubectl get pvc
 kubectl get pv
+kubectl get sts
 ```
 *Pods in a StatefulSet have a unique ordinal index and a stable network identity.*
+
+# Headless service in action
+
+```sh
+kubectl create -f nslookup.pod.yml
+kubectl logs nslookup-stsf
+```
 
 # Partition for canary update
 
 https://kubernetes.io/docs/tutorials/stateful-application/basic-stateful-set/#rolling-out-a-canary
 
 ```
-kubectl edit sts nginx-stsf
-    # update partition to 1
-    # update env
+kubectl apply -f nginx.statefulset-partition.yaml
 kubectl get po
-kubectl exec -ti nginx-stsf-1 -- env | grep TEST
-kubectl exec -ti nginx-stsf-0 -- env | grep TEST
+kubectl exec -ti nginx-stsf-1 -- env | grep VERSION
+kubectl exec -ti nginx-stsf-0 -- env | grep VERSION
 ```

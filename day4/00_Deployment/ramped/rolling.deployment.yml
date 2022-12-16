@@ -28,5 +28,5 @@ spec:
         ports:
           - containerPort: 80
         env:
-          - name: TESTENV
-            value: "40"
+          - name: VERSION
+            value: "V1"

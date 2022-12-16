@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: mypod-optional
+spec:
+  containers:
+  - name: mypod
+    image: ewoutp/docker-nginx-curl    
+    volumeMounts:
+    - name: foo
+      mountPath: "/etc/foo"
+      readOnly: true
+  volumes:
+  - name: foo
+    secret:
+      secretName: my-secret
+      optional: true

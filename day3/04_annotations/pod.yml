@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: myapp-pod-2
+  name: pod-with-annotations
   labels:
     app: myapp
     type: server

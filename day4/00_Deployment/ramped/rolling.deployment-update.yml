@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: rolling
+  labels:
+    app: rolling
+spec:
+  replicas: 5
+  minReadySeconds: 20 # will wait 20 seconds before marking this as ready
+  strategy:
+    rollingUpdate:
+      maxSurge: 2
+      maxUnavailable: 0
+    type: RollingUpdate
+  selector:
+    matchLabels:
+      app: rolling
+  template:
+    metadata:
+      name: rolling-pod
+      labels:
+        app: rolling
+        version: v2
+    spec:
+      containers:
+      - name: myapp-container
+        image: ewoutp/docker-nginx-curl
+        ports:
+          - containerPort: 80
+        env:
+          - name: VERSION
+            value: "V2"

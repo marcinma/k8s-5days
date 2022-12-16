@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-deployment-az02
+  labels:
+    app: myapp-az01-cloned
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: myapp-az01-cloned
+  template:
+    metadata:
+      name: myapp-az01-cloned
+      labels:
+        app: myapp-az01-cloned
+        disk: cloned
+    spec:
+      containers:
+      - name: myapp-container
+        image: ewoutp/docker-nginx-curl
+        ports:
+          - containerPort: 80
+        env:
+          - name: TEST
+            value: "20"
+        volumeMounts:
+          - name: nginx
+            mountPath: /usr/local/nginx/html
+      volumes:
+        - name: nginx
+          persistentVolumeClaim:
+            claimName: az01-clone

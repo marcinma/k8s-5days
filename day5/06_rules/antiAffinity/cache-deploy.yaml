@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cache-pod-anti-affinity
+  labels:
+    app: cache
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      distributed: cache
+  template:
+    metadata:
+      name: cache1
+      labels: 
+        distributed: cache
+    spec:
+      affinity:
+        podAntiAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+          - labelSelector:
+              matchExpressions:
+              - key: distributed
+                operator: In
+                values:
+                - cache
+            topologyKey: "kubernetes.io/hostname"
+      containers:
+      - name: cache
+        image: busybox
+        command: [ "sh", "-c", "sleep 1h" ]

@@ -9,8 +9,8 @@ kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/cont
 kubectl get pods --namespace=ingress-nginx
 kubectl get svc -n=ingress-nginx
 
-kubectl create -f nginx.deployment.yaml
-kubectl create -f nginx-ingress/nginx.ingress.yaml
+kubectl create -f hello-app/hello.deployment.yaml
+kubectl create -f hello-app/hello.ingress.yaml
 kubectl get ing
 ```
 

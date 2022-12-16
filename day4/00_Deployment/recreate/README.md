@@ -1,6 +1,6 @@
 ```sh
-kubectl create -f recreate.deployment.yaml
+kubectl create -f recreate.deployment.yaml --save-config
 kubectl get pods -l app=recreate
-kubectl edit deploy recreate-deployment
+kubectl apply -f recreate.deployment-update.yaml
 kubectl get pods -l app=recreate
 ```

@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nslookup-stsf
+  labels:
+    app: nslookup
+spec:
+  containers:
+  - name: nslookup-container
+    image: busybox:1.28
+    command: ['sh', '-c', 'nslookup stsf-service']
+  restartPolicy: Never
