@@ -14,8 +14,9 @@ kubectl drain ubuntu1 --ignore-daemonsets  --delete-emptydir-data --force
 
 kubectl uncordon ubuntu1
 # remove quorum comment
-kubectl taint nodes ubuntu2 key=value:NoSchedule-
+
 kubectl apply -f deployment.yml
 kubectl drain ubuntu1 --ignore-daemonsets  --delete-emptydir-data --force
 kubectl uncordon ubuntu1
+kubectl taint nodes ubuntu2 key=value:NoSchedule-
 ```
