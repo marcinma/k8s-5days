@@ -2,21 +2,21 @@
 while :
 do
 
-	spec=$(kubectl get podcreators example-pod-creator -o json | jq ".spec") 
-	podname=$(echo $spec | jq -r ".createPod")
+	spec=$(kubectl get deploycreators example-deploy-creator -o json | jq ".spec") 
+	deployname=$(echo $spec | jq -r ".createDeploy")
 	svcname=$(echo $spec | jq -r ".createSvc")
 	imagename=$(echo $spec | jq -r ".imageName")
-	echo $podname
+	echo $deployname
 	echo $svcname
 	echo $imagename
-	echo "Checking $podname"
-	kubectl get pods | grep -q "$podname"
+	echo "Checking $deployname"
+	kubectl get deploy | grep -q "$deployname"
 	if [ $? -eq 1 ]
 	then
-		kubectl run --generator=run-pod/v1 $podname --image=$imagename
-		kubectl expose pod $podname --type=NodePort --name=$svcname --port=80
+		kubectl create deployment $deployname --image=$imagename
+		kubectl expose deployment $deployname --type=NodePort --name=$svcname --port=80
 	else
-		echo "$podname found"
+		echo "$deployname found"
 	fi
 	sleep 30
 done

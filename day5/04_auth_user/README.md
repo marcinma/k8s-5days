@@ -51,11 +51,11 @@ metadata:
 subjects:
 - kind: User
   name: ubuntu
-  apiGroup: ""
+  apiGroup: "rbac.authorization.k8s.io"
 roleRef:
   kind: Role
   name: deployment-manager
-  apiGroup: ""
+  apiGroup: "rbac.authorization.k8s.io"
 ```
 
 ```sh

@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: deploy-creator-operator
+  labels:
+    app: deploy-creator
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: deploy-creator
+  template:
+    metadata:
+      labels:
+        app: deploy-creator
+    spec:
+      serviceAccountName: deploy-creator-operator-account
+      containers:
+      - name: deploy-creator
+        image: marcinmakowski/kubernetes:deploy-creator.operator
+        imagePullPolicy: IfNotPresent

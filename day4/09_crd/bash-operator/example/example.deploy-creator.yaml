@@ -1,0 +1,8 @@
+apiVersion: bash-operators.marcin/v1alpha1
+kind: DeployCreator
+metadata:
+  name: example-deploy-creator
+spec:
+  createSvc: marcin-service
+  createDeploy: marcin 
+  imageName: nginx

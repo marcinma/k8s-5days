@@ -1,8 +1,0 @@
-apiVersion: bash-operators.maque/v1alpha1
-kind: PodCreator
-metadata:
-  name: example-pod-creator
-spec:
-  createSvc: test
-  createPod: marcin 
-  imageName: nginx

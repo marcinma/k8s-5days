@@ -7,18 +7,19 @@ https://kubernetes.io/docs/concepts/extend-kubernetes/api-extension/custom-resou
 # Create crd
 
 ```sh
-kubectl get podcreators
+kubectl get deploycreators
 kubectl apply -f bash-operator/kubernetes
 kubectl get CustomResourceDefinition
-kubectl get CustomResourceDefinition podcreators.bash-operators.maque
-kubectl get podcreators
+kubectl get CustomResourceDefinition deploycreators.bash-operators.marcin
+kubectl get deploycreators
+kubectl get dc
 ```
 
 ```sh
 kubectl apply -f bash-operator/example
-kubectl get podcreators
-kubectl logs -l app=pod-creator
-kubectl get pod
-kubectl get po | grep marcin
-kubectl describe svc test
+kubectl get dc
+kubectl logs -l app=deploy-creator
+kubectl get deploy
+kubectl get deploy | grep marcin
+kubectl describe svc marcin-service
 ```

@@ -1,0 +1,7 @@
+apiVersion: bash-operators.marcin/v1alpha1
+kind: DeployCreator
+metadata:
+  name: missing-fields
+spec:
+  createSvc: marcin-service
+  createDeploy: marcin 

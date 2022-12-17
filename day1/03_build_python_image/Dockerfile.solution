@@ -1,4 +1,4 @@
-FROM python:3.7.9
+FROM python:alpine3.17
 
 WORKDIR /usr/src/app
 COPY python_backend/requirements.txt .

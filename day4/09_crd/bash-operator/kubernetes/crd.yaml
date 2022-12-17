@@ -1,9 +1,9 @@
 apiVersion: apiextensions.k8s.io/v1
 kind: CustomResourceDefinition
 metadata:
-  name: podcreators.bash-operators.maque
+  name: deploycreators.bash-operators.marcin
 spec:
-  group: bash-operators.maque
+  group: bash-operators.marcin
   versions:
     - name: v1alpha1
       # Each version can be enabled/disabled by Served flag.
@@ -19,13 +19,19 @@ spec:
               properties:
                 createSvc:
                   type: string
-                createPod:
+                createDeploy:
                   type: string
                 imageName:
                   type: string
+                notRequiredValue:
+                  type: string
+              required:
+                - createSvc
+                - createDeploy
+                - imageName
   names:
-    kind: PodCreator
-    plural: podcreators
+    kind: DeployCreator
+    plural: deploycreators
     shortNames:
-    - pcs # check!
+    - dc # check!
   scope: Namespaced
