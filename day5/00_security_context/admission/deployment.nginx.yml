@@ -33,7 +33,7 @@ spec:
             runAsUser:  30001
             runAsGroup: 40001
             allowPrivilegeEscalation: true 
-            readOnlyRootFilesystem: true
+            readOnlyRootFilesystem: true # enforce an immutable infrastructure strategy
             capabilities:
                 drop:
                   - all

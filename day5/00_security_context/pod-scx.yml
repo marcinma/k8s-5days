@@ -18,4 +18,5 @@ spec:
     - name: sec-ctx-vol
       mountPath: /data/demo
     securityContext:
-      allowPrivilegeEscalation: false
+      allowPrivilegeEscalation: true
+      privileged: true # grants all of the system root’s capabilities

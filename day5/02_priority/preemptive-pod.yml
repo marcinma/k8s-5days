@@ -1,17 +1,27 @@
-apiVersion: v1
-kind: Pod
+apiVersion: apps/v1
+kind: Deployment
 metadata:
   name: nginx-high-priority
   labels:
-    env: test
+    type: priority
 spec:
-  containers:
-  - name: nginx
-    image: nginx
-    imagePullPolicy: IfNotPresent
-    resources:
-      requests:
-        cpu: 700m
-      limits:
-        cpu: 700m
-  priorityClassName: high-priority
+  replicas: 1
+  selector:
+    matchLabels:
+      type: priority
+  template:
+    metadata:
+      name: pod-name
+      labels:
+        type: priority
+    spec:
+      containers:
+      - name: nginx
+        image: nginx
+        imagePullPolicy: IfNotPresent
+        resources:
+          requests:
+            cpu: 700m
+          limits:
+            cpu: 700m
+      priorityClassName: high-priority

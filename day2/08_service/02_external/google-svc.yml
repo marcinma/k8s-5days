@@ -3,5 +3,7 @@ kind: Service
 metadata:
   name: google-service
 spec:
+  # When looking up the service google-service.default.svc.cluster.local, 
+  # the cluster DNS Service returns a CNAME record for google.com
   type: ExternalName
   externalName: "google.com"

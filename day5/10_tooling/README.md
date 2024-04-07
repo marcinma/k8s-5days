@@ -46,4 +46,10 @@ chmod +x k9s
 ./k9s
 ```
 
+# Visualize
+
+- https://github.com/mkimuram/k8sviz
+
+# Checklist
+
 - https://learnk8s.io/production-best-practices/

@@ -14,6 +14,8 @@ kubectl logs -f pod-reader
 
 
 ```sh
+kubectl get po my-pod-reader -o yaml # find projected volume
+kubectl exec -ti my-pod-reader -- ls /run/secrets/kubernetes.io/serviceaccount
 TOKEN=$(kubectl exec -ti my-pod-reader -- cat /run/secrets/kubernetes.io/serviceaccount/token)
 API_SERVER=https://trener-dns-1a789921.hcp.westeurope.azmk8s.io:443
 curl -k -H "Authorization: Bearer $TOKEN" $API_SERVER/api
@@ -21,6 +23,13 @@ curl -k -H "Authorization: Bearer $TOKEN" $API_SERVER/api/v1
 curl -k -H "Authorization: Bearer $TOKEN" $API_SERVER/api/v1/namespaces/default/pods
 curl -k -H "Authorization: Bearer $TOKEN" $API_SERVER/api/v1/namespaces/kube-system/pods
 ```
+
+Revoke token by removing pod
+```sh
+kubectl delete -f pod.yml
+curl -k -H "Authorization: Bearer $TOKEN" $API_SERVER/api/v1/namespaces/default/pods
+```
+
 
 # On Minikube
 

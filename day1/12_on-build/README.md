@@ -1,3 +1,7 @@
+# On build
+
+Register advance instructions to run later, during the next build stage. Prepare base dockerfile without access to code.
+
 ```sh
 docker image build -t base-python:on-build base/
 docker image build -t python-redis .

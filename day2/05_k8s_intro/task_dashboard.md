@@ -5,7 +5,7 @@ kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/v2.7.0/a
 ```sh
 kubectl create -f admin-user.yml
 kubectl create -f rbac-admin.yml
-
+# Manually create an API token for a ServiceAccount
 kubectl -n kubernetes-dashboard create token admin-user
 ```
 

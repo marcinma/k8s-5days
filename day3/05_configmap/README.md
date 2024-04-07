@@ -28,14 +28,44 @@ kubectl logs configmap-pod
 kubectl logs configmap-pod | grep Name
 ```
 
+Create different pods using same configmap
 ```sh
-kubectl create -f pod-config-volume.yaml
-kubectl logs configmap-volume-pod
+kubectl create -f pod-config-volume-items.yaml -f pod-config-volume-subpath.yaml -f pod-config-volume.yaml
+```
+
+Check default pod
+```sh
+kubectl exec -ti configmap-volume-pod -- ls /usr/local/nginx/html/
+kubectl exec -ti configmap-volume-pod -- cat /usr/local/nginx/html/service-b.config
+```
+
+Check pod with items
+```sh
+kubectl exec -ti configmap-volume-items -- ls /usr/local/nginx/html/
+kubectl exec -ti configmap-volume-items -- cat /usr/local/nginx/html/myconfig
+```
+
+Check pod with subpath
+```sh
+kubectl exec -ti configmap-volume-subpath -- ls /usr/local/nginx/html/
+kubectl exec -ti configmap-volume-subpath -- cat /usr/local/nginx/html/service-b.config
 ```
 
 # Autoupdates for mounted configmaps
 ```sh
 kubectl edit cm configuration
 # change service-b.config
-kubectl logs -f configmap-volume-pod
+# wait aprox 30 seconds
+sleep 30
+```
+
+Check autoupdate
+```sh
+kubectl exec -ti configmap-volume-pod -- cat /usr/local/nginx/html/service-b.config
+kubectl exec -ti configmap-volume-items -- cat /usr/local/nginx/html/myconfig
+```
+
+autoupdate doesn't work for subpath:
+```sh
+kubectl exec -ti configmap-volume-subpath -- cat /usr/local/nginx/html/service-b.config
 ```

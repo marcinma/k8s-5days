@@ -1,7 +1,10 @@
 # Create new Dockerfile on your own 
 
-- Use base image `python:3.7`
+- Use base image `python:alpine3.17`
+- Install curl with `apk add --update curl`
+- Create flask user with `addgroup -S flaskuser && adduser -S flaskuser -G flaskuser`
 - Set working dir (`Workdir`) to `/usr/src/app`
+- Change user to `flaskuser`
 - execute command in image `pip install --no-cache-dir -r requirements.txt`
 - allow port access on `5002`
 - copy main.py & requirements.txt files

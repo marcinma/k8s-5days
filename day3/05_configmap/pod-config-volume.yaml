@@ -7,15 +7,10 @@ spec:
     - name: servicejson
       configMap:
         name: configuration
-        #items:
-        #- key: service-b.config
-        #  path: myconfig
   containers:
     - name: test-container
-      image: k8s.gcr.io/busybox
-      command: [ "/bin/sh", "-c", "while true;do sleep 5;cat /etc/config/service-b.config;done" ]
-      #command: [ "/bin/sh", "-c", "while true;do sleep 5;cat /etc/config/myconfig;done" ]
+      image: ewoutp/docker-nginx-curl
       volumeMounts:
         - name: servicejson
-          mountPath: /etc/config
+          mountPath: /usr/local/nginx/html # this will remove any files in /usr/local/nginx/html folder and place configuration files
   restartPolicy: Never

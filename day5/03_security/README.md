@@ -10,3 +10,9 @@ kubectl get rolebindings --all-namespaces -o json > rolebindings.json
 kubectl get clusterrolebindings -o json > clusterrolebindings.json
 python3 ExtensiveRoleCheck.py --clusterRole clusterroles.json  --role Roles.json --rolebindings rolebindings.json --cluseterolebindings clusterrolebindings.json
 ```
+
+# Trivy
+
+```sh
+docker run --rm aquasec/trivy image python:alpine3.17
+```

@@ -1,8 +1,11 @@
-version: '3.2'
+version: '3.7'
 services:
   web:
     volumes:
       - ./:/usr/share/nginx/html/
+      #- type: bind
+      #  source: ./index.htm 
+      #  target: /usr/share/nginx/html/index.htm
     image: nginx:1.15.5
   python-redis:
     image: marcinmakowski/python-api:redis
@@ -10,5 +13,7 @@ services:
       - 5002:5002
     depends_on: 
       - redis
+    environment:
+      LOG_LEVEL: ${LOG_LEVEL}
   redis:
     image: redis:5.0.10

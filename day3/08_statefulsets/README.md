@@ -31,7 +31,8 @@ kubectl logs nslookup-stsf
 
 # Partition for canary update
 
-https://kubernetes.io/docs/tutorials/stateful-application/basic-stateful-set/#rolling-out-a-canary
+- https://kubernetes.io/docs/tutorials/stateful-application/basic-stateful-set/#rolling-out-a-canary
+- https://kubernetes.io/docs/concepts/workloads/controllers/statefulset/#partitions
 
 ```
 kubectl apply -f nginx.statefulset-partition.yaml
@@ -39,3 +40,5 @@ kubectl get po
 kubectl exec -ti nginx-stsf-1 -- env | grep VERSION
 kubectl exec -ti nginx-stsf-0 -- env | grep VERSION
 ```
+
+**Important!** : Pods with an ordinal that is less than the partition will not be updated, even if they are deleted, they will be recreated at the previous version

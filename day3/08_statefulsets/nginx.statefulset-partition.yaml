@@ -21,7 +21,7 @@ spec:
   replicas: 2
   updateStrategy:
     rollingUpdate:
-      partition: 1
+      partition: 1 # Pods with an ordinal that is greater than or equal to the partition will be updated
     type: RollingUpdate
   selector:
     matchLabels:

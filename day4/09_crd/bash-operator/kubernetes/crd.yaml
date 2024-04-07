@@ -4,7 +4,7 @@ metadata:
   name: deploycreators.bash-operators.marcin
 spec:
   group: bash-operators.marcin
-  versions:
+  versions:    
     - name: v1alpha1
       # Each version can be enabled/disabled by Served flag.
       served: true
@@ -33,5 +33,5 @@ spec:
     kind: DeployCreator
     plural: deploycreators
     shortNames:
-    - dc # check!
+    - dc
   scope: Namespaced

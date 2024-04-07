@@ -32,10 +32,13 @@ spec:
           securityContext:
             runAsUser:  30001
             runAsGroup: 40001
+            #  Controls whether a process can gain more privileges than its parent process
             allowPrivilegeEscalation: false 
             readOnlyRootFilesystem: true
             seccompProfile:
-              type: RuntimeDefault
+              # https://docs.docker.com/engine/security/seccomp/#significant-syscalls-blocked-by-the-default-profile
+              type: RuntimeDefault # secure computing mode
             capabilities:
+              # https://docs.docker.com/engine/reference/run/#runtime-privilege-and-linux-capabilities
                 drop:
                   - ALL
