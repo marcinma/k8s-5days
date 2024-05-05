@@ -1,21 +1,22 @@
 apiVersion: apps/v1
-kind: ReplicaSet
+kind: Deployment
 metadata:
-  name: conflict-a
-  namespace: default
+  name: nginx-deployment
   labels:
-    some: other-label
+    app: myapp
 spec:
-  replicas: 2
+  replicas: 1
   selector:
-    matchExpressions:
-    - {key: app, operator: In, values: [myapp]}
+    matchLabels:
+      app: myapp
   template:
     metadata:
-      name: myapp-pod-new
+      name: myapp-pod
       labels:
         app: myapp
     spec:
       containers:
       - name: myapp-container
         image: ewoutp/docker-nginx-curl
+        ports:
+          - containerPort: 80
