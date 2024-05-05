@@ -1,4 +1,4 @@
-```
+```sh
 docker image pull marcinmakowski/workshops:password
 docker image save -o pass.tar marcinmakowski/workshops:password
 tar -xvf pass.tar

@@ -8,3 +8,6 @@ nodes:
 - role: worker
   labels:
     ingress-ready: true
+networking:
+  disableDefaultCNI: true
+  podSubnet: 192.168.0.0/16

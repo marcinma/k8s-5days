@@ -22,7 +22,7 @@ docker container exec -ti <container_name> /bin/sh
 
 # Ignore files
 
-Create `.dockerignore`
+Create `.dockerignore` in nginx folder
 
 ```.dockerignore
 Dockerfile
@@ -34,7 +34,7 @@ password
 ```sh
 docker image build -t my-nginx:1 -f nginx/Dockerfile nginx/
 ```
-2. Run container one more time
+2. Run container one more time from this version
 3. Verify that password file is no longe there
 4. Check nginx images
 

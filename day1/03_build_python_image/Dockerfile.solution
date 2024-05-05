@@ -8,6 +8,9 @@ WORKDIR /usr/src/app
 USER flaskuser
 
 COPY python_backend/requirements.txt .
+
+ENV PATH="${PATH}:/home/flaskuser/.local/bin"
+
 RUN pip install --no-cache-dir -r requirements.txt
 
 COPY python_backend/ .

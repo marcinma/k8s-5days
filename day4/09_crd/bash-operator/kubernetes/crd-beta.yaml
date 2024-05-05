@@ -4,12 +4,30 @@ metadata:
   name: deploycreators.bash-operators.marcin
 spec:
   group: bash-operators.marcin
-  versions:    
-    - name: v1alpha1
-      # Each version can be enabled/disabled by Served flag.
+  versions:
+    - name: v1beta1
       served: true
-      # One and only one version must be marked as the storage version.
       storage: true
+      schema:
+        openAPIV3Schema:
+          type: object
+          properties:
+            spec:
+              type: object
+              properties:
+                createSvc:
+                  type: string
+                createDeploy:
+                  type: string
+                imageName:
+                  type: string
+              required:
+                - createSvc
+                - createDeploy
+                - imageName
+    - name: v1alpha1
+      served: true
+      storage: false # will no longer keep object data in this version in etcd
       schema:
         openAPIV3Schema:
           type: object

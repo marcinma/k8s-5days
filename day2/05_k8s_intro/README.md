@@ -1,19 +1,12 @@
-# Attach AKS
-
-*Install az*
-
-- https://docs.microsoft.com/en-us/cli/azure/install-azure-cli-windows?tabs=azure-cli
-- https://docs.microsoft.com/en-us/cli/azure/install-azure-cli-linux?pivots=apt
-
-
+# Kind install
 
 ```sh
-az login --tenant f37e3e30-0f6f-478b-952b-143b9f1b4aa2
-az account set --subscription aa746456-a787-436c-aa63-689f4a7ec42c
-az aks get-credentials --resource-group DefaultResourceGroup-WEU --name trener
+sudo wget https://kind.sigs.k8s.io/dl/v0.19.0/kind-linux-amd64 -O /usr/local/bin/kind
+sudo chmod +x /usr/local/bin/kind
+sudo kind create cluster --name k8s-playground --config ../../k8sAdvancedTopics/02_kind_cluster/kind-config.yml
 ```
 
-*install kubectl*
+# K8s
 
 
 Do this first!

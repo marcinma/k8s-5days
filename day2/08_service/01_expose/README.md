@@ -13,7 +13,7 @@ this works also on rc/deployment/ etc.
 kubectl get service
 ```
 
-Node port is exposed on each Azure VM
+Node port is exposed on each worker node
 ```sh
 kubectl exec -ti myapp-pod -- curl <node-ip>:<node-port>
 ```
@@ -28,18 +28,15 @@ kubectl exec -ti myapp-pod -- curl my-app-service.default.svc.cluster.local
 kubectl exec -ti myapp-pod -- cat /etc/resolv.conf
 ```
 
-# Remove pod and create it
-
-```sh
-kubectl delete pod myapp-pod
-kubectl create -f ../../06_pod/pod.yml
-```
-
-**Look at env exposed to POD**
+# Check env exposed to service then recreate it
 
 ```sh
 kubectl exec -ti myapp-pod -- env
+kubectl delete pod myapp-pod
+kubectl create -f ../../06_pod/pod.yml
+kubectl exec -ti myapp-pod -- env
 ```
+
 
 # Inspect services
 

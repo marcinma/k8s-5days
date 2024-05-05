@@ -58,5 +58,8 @@ map[/data:{}]
 docker container stop  my-redis
 docker container stop my-python-service
 docker container prune -f
+docker network ls
+docker network prune
+docker volume ls
 docker volume prune -f
 ```

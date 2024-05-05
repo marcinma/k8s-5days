@@ -4,13 +4,17 @@ ref: https://kubernetes.io/docs/reference/access-authn-authz/authentication/
 # User
 https://www.adaltas.com/en/2019/08/07/users-rbac-kubernetes/
 
+# Copy crt & key
+docker cp k8s-playground-control-plane:/etc/kubernetes/pki/ca.crt .
+docker cp k8s-playground-control-plane:/etc/kubernetes/pki/ca.key .
+
 ```sh
 openssl genrsa -out ubuntu.key 2048
 openssl rand -writerand .rnd
 openssl req -new -key ubuntu.key   -out ubuntu.csr   -subj "/CN=ubuntu"
 sudo openssl x509 -req -in ubuntu.csr \
-  -CA /etc/kubernetes/pki/ca.crt \
-  -CAkey /etc/kubernetes/pki/ca.key \
+  -CA ca.crt \
+  -CAkey ca.key \
   -CAcreateserial \
   -out ubuntu.crt -days 500
 
@@ -19,8 +23,8 @@ mkdir .certs && mv ubuntu.crt ubuntu.key .certs
 
 ```sh
 kubectl config set-credentials ubuntu \
-  --client-certificate=/home/ubuntu/.certs/ubuntu.crt \
-  --client-key=/home/ubuntu/.certs/ubuntu.key
+  --client-certificate=$(pwd)/.certs/ubuntu.crt \
+  --client-key=$(pwd)/.certs/ubuntu.key
 
 kubectl config set-context ubuntu-context \
   --cluster=kubernetes --user=ubuntu
@@ -29,6 +33,10 @@ kubectl --context=ubuntu-context get pods
 kubectl create ns workshop
 ```
 apply roles:
+```sh
+kubectl apply -f role-binding.yml -f role.yml
+```
+
 
 ```yaml
 kind: Role

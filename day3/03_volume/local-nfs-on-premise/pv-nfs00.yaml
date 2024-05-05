@@ -5,12 +5,13 @@ metadata:
   labels:
     app: pv0000
 spec:
+  storageClassName: my-storage-class
   capacity:
     storage: 1Gi
   accessModes:
     - ReadWriteOnce
   nfs:
     path: /var/nfs/general/00
-    server: 192.168.0.102
+    server: 192.168.0.2
   persistentVolumeReclaimPolicy: Recycle
 

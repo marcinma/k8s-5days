@@ -36,6 +36,7 @@ kubectl describe rs replicate-my-app
 kubectl delete rs replicate-my-app --cascade=orphan
 kubectl get rs
 kubectl get pod -o wide
+kubectl delete pod -l app=myapp
 ```
 
 # Match Labels expressions vs MatchLabels

@@ -20,10 +20,6 @@ spec:
       labels:
         app: python-taints
     spec:
-      tolerations:
-      - key: "key"
-        operator: "Exists"
-        effect: "NoSchedule"
       containers:
       - name: python-container
         image: marcinmakowski/python-api:redis

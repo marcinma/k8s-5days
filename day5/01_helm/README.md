@@ -17,6 +17,7 @@ helm package example-app
 mv example-project-0.1.0.tgz my-repository
 helm repo index my-repository --url http://localhost:8080
 helm repo add my-repository http://localhost:8080
+helm repo update
 helm search repo my-repository
 helm install my-repository/example-project --generate-name
 ```
@@ -27,7 +28,7 @@ helm package solution/py-redis
 sudo chown 1001:1001 my-repository/
 curl --data-binary "@py-redis-0.1.0.tgz" http://localhost:8080/api/charts
 helm repo update my-repository
-helm repo search my-repository
+helm search repo my-repository
 ```
 
 lets update version in `solution/py-redis/Chart.yaml` to `0.1.1`

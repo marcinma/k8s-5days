@@ -27,6 +27,7 @@ kubectl rollout status deploy -n test-1 nginx-readiness
 kubectl -n test-1 get deploy nginx-readiness
 kubectl -n test-1 describe rs $(kubectl -n test-1 get rs -o jsonpath='{.items[0].metadata.name}')
 kubectl -n test-1 get po
+kubectl delete ns test-1
 ```
 
 https://kubernetes.io/docs/tasks/administer-cluster/manage-resources/memory-default-namespace/

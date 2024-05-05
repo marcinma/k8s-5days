@@ -34,3 +34,4 @@ Second with `-v my-volume:/data`
 4. Exec into second container and create new file in `/data` folder
 5. Verify first container can read file
 6. Verify first container can't write file to `/data`
+7. Remove containers and volumes

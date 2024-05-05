@@ -14,27 +14,23 @@ https://kubernetes.io/docs/concepts/security/pod-security-admission/
 
 ```sh
 kubectl create -f pod-scx.yml
-kubectl exec -ti pod-scx -- sh
+kubectl exec -ti pod-scx -- id
+kubectl exec -ti pod-scx -- ps
+kubectl exec -ti pod-scx -- ls -l /data
 ```
 
-```sh
-id
-ps
-ls -l /data
-```
 
 # Reading logs from containers
 
 ```sh
 kubectl create -f pod-log.yml
-kubectl exec -ti read-vol-log -- /bin/sh
+kubectl exec -ti cant-read-vol-log -- /bin/sh
 cd /var/log/pods
 ```
 
-try to read logs
-change group/user to 0
+
 ```sh
-kubectl replace --force -f pod-log.yml
+kubectl create -f pod-log-can-read.yml
 kubectl exec -ti read-vol-log -- /bin/sh
 cd /var/log/pods
 ```

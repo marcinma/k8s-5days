@@ -12,12 +12,13 @@ kubectl logs -f pod-reader
 ```
 # Get the ServiceAccount token from within the Pod's container
 
+Find server IP in ~/.kube/config
 
 ```sh
 kubectl get po my-pod-reader -o yaml # find projected volume
 kubectl exec -ti my-pod-reader -- ls /run/secrets/kubernetes.io/serviceaccount
 TOKEN=$(kubectl exec -ti my-pod-reader -- cat /run/secrets/kubernetes.io/serviceaccount/token)
-API_SERVER=https://trener-dns-1a789921.hcp.westeurope.azmk8s.io:443
+API_SERVER=https://127.0.0.1:37759
 curl -k -H "Authorization: Bearer $TOKEN" $API_SERVER/api
 curl -k -H "Authorization: Bearer $TOKEN" $API_SERVER/api/v1
 curl -k -H "Authorization: Bearer $TOKEN" $API_SERVER/api/v1/namespaces/default/pods

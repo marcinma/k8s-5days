@@ -9,6 +9,8 @@ kubectl -n workshops describe pod/$PO
 kubectl diff -f replica-set.yaml
 kubectl -n workshops exec -ti $PO -- curl my-app.workshops
 kubectl -n workshops get svc
-curl 192.168.0.101:31677
+IP=$(kubectl get nodes -o jsonpath='{.items[0].status.addresses[0].address}')
+PORT=$(kubectl get svc -n workshops my-app -o jsonpath='{.spec.ports[0].nodePort}')
+curl $IP:$PORT
 kubectl delete ns workshops
 ```

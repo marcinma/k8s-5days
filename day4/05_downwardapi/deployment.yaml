@@ -1,0 +1,53 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: downward
+  labels:
+    app: downward
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: downward
+  template:
+    metadata:
+      name: downward-pod
+      labels:
+        app: downward
+    spec:
+      restartPolicy: Always
+      containers:
+        - name: downward-container
+          image: busybox
+          command: ["sh", "-c", "sleep 3600"]
+          resources:
+            requests:
+              cpu: 100m
+          env:
+            - name: PODNAME
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.name
+            - name: PODIP
+              valueFrom:
+                fieldRef:
+                  fieldPath: status.podIP
+            - name: MY_CPU_REQUEST
+              valueFrom:
+                resourceFieldRef:
+                  containerName: downward-container
+                  resource: requests.cpu
+                  divisor: 1m
+          volumeMounts:
+            - name: podinfo
+              mountPath: /etc/podinfo
+      volumes:
+        - name: podinfo
+          downwardAPI:
+            items:
+              - path: "labels"
+                fieldRef:
+                  fieldPath: metadata.labels
+              - path: "annotations"
+                fieldRef:
+                  fieldPath: metadata.annotations

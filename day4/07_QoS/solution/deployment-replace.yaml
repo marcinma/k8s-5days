@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-qos
+  namespace: limits
+  labels:
+    app: qos
+spec:
+  replicas: 1
+  progressDeadlineSeconds: 20
+  selector:
+    matchLabels:
+      app: qos
+  template:
+    metadata:
+      name: qos-pod
+      labels:
+        app: qos
+    spec:
+      containers:
+      - name: myapp-container
+        image: ewoutp/docker-nginx-curl
+        ports:
+          - containerPort: 80
+        resources:
+          limits:
+            cpu: "100m"
+            memory: "1.5Gi"
+          requests:
+            cpu: "100m"
+            memory: "1.5Gi"

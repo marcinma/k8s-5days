@@ -11,4 +11,5 @@ kubectl exec -ti lifecycle-demo -- cat /usr/share/message
 ```sh
 kubectl create -f withsidecar.yml
 kubectl get pod sidecar-container-demo
+kubectl exec -ti sidecar-container-demo -c main-container -- cat /usr/share/nginx/html/index.html
 ```

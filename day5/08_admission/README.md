@@ -12,3 +12,5 @@ kubectl create cm nginx-conf --from-file=nginx.conf=./nginx.conf
 kubectl create -f pod.yml
 kubectl describe po demo-pod
 ```
+
+Pod has injected sidecar

@@ -54,3 +54,10 @@ docker network inspect network-b
 docker container exec -ti b1  curl n2
 docker container exec -ti b2  curl n1
 ```
+
+remove
+
+```sh
+docker container rm -f b1 b2 a1 a2
+docker network rm network-a network-b
+```

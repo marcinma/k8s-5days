@@ -1,0 +1,23 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: pod-projected
+  labels:
+    app: projected
+spec:
+  serviceAccountName: pods-reader
+  containers:
+    - name: mycontainer
+      image: ewoutp/docker-nginx-curl
+      volumeMounts:
+      - name: token-vol
+        mountPath: /sa
+  volumes:
+  - name: token-vol
+    # issue https://stackoverflow.com/questions/57192079/serviceaccount-token-volume-projection-projected-token-in-path-in-manifest-f
+    projected: # https://kubernetes.io/docs/concepts/storage/projected-volumes/
+      sources:
+      - serviceAccountToken:
+          audience: api
+          expirationSeconds: 600
+          path: token

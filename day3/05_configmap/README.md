@@ -56,12 +56,13 @@ kubectl exec -ti configmap-volume-subpath -- cat /usr/local/nginx/html/service-b
 kubectl edit cm configuration
 # change service-b.config
 # wait aprox 30 seconds
+kubectl exec -ti configmap-volume-pod -- cat /usr/local/nginx/html/service-b.config
 sleep 30
+kubectl exec -ti configmap-volume-pod -- cat /usr/local/nginx/html/service-b.config
 ```
 
 Check autoupdate
 ```sh
-kubectl exec -ti configmap-volume-pod -- cat /usr/local/nginx/html/service-b.config
 kubectl exec -ti configmap-volume-items -- cat /usr/local/nginx/html/myconfig
 ```
 

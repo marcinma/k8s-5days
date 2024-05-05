@@ -11,17 +11,18 @@ https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale-walkth
 ```sh
 kubectl create -f hpa/sqrt.deployment.yaml
 kubectl create -f hpa/sqrt.service.yaml
-kubectl create -f hpa/hpa.yml
+kubectl create -f hpa/hpa.yaml
 kubectl get hpa
 
-kubectl get svc sqrt-generator
-curl localhost:32402
+PORT=$(kubectl get svc sqrt-generator -o jsonpath='{.spec.ports[0].nodePort}')
+IP=$(kubectl get node k8s-playground-worker -o jsonpath='{.status.addresses[0].address}')
+curl $IP:$PORT
 
 
 
-for i in {1..10}; do kubectl exec -ti nginx-stsf-0 -- curl sqrt-generator & done
+for i in {1..10}; do curl $IP:$PORT > /dev/null & done
 watch kubectl get hpa
-watch kubectl get pods
+watch kubectl get pods -l  app=sqrt
 ```
 
 # V2
@@ -31,7 +32,10 @@ kubectl create -f hpa-v2/deployment.yml
 kubectl create -f hpa-v2/hpa-v2.yml
 kubectl get hpa
 kubectl run -i --tty load-generator --rm --image=busybox:1.28 --restart=Never -- /bin/sh -c "while sleep 0.01; do wget -q -O- http://php-apache; done"
+kubectl get po -l run=php-apache
 kubectl get hpa
 kubectl get deployment php-apache
-
+sleep 30
+kubectl get hpa
+kubectl get po -l run=php-apache
 ```

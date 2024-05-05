@@ -1,20 +1,28 @@
 Make sure nfs can be mounted (DNS resolution)
 
 ```sh
+sudo apt update
 sudo apt install nfs-common nfs-kernel-server cifs-utils -y
 sudo mkdir /var/nfs/general/00 -p
 sudo mkdir /var/nfs/general/01
 sudo chown -R nobody:nogroup /var/nfs/general
-
+echo 
 sudo vim /etc/exports
 ```
 
 ```exports
-/var/nfs/general     127.0.0.1(rw,sync,insecure,no_root_squash,no_subtree_check) 192.168.0.101(rw,sync,insecure,no_root_squash,no_subtree_check) 192.168.0.102(rw,sync,insecure,no_root_squash,no_subtree_check)
+/var/nfs/general     127.0.0.1(rw,sync,insecure,no_root_squash,no_subtree_check) 192.168.0.2(rw,sync,insecure,no_root_squash,no_subtree_check) 192.168.0.3(rw,sync,insecure,no_root_squash,no_subtree_check) 192.168.0.4(rw,sync,insecure,no_root_squash,no_subtree_check)
+```
+
+or
+
+```sh
+echo "/var/nfs/general     127.0.0.1(rw,sync,insecure,no_root_squash,no_subtree_check) 192.168.0.2(rw,sync,insecure,no_root_squash,no_subtree_check) 192.168.0.3(rw,sync,insecure,no_root_squash,no_subtree_check) 192.168.0.4(rw,sync,insecure,no_root_squash,no_subtree_check)" >> /etc/exports
 ```
 
 
 ```sh
+systemctl restart nfs-kernel-server
 sudo exportfs -ra
 sudo systemctl restart nfs-kernel-server
 ```
@@ -22,6 +30,7 @@ sudo systemctl restart nfs-kernel-server
 ## On each worker that will mount volume
 
 ```sh
+sudo apt update
 sudo apt install nfs-common cifs-utils -y
 ```
 

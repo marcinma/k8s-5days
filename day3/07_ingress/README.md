@@ -12,5 +12,17 @@ kubectl get svc -n=ingress-nginx
 kubectl create -f hello-app/hello.deployment.yaml
 kubectl create -f hello-app/hello.ingress.yaml
 kubectl get ing
+PORT=$(kubectl get svc -n=ingress-nginx ingress-nginx-controller -o jsonpath='{.spec.ports[0].nodePort}')
 ```
 
+```sh
+sudo vim /etc/hosts
+```
+
+```/etc/hosts
+192.168.0.2     mydomain.com
+```
+
+```sh
+curl mydomain.com:$PORT/hello
+```

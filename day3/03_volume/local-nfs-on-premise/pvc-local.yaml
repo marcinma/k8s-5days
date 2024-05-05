@@ -10,3 +10,7 @@ spec:
   resources:
     requests:
       storage: 1Mi
+  storageClassName: my-storage-class
+  selector:
+    matchLabels:
+      app: pv0000

@@ -1,4 +1,4 @@
-apiVersion: bash-operators.marcin/v1alpha1
+apiVersion: bash-operators.marcin/v1beta1
 kind: DeployCreator
 metadata:
   name: example-deploy-creator

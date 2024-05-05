@@ -8,11 +8,11 @@ metadata:
 spec:
   ingressClassName: nginx
   rules:
-  - host: trenersages.westeurope.cloudapp.azure.com
+  - host: mydomain.com
     http:
       paths:
       - pathType: Prefix
-        path: "/"
+        path: "/wordpress"
         backend:
           service:
             name: wordpress-service

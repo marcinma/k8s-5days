@@ -10,5 +10,6 @@ echo "new">/usr/local/nginx/html/index.html
 kubectl exec -ti $NEW -- curl canary-service
 kubectl exec -ti $NEW -- curl canary-service
 kubectl exec -ti $NEW -- curl canary-service
-curl hello-world.info/canary
+PORT=$(kubectl get svc -n=ingress-nginx ingress-nginx-controller -o jsonpath='{.spec.ports[0].nodePort}')
+curl mydomain.com:$PORT/canary
 ```

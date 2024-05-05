@@ -39,8 +39,8 @@ spec:
 ```
 
 ```sh
-kubectl label nodes aks-agentpool-36056202-vmss000000 color=red
-kubectl label nodes aks-agentpool-36056202-vmss000001 color=green
+kubectl label nodes k8s-playground-worker color=red
+kubectl label nodes k8s-playground-worker2 color=green
 kubectl get nodes --show-labels
 kubectl get nodes -l color=red
 ```

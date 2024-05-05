@@ -27,3 +27,8 @@ Remove all dangling images
 docker rmi $(docker image ls -q -f dangling=true)
 ```
 
+Verify image is no longer dangling
+
+```sh
+docker image ls | grep $ID
+```

@@ -34,9 +34,9 @@ kubectl logs nslookup-stsf
 - https://kubernetes.io/docs/tutorials/stateful-application/basic-stateful-set/#rolling-out-a-canary
 - https://kubernetes.io/docs/concepts/workloads/controllers/statefulset/#partitions
 
-```
+```sh
 kubectl apply -f nginx.statefulset-partition.yaml
-kubectl get po
+kubectl get po -l app=stsf
 kubectl exec -ti nginx-stsf-1 -- env | grep VERSION
 kubectl exec -ti nginx-stsf-0 -- env | grep VERSION
 ```

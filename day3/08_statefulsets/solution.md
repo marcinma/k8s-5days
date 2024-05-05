@@ -1,14 +1,16 @@
 ```sh
 kubectl scale statefulset nginx-stsf --replicas=4
-kubectl get pods --watch
+kubectl get pods -l app=stsf --watch
 kubectl scale statefulset nginx-stsf --replicas=0
 kubectl describe statefulset nginx-stsf
 kubectl get pvc
 kubectl scale statefulset nginx-stsf --replicas=2
+kubectl get pods -l app=stsf --watch
 kubectl exec -ti nginx-stsf-0 -- curl localhost
 kubectl exec -ti nginx-stsf-1 -- curl localhost
 kubectl delete pvc nginx-local-claim-nginx-stsf-3
 kubectl delete pvc nginx-local-claim-nginx-stsf-2
+kubectl delete -f nginx.statefulset.yaml
 ```
 
 **output**

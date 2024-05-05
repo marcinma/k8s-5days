@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: configmap-volume-subpath
+spec:
+  volumes:
+    - name: myconfig
+      configMap:
+        name: configuration
+  containers:
+    - name: test-container
+      image: ewoutp/docker-nginx-curl
+      volumeMounts:
+        - name: myconfig
+          mountPath: /usr/local/nginx/html/service-b.config
+          subPath: service-b.config # won't refresh
+  restartPolicy: Never

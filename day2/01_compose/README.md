@@ -15,3 +15,7 @@ in `01_build` run `docker-compose up -d`
 verify running service
 
 `docker-compose ps`
+
+bring down
+
+`docker-compose down`

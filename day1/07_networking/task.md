@@ -22,7 +22,7 @@ curl 127.0.0.1:5002/api/v1/info
 
 - list volume - find one created by redis
 *Use  container inspect*
-```
+```sh
 -f "{{ (index .Mounts 0).Name }}"
 ```
 - STOP container
@@ -31,7 +31,7 @@ curl 127.0.0.1:5002/api/v1/info
 
 - find mount point with inspect using
 *Use image inspect*
-```
+```sh
  -f "{{.ContainerConfig.Volumes}}"
 ```
 - create redis again attached to volume - check counter

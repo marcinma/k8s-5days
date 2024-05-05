@@ -17,5 +17,5 @@ kubectl get pods pod-with-annotations -o jsonpath='{.metadata.annotations}'
 kubectl describe pods pod-with-annotations 
 kubectl annotate pod pod-with-annotations workshop.test-
 kubectl describe pods pod-with-annotations 
-
+kubectl delete -f pod.yml
 ```
