@@ -13,4 +13,6 @@ add `- --kubelet-insecure-tls` in `args`
 
 ```sh
 kubectl get --raw "/apis/metrics.k8s.io/v1beta1/namespaces/default/pods"
+kubectl top nodes
+kubectl top pods
 ```

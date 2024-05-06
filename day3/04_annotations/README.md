@@ -12,7 +12,8 @@ You can use Kubernetes annotations to attach arbitrary non-identifying metadata 
 
 ```sh
 kubectl create -f pod.yml
-kubectl annotate pod  pod-with-annotations workshop.test=verified
+kubectl annotate pod pod-with-annotations workshop.test=verified
+kubectl annotate pod pod-with-annotations --list
 kubectl get pods pod-with-annotations -o jsonpath='{.metadata.annotations}'
 kubectl describe pods pod-with-annotations 
 kubectl annotate pod pod-with-annotations workshop.test-
