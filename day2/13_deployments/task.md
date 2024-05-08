@@ -73,15 +73,15 @@ kubectl describe rs <replica_set_name>
 kubectl delete -f deployment.yaml
 kubectl create -f deployment.yaml
 kubectl describe deploy nginx-deployment
-kubectl get deploy nginx-deployment -o jsonpath='{.metadata.annotations}'
-kubectl apply -f deployment-to-replace.yaml
+kubectl get deploy nginx-deployment -o jsonpath='{.metadata.annotations}' # revsion 1
+kubectl apply -f deployment-to-replace.yaml # warning
 kubectl describe deploy nginx-deployment
-kubectl get deploy nginx-deployment -o jsonpath='{.metadata.annotations}'
+kubectl get deploy nginx-deployment -o jsonpath='{.metadata.annotations}' # revision 2 + last applied config
 kubectl replace -f deployment-to-replace.yaml
 kubectl describe deploy nginx-deployment
-kubectl get deploy nginx-deployment -o jsonpath='{.metadata.annotations}'
+kubectl get deploy nginx-deployment -o jsonpath='{.metadata.annotations}' # revision 3, other annotation removed
 kubectl replace --force --save-config -f deployment-to-replace.yaml # deletes & creates
-kubectl get deploy nginx-deployment -o jsonpath='{.metadata.annotations}'
+kubectl get deploy nginx-deployment -o jsonpath='{.metadata.annotations}' # revision 1 + last applied config
 ```
 
 

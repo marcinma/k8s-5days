@@ -70,3 +70,12 @@ autoupdate doesn't work for subpath:
 ```sh
 kubectl exec -ti configmap-volume-subpath -- cat /usr/local/nginx/html/service-b.config
 ```
+
+# immutable
+
+```sh
+kubectl create -f immutable-configmap.yaml
+kubectl patch cm/immutable -p '{"data":{"somekey":"newvalue"}}'
+kubectl create -f mutable-configmap.yaml
+kubectl patch cm/mutable -p '{"data":{"somekey":"newvalue"}}'
+```

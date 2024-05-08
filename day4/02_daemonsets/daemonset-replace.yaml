@@ -27,5 +27,5 @@ spec:
           - containerPort: 80
         env:
           - name: TEST
-            value: TEST
+            value: TEST2
 

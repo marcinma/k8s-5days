@@ -8,11 +8,13 @@ kubectl delete pvc --all
 ```
 
 ```sh
-kubectl create -f daemonset.yaml
+kubectl apply -f daemonset.yaml
 kubectl get ds
 kubectl get pod -l app=ds -o wide
 kubectl rollout status ds/nginx-ds
-kubectl patch ds/nginx-ds -p '{"spec":{"template":{"spec":{"containers":[{"name":"myapp-ds","env":[{"name":"TEST","value":"TEST2"}]}]}}}}'
+kubectl replace -f daemonset-replace.yaml
+kubectl rollout status ds/nginx-ds
+kubectl rollout history ds/nginx-ds --revision 2
 watch kubectl get pod -l app=ds -o wide
 kubectl delete -f daemonset.yaml
 ```
