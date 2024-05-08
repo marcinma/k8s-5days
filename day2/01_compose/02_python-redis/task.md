@@ -1,18 +1,22 @@
 # Create compose file for nginx, python, redis
 
 1. Web (nginx) service
+- name it `web`
 - create index.htm and mount with `volumes` in yaml to `/usr/share/nginx/html/`
 - use image `nginx:1.15.5`
 
 2. Python service
 - add service with `python` image builded in day1/03_build_python_image and expose on port `5002`
 - alternatively you can use hub image `marcinmakowski/python-api:redis`
-- add `depends_on:` to python to depend on redis
+- add `depends_on:` to python to depend on `redis` service
 - don't use port forward nginx
 - scale service `docker-compose up -d --scale web=3`
 - `docker-compose exec python curl web` should access created index.htm
 - `docker-compose down` stops & removes all stuff (see help)
 - run single service `docker-compose up -d python`, should start redis
+
+3. Redis service
+- add service with image `redis:5.0.10`
 
 # check containers 
 
