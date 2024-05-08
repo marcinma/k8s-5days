@@ -1,0 +1,5 @@
+apiVersion: v2 # helm version
+appVersion: "1.0" # version app
+description: A Helm chart for Kubernetes
+name: example-project
+version: 0.1.0 # chart version

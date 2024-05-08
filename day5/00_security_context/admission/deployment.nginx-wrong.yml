@@ -2,18 +2,18 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
-    node.type: nginx
-  name: nginx
+    node.type: nginx-wrong
+  name: nginx-wrong-user
   namespace: app
 spec:  
   replicas: 1
   selector:
     matchLabels:
-      node.type: nginx
+      node.type: nginx-wrong
   template:
     metadata:
       labels:
-        node.type: nginx
+        node.type: nginx-wrong
     spec: 
       securityContext: 
         runAsUser:  10001
@@ -30,8 +30,6 @@ spec:
               memory: "128Mi"
               cpu: "500m"
           securityContext:
-            runAsUser:  0
-            runAsGroup: 0
             allowPrivilegeEscalation: true 
             # readOnlyRootFilesystem: true # enforce an immutable infrastructure strategy
             capabilities:

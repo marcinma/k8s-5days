@@ -64,3 +64,10 @@ kubectl get pod <name> -o yaml > pod.yml
 ```sh
 kubectl -n kube-system get all
 ```
+
+Get cluster events
+
+```sh
+kubectl get events
+kubectl get events -o json
+```

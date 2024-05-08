@@ -16,7 +16,7 @@ spec:
         distributed: cache
     spec:
       affinity:
-        podAntiAffinity:
+        podAntiAffinity: # don't run this pod on node on which pods are meeting requirement
           requiredDuringSchedulingIgnoredDuringExecution:
           - labelSelector:
               matchExpressions:

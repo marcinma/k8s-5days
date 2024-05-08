@@ -1,0 +1,21 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ include "mytemplate" . | lower | quote }}
+  labels:
+    release: {{ .Release.Name }}
+data:
+  req: {{ required "Reg is required!" .Values.req }}
+  noreq: {{ .Values.noreq | default "not-set" }}
+  indent: {{ include "mytemplate" .Values.req | indent 2 }}
+  reqFromTpl: {{ include "myreq" . }}
+  print: {{ printf "{%s}" .Values.req }}
+  hash: {{ include (print $.Template.BasePath "/secret.yml") . | sha256sum }}
+  rep: {{ repeat 3 .Values.req }}
+  {{ if eq .Values.req "test2" }}test2: "true"{{ end -}}
+  {{- if eq .Values.req "test2" }}
+  testIndent: "true"
+  {{- end -}}
+  {{- with .Values.User -}}
+  name: {{ .name }}
+  {{- end }}

@@ -34,3 +34,4 @@ kubectl create -f pod-log-can-read.yml
 kubectl exec -ti read-vol-log -- /bin/sh
 cd /var/log/pods
 ```
+
