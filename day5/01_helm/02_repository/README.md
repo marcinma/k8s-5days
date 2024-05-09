@@ -32,4 +32,11 @@ rm py-redis-0.1.1.tgz
 helm repo update my-repository
 helm search repo my-repository -l
 helm install --version 0.1.1 --generate-name --dry-run --namespace test my-repository/py-redis
+kubectl create ns test
+helm install --version 0.1.1 my-name --namespace test my-repository/py-redis
+helm list --pending -A
+helm uninstall my-name
+helm uninstall my-name -n test
+kubectl delete ns test
+helm pull --untar my-repository/py-redis
 ```
