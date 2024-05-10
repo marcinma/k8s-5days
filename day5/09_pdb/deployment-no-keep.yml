@@ -4,7 +4,6 @@ metadata:
   name: nginx-quorum2
   labels:
     app: myapp
-    keep: quorum2
 spec:
   replicas: 3
   selector:
