@@ -21,8 +21,10 @@ kubectl describe po $PO
 kubectl create ns test-1
 kubectl create -f ns-quota.yaml
 kubectl create -f deployment.yaml -n test-1
+kubectl rollout status deploy -n test-1 nginx-readiness
 kubectl scale deployment -n test-1 nginx-readiness --replicas=3
 kubectl -n test-1 describe deploy nginx-readiness
+# will hang
 kubectl rollout status deploy -n test-1 nginx-readiness
 kubectl -n test-1 get deploy nginx-readiness
 kubectl -n test-1 describe rs $(kubectl -n test-1 get rs -o jsonpath='{.items[0].metadata.name}')

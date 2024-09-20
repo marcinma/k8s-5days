@@ -1,16 +1,17 @@
 ---
 # Source: usage-examples/templates/example.yaml
 apiVersion: v1
-kind: SomeObject
+kind: ConfigMap
 metadata:
   name: "some text"
-  req: test2
+  labels:
+    release: release-name
+data:
+  req: test
   noreq: not-set
   indent:   Some text
-  reqFromTpl: Comming from Values test2
-  print: {test2}
-  hash: f2af1671c757e1d664143edba1e6e8394e900ba192d6b92af518e25c18b06b24
-  rep: test2test2test2
-  test2: "true"
-  testIndent: "true"
+  reqFromTpl: Comming from Values test
+  print: {test}
+  hash: 49058814becf1c4e4cce219a21f517d809e48141f23c74602d99856ec1bb2ee1
+  rep: testtesttest
   name: Marcin

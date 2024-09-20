@@ -39,6 +39,5 @@ test
 ```sh
 docker container rm -f n-read
 docker container rm -f n-write
-docker container prune
-docker volume prune
+docker volume rm my-volume
 ```

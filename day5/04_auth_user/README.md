@@ -4,13 +4,6 @@ ref: https://kubernetes.io/docs/reference/access-authn-authz/authentication/
 # User
 https://www.adaltas.com/en/2019/08/07/users-rbac-kubernetes/
 
-# Copy crt & key
-
-```sh
-docker cp k8s-playground-control-plane:/etc/kubernetes/pki/ca.crt .
-docker cp k8s-playground-control-plane:/etc/kubernetes/pki/ca.key .
-```
-
 ```sh
 mkdir .certs && cd .certs
 openssl rand -writerand .rnd

@@ -9,11 +9,13 @@ kubectl -n helm-redis exec -ti python-api-79f9bcc45f-495pc -- curl localhost:500
 kubectl -n helm-redis delete -R -f out/
 ```
 
-```
+```sh
 kubectl create ns helm-redis
 helm install pyredis -n helm-redis .
 kubectl -n helm-redis get svc
 # remove svc
+kubectl -n helm-redis delete svc redis
+kubectl -n helm-redis get svc
 helm upgrade pyredis -n helm-redis .
 helm -n helm-redis history pyredis
 ```

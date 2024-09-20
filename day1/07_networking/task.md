@@ -32,7 +32,7 @@ curl 127.0.0.1:5002/api/v1/info
 - find mount point with inspect using
 *Use image inspect*
 ```sh
- -f "{{.ContainerConfig.Volumes}}"
+ -f "{{.Config.Volumes}}"
 ```
 - create redis again attached to volume - check counter
 

@@ -8,6 +8,7 @@ Get image id
 
 ```sh
 ID=$(docker image ls -q test)
+docker image ls | grep $ID
 ```
 
 Rebuild image with same name

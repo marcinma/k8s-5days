@@ -2,6 +2,6 @@
 kubectl apply -f rolling.deployment.yml
 kubectl get pods -l app=rolling
 kubectl apply -f rolling.deployment-update.yml
-watch kubectl get po -L version -l app=rolling
+kubectl get po -L version -l app=rolling -L version
 kubectl delete -f rolling.deployment.yml
 ```
