@@ -5,3 +5,4 @@
 3. Verify port and curl endpoint
 4. Display env from container containing GITHASH
 5. Remove with force created container
+6. Delete created image

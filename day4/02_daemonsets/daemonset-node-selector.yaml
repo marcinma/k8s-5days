@@ -18,6 +18,6 @@ spec:
         color: red
       containers:
       - name: myapp-ds
-        image: ewoutp/docker-nginx-curl
+        image: benhall/nginx-with-curl
         ports:
           - containerPort: 80

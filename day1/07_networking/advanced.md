@@ -1,8 +1,8 @@
 ```sh
-docker container run --network none -d --name nonet ewoutp/docker-nginx-curl
+docker container run --network none -d --name nonet benhall/nginx-with-curl
 docker container exec -ti nonet curl google.com
 
-docker container run --network bridge -d --name bridgenet ewoutp/docker-nginx-curl
+docker container run --network bridge -d --name bridgenet benhall/nginx-with-curl
 docker container exec -ti bridgenet curl google.com
 ```
 **output network none**
@@ -23,16 +23,16 @@ The document has moved
 ```sh
 docker network create network-a
 
-docker container run --network network-a -d --name a1 --net-alias n1 ewoutp/docker-nginx-curl
-docker container run --network network-a -d --name a2 --net-alias n2 ewoutp/docker-nginx-curl
+docker container run --network network-a -d --name a1 --net-alias n1 benhall/nginx-with-curl
+docker container run --network network-a -d --name a2 --net-alias n2 benhall/nginx-with-curl
 docker container exec -ti a1 curl n2
 ```
 
 ```sh
 docker network create network-b
 
-docker container run --network network-b -d --name b1 --net-alias n1 ewoutp/docker-nginx-curl
-docker container run --network network-b -d --name b2 --net-alias n2 ewoutp/docker-nginx-curl
+docker container run --network network-b -d --name b1 --net-alias n1 benhall/nginx-with-curl
+docker container run --network network-b -d --name b2 --net-alias n2 benhall/nginx-with-curl
 
 docker container exec -ti b1  curl n2
 ```

@@ -25,8 +25,8 @@ kubectl delete -f daemonset.yaml
 kubectl create -f daemonset-node-selector.yaml
 kubectl get ds
 kubectl get pod -l app=ds-node -o wide
-kubectl label node <node-name> color=red
+kubectl label node k8s-playground-worker2 color=red
 kubectl get pod -l app=ds-node -o wide
-kubectl label node <node-name> color-
+kubectl label node k8s-playground-worker2 color-
 kubectl get pod -l app=ds-node -o wide
 ```

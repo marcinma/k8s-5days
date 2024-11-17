@@ -5,10 +5,12 @@ kubectl logs -f -l type=producer
 kubectl create -f parallel.job.yaml
 kubectl get job
 kubectl logs -f -l type=consumer
+kubectl get po -l type=consumer
 ```
 
 at the end delete created jobs
 ```sh
 kubectl delete job --all
+kubectl delete -f redis.yaml
 ```
 

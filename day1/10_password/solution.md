@@ -2,9 +2,9 @@
 docker image pull marcinmakowski/workshops:password
 docker image save -o pass.tar marcinmakowski/workshops:password
 tar -xvf pass.tar
-cd 31a7fb2fcf8ee3eb610b32ce13797de38de8710806c5dd69b798ab659acce2d4
-tar -xvf layer.tar
+cd blobs/sha256/
+tar -xvf 7c86b9a8b039f5349b766a60c3cb9d26696798ebf894fa32ba9ee8684f7ac1eb
 cat password
-cd ..
-rm -rf pass.tar 31a7fb2fcf8ee3eb610b32ce13797de38de8710806c5dd69b798ab659acce2d4  4a0a9acba8695d06e7d01c24946e83323885c8527a96264d2122cf9e6960a746 52a23c34dc1856782aeb2e244471cf97197750d67420d1a957adcfe18258216d 6eb5cbd616c91518f47d46e54b7990c19642cbaee51bf3ae039a86d80aee7fcd 4a0a9acba8695d06e7d01c24946e83323885c8527a96264d2122cf9e6960a746.json manifest.json repositories
+cd ../../
+rm -rf pass.tar blobs/ manifest.json repositories oci-layout index.json
  ```

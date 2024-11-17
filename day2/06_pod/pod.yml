@@ -8,4 +8,4 @@ metadata:
 spec:
   containers:
   - name: myapp-container
-    image: ewoutp/docker-nginx-curl
+    image: benhall/nginx-with-curl

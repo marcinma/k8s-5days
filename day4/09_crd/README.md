@@ -24,4 +24,7 @@ kubectl logs -l app=deploy-creator
 kubectl get deploy
 kubectl get deploy | grep marcin
 kubectl get po | grep marcin
+kubectl delete deploy --all
+kubectl delete po --all
+kubectl delete -f bash-operator/kubernetes
 ```

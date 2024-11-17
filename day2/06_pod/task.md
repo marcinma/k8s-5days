@@ -1,8 +1,8 @@
 
-1. Create pod with python flask application. Image is located at: marcinmakowski/python-api:redis
+1. Create pod with python flask application. Image is located at: `marcinmakowski/python-api:redis`
 2. Check ExposedPorts in image
 3. List pods filtered by label you created for python
-4. Port forward and check /healthz endpoint
+4. Port forward and check `/healthz` endpoint
 5. Check logs
 
 ```sh

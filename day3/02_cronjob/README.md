@@ -7,6 +7,7 @@ A CronJob creates Jobs on a repeating schedule.
 kubectl get cronjob
 kubectl create -f cronjob.hello.yaml
 kubectl get cronjob
+sleep 60
 kubectl get job -l origin=cron
 kubectl get pod -l origin=cron-job
 kubectl logs -l origin=cron-job

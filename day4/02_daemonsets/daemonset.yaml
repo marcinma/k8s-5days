@@ -22,7 +22,7 @@ spec:
     spec:
       containers:
       - name: myapp-ds
-        image: ewoutp/docker-nginx-curl
+        image: benhall/nginx-with-curl
         ports:
           - containerPort: 80
         env:

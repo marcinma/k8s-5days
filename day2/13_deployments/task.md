@@ -15,11 +15,11 @@ kubectl get pods
 ```
 
 # Use env variable
-change  `env` to 250
+change  `env` to 240
 
 ```sh
 kubectl rollout history deployments/nginx-deployment
-kubectl apply -f deployment.yaml
+kubectl apply -f deployment-env.yaml
 
 kubectl rollout status deployment/nginx-deployment
 kubectl rollout history deployments/nginx-deployment
@@ -45,13 +45,13 @@ kubectl rollout history deployments/nginx-deployment
 kubectl exec -ti $(kubectl get pods -l app=myapp -o jsonpath='{.items[0].metadata.name}') -- /bin/bash -c env|grep TEST_ENV
 
 kubectl rollout undo deployment/nginx-deployment --to-revision=2
-kubectl exec -ti <container_name> -- /bin/bash -c env|grep TEST_ENV
+kubectl exec -ti $(kubectl get pods -l app=myapp -o jsonpath='{.items[0].metadata.name}') -- /bin/bash -c env|grep TEST_ENV
 ```
 
 # Scale deployment 
 ```sh
 kubectl scale deployment nginx-deployment --replicas=3
-kubectl describe svc my-app-service
+kubectl describe svc nginx-deployment
 ```
  - check endpoints
 
@@ -64,7 +64,7 @@ kubectl rollout restart deploy nginx-deployment
 # Debug information:
 ```sh
 kubectl logs -f -l app=myapp
-kubectl describe rs <replica_set_name>
+kubectl describe rs $(kubectl get rs -l app -o jsonpath='{.items[0].metadata.name}')
 ```
 
 # Create vs Apply vs Replace

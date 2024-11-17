@@ -20,6 +20,7 @@ kubectl create -f pod-volume.yaml
 kubectl exec -ti mypod -- /bin/bash
     cd /etc/foo
     cat my-secrets
+    exit
 ```
 
 # docker secret

@@ -9,7 +9,7 @@ spec:
         name: configuration
   containers:
     - name: test-container
-      image: ewoutp/docker-nginx-curl
+      image: benhall/nginx-with-curl
       volumeMounts:
         - name: servicejson
           mountPath: /usr/local/nginx/html # this will remove any files in /usr/local/nginx/html folder and place configuration files

@@ -13,17 +13,19 @@ The kubelet uses liveness probes to know when to restart a container
 The kubelet uses startup probes to know when a container application has started.
 It disables liveness and readiness checks until it succeeds. If a container fails its startup probe, then the container is killed and follows the pod's restartPolicy
 
-Delete old stuff
-```sh
-kubectl delete deploy --all
-kubectl delete pod --all
-```
 
 ```sh
 kubectl create -f python-deployment.yml
 PO=$(kubectl get pods -l app=python -o jsonpath='{.items[0].metadata.name}')
 kubectl get po $PO
-# wait 60 seconds
+sleep 60
 kubectl describe po $PO
 kubectl create -f redis-deployment.yml
+kubectl expose deploy redis-deployment --port 6379 --name redis-service
+sleep 30
+kubectl get po $PO
+kubectl describe po $PO
+kubectl delete svc redis-service
+kubectl delete -f python-deployment.yml
+kubectl delete -f redis-deployment.yml
 ```

@@ -4,7 +4,7 @@ docker volume create mysqldb
 docker image pull mysql:5.7
 docker image pull wordpress:php7.4
 docker image inspect -f '{{.Config.Volumes}}' mysql:5.7
-docker image inspect -f '{{.ContainerConfig.ExposedPorts}}' wordpress:php7.4
+docker image inspect -f '{{.Config.ExposedPorts}}' wordpress:php7.4
 
 docker container run --name wordpress --network cms -e WORDPRESS_DB_HOST=mysql -e WORDPRESS_DB_USER=exampleuser -e WORDPRESS_DB_PASSWORD=examplepass -e WORDPRESS_DB_NAME=exampledb -p 8080:80 -d wordpress:php7.4
 

@@ -32,6 +32,7 @@ watch kubectl get pods -l k8s-app=calico-node -A
 
 ```sh
 kubectl create -f ../../day3/08_statefulsets/nginx.statefulset.yaml
+kubectl get po
 kubectl exec -ti nginx-stsf-0 -- curl stsf-service.default
 kubectl create -f deny.network.policy.yaml
 kubectl exec -ti nginx-stsf-0 -- curl stsf-service.default # wont work

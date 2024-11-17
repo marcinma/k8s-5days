@@ -15,4 +15,5 @@ kubectl get rs -o wide
 kubectl scale rs rs-db --replicas=0
 kubectl get po --show-labels
 kubectl delete po --all
+kubectl delete svc -l \!provider
 ```

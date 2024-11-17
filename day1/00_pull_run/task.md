@@ -38,7 +38,7 @@ docker container ls -a -q
 
 ## List all containers by status or label
 
-```
+```sh
 docker container ls -a -f status=exited
 docker container ls -a -f label=type=workshop
 ```
@@ -53,6 +53,7 @@ docker container logs <myname|id>
 
 ```sh
 docker container rm <myname>
+docker container rm $(docker container ls -aq -f status=exited)
 ```
 
 ## Check container does not exist anymore

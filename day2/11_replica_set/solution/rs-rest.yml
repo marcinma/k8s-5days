@@ -23,4 +23,4 @@ spec:
     spec:
       containers:
       - name: sages-container
-        image: ewoutp/docker-nginx-curl
+        image: benhall/nginx-with-curl

@@ -39,3 +39,4 @@ curl localhost:32771/api/v1/info
 
 3. Remove container and update env LOG_LEVEL to DEBUG in run command
 4. Check difference in logs
+5. delete containers from this task

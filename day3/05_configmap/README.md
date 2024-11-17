@@ -78,4 +78,6 @@ kubectl create -f immutable-configmap.yaml
 kubectl patch cm/immutable -p '{"data":{"somekey":"newvalue"}}'
 kubectl create -f mutable-configmap.yaml
 kubectl patch cm/mutable -p '{"data":{"somekey":"newvalue"}}'
+kubectl delete po --all
+kubectl delete cm --all
 ```

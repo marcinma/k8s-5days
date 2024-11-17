@@ -12,4 +12,6 @@ kubectl create -f initc.pod.yml
 kubectl get pods myapp-pod
 kubectl logs myapp-pod init-myservice
 kubectl get pods myapp-pod
+kubectl logs myapp-pod myapp-container
+kubectl delete -f initc.pod.yml
 ```

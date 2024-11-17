@@ -19,3 +19,4 @@ echo "old version" > index.html
 6. Create ingress attached to this service
 7. Attach ingress object so your dns name + `/canary` is available
 8. Access through browser, traffic should hit both of them 50% of time
+9. Delete all ingress and all deployments with services created in this task

@@ -6,6 +6,7 @@ Kubernetes runs your workload by placing containers into Pods to run on Nodes. A
 ```sh
 kubectl get nodes -o wide
 kubect describe node <name>
+kubectl describe node k8s-playground-worker
 kubectl get pods -o wide
 
 ```

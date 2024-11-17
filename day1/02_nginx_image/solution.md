@@ -115,3 +115,11 @@ docker container port my-nginx
 curl localhost:49158
 docker container rm -f my-nginx
 ```
+
+# clean
+
+```sh
+rm nginx/.dockerignore
+rm nginx/password
+git restore nginx/Dockerfile
+```

@@ -8,3 +8,4 @@ Remove previous redis & python deployment & services
 6. Apply python service & deployments, its service shouldn't have endpoints till you apply redis 
 7. Confirm python service has endpoints
 8. delete redis service , python will be restarted
+9. Delete created things in this task

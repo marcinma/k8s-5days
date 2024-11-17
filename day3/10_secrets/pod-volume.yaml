@@ -5,7 +5,7 @@ metadata:
 spec:
   containers:
   - name: mypod
-    image: ewoutp/docker-nginx-curl
+    image: benhall/nginx-with-curl
     volumeMounts:
     - name: foo
       mountPath: "/etc/foo"

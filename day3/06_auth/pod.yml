@@ -8,4 +8,4 @@ spec:
   serviceAccountName: pods-reader
   containers:
     - name: echo
-      image: ewoutp/docker-nginx-curl
+      image: benhall/nginx-with-curl

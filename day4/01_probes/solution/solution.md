@@ -19,5 +19,8 @@ kubectl get po
 kubectl describe po $PO
 kubectl describe svc python-service
 kubectl delete svc redis-service
+sleep 10
 kubectl get po
+kubectl describe svc python-service
+kubectl delete -f .
 ```

@@ -19,6 +19,7 @@ kubectl get nodes
 kubectl config current-context
 kubectl config get-contexts
 kubectl get componentstatuses
+kubectl get --raw '/readyz?verbose'
 ```
 
 info:
@@ -60,7 +61,8 @@ kubectl -n kube-system logs  -l k8s-app=kube-dns
 
 Get the manifest of a running pod
 ```sh
-kubectl get pod <name> -o yaml > pod.yml
+PO=$(kubectl -n kube-system get pods -l k8s-app=kube-dns -o jsonpath='{.items[0].metadata.name}')
+kubectl get pods $PO -n kube-system -o yaml
 
 ```
 
@@ -68,7 +70,7 @@ kubectl get pod <name> -o yaml > pod.yml
 kubectl -n kube-system get all
 ```
 
-Get cluster events
+Get cluster events no older than 1h
 
 ```sh
 kubectl get events

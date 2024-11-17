@@ -6,6 +6,7 @@ kubectl get all -n workshops
 kubectl -n workshops describe rs replicate-my-app
 PO=$(kubectl -n workshops get pods -l app=workshops-myapp -o jsonpath='{.items[0].metadata.name}')
 kubectl -n workshops describe pod/$PO 
+kubectl apply -f replica-set-change.yaml
 kubectl diff -f replica-set.yaml
 kubectl -n workshops exec -ti $PO -- curl my-app.workshops
 kubectl -n workshops get svc

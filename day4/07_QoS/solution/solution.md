@@ -21,4 +21,5 @@ kubectl get rs -n limits
 kubectl -n limits describe deploy nginx-qos
 kubectl -n limits get pods -o jsonpath='{.items[0].spec.containers[0].resources}'
 kubectl delete -f deployment.yaml
+kubectl delete ns limits
 ```

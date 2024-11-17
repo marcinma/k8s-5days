@@ -1,10 +1,3 @@
-# Remove old stuff
-
-```sh
-docker container rm -f my-redis
-docker container rm -f  my-python-service
-```
-
 # Create
 
 ```sh
@@ -29,7 +22,7 @@ OK
 ```sh
 ID=$(docker container inspect -f "{{ (index .Mounts 0).Name }}" my-redis)
 docker volume inspect $ID
-docker image inspect -f "{{.ContainerConfig.Volumes}}"  redis:5.0.10
+docker image inspect -f "{{.Config.Volumes}}"  redis:5.0.10
 docker container stop my-redis
 docker container rm my-redis
 docker container run --network python-redis-network -d --name my-redis -v $ID:/data redis:5.0.10

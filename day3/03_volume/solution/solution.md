@@ -12,4 +12,6 @@ kubectl scale deployment redis-deployment --replicas=1
 kubectl rollout status deployment redis-deployment
 kubectl get po
 kubectl exec -ti $PYPO -- curl localhost:5002/api/v1/info
+kubectl delete -f .
+kubectl delete deploy --all
 ```
