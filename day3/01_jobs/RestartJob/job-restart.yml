@@ -18,4 +18,3 @@ spec:
           image: marcinmakowski/kubernetes:pod-creator.operator
           command: ["exit 1"]
       restartPolicy: OnFailure
-      #restartPolicy: Never
