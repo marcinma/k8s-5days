@@ -34,7 +34,7 @@ spec:
     spec:
       containers:
       - name: stsf-container
-        image: benhall/nginx-with-curl
+        image: nginx:alpine3.18
         ports:
           - containerPort: 80
         env:

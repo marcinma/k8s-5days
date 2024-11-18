@@ -22,7 +22,7 @@ spec:
           claimName: local01
       containers:
       - name: myapp-container
-        image: benhall/nginx-with-curl
+        image: nginx:alpine3.18
         ports:
           - containerPort: 80
         volumeMounts:

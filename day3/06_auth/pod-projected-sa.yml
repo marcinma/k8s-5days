@@ -8,7 +8,7 @@ spec:
   serviceAccountName: pods-reader
   containers:
     - name: mycontainer
-      image: benhall/nginx-with-curl
+      image: nginx:alpine3.18
       volumeMounts:
       - name: token-vol
         mountPath: /sa

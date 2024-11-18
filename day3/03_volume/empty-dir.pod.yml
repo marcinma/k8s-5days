@@ -4,7 +4,7 @@ metadata:
   name: empty-dir-pod
 spec:
   containers:
-  - image: benhall/nginx-with-curl
+  - image: nginx:alpine3.18
     name: test-container
     volumeMounts:
     - mountPath: /cache

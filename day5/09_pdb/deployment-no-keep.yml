@@ -17,4 +17,4 @@ spec:
     spec:
       containers:
       - name: myapp-container
-        image: benhall/nginx-with-curl
+        image: nginx:alpine3.18

@@ -5,7 +5,7 @@ metadata:
 spec:
   containers:
   - name: mypod
-    image: benhall/nginx-with-curl    
+    image: nginx:alpine3.18    
     volumeMounts:
     - name: foo
       mountPath: "/etc/foo"

@@ -18,6 +18,6 @@ spec:
         color: red
       containers:
       - name: myapp-ds
-        image: benhall/nginx-with-curl
+        image: nginx:alpine3.18
         ports:
           - containerPort: 80

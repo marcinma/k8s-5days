@@ -12,7 +12,7 @@ spec:
           path: myconfig
   containers:
     - name: test-container
-      image: benhall/nginx-with-curl
+      image: nginx:alpine3.18
       volumeMounts:
         - name: servicejson
           mountPath: /usr/local/nginx/html/ # this will remove any files in /usr/local/nginx/html/ folder and place configuration files

@@ -32,7 +32,7 @@ kubectl rollout history deployments/nginx-deployment
 # Exec container and check env exists:
 
 ```sh
-kubectl exec -ti $(kubectl get pods -l app=myapp -o jsonpath='{.items[0].metadata.name}') -- /bin/bash -c env|grep TEST_ENV
+kubectl exec -ti $(kubectl get pods -l app=myapp -o jsonpath='{.items[0].metadata.name}') -- /bin/sh -c env|grep TEST_ENV
 ```
 
 # Rollback to previous version
@@ -42,14 +42,17 @@ kubectl rollout undo deployment/nginx-deployment
 kubectl annotate deployment/nginx-deployment kubernetes.io/change-cause="env reverted"
 kubectl rollout history deployments/nginx-deployment
 
-kubectl exec -ti $(kubectl get pods -l app=myapp -o jsonpath='{.items[0].metadata.name}') -- /bin/bash -c env|grep TEST_ENV
+kubectl exec -ti $(kubectl get pods -l app=myapp -o jsonpath='{.items[0].metadata.name}') -- /bin/sh -c env|grep TEST_ENV
 
 kubectl rollout undo deployment/nginx-deployment --to-revision=2
-kubectl exec -ti $(kubectl get pods -l app=myapp -o jsonpath='{.items[0].metadata.name}') -- /bin/bash -c env|grep TEST_ENV
+kubectl exec -ti $(kubectl get pods -l app=myapp -o jsonpath='{.items[0].metadata.name}') -- /bin/sh -c env|grep TEST_ENV
 ```
 
 # Scale deployment 
+
 ```sh
+kubectl expose deployment nginx-deployment --port 80
+kubectl describe svc nginx-deployment
 kubectl scale deployment nginx-deployment --replicas=3
 kubectl describe svc nginx-deployment
 ```
@@ -73,15 +76,21 @@ kubectl describe rs $(kubectl get rs -l app -o jsonpath='{.items[0].metadata.nam
 kubectl delete -f deployment.yaml
 kubectl create -f deployment.yaml
 kubectl describe deploy nginx-deployment
-kubectl get deploy nginx-deployment -o jsonpath='{.metadata.annotations}' # revsion 1
-kubectl apply -f deployment-to-replace.yaml # warning
+# revsion 1
+kubectl get deploy nginx-deployment -o jsonpath='{.metadata.annotations}' 
+# warning
+kubectl apply -f deployment-to-replace.yaml
 kubectl describe deploy nginx-deployment
-kubectl get deploy nginx-deployment -o jsonpath='{.metadata.annotations}' # revision 2 + last applied config
+# revision 2 + last applied config
+kubectl get deploy nginx-deployment -o jsonpath='{.metadata.annotations}' 
 kubectl replace -f deployment-to-replace.yaml
 kubectl describe deploy nginx-deployment
-kubectl get deploy nginx-deployment -o jsonpath='{.metadata.annotations}' # revision 3, other annotation removed
-kubectl replace --force --save-config -f deployment-to-replace.yaml # deletes & creates
-kubectl get deploy nginx-deployment -o jsonpath='{.metadata.annotations}' # revision 1 + last applied config
+# revision 3, other annotation removed
+kubectl get deploy nginx-deployment -o jsonpath='{.metadata.annotations}'
+ # deletes & creates
+kubectl replace --force --save-config -f deployment-to-replace.yaml
+# revision 1 + last applied config
+kubectl get deploy nginx-deployment -o jsonpath='{.metadata.annotations}' 
 ```
 
 

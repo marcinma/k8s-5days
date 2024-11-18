@@ -8,4 +8,4 @@ spec:
   serviceAccountName: pods-reader
   containers:
     - name: echo
-      image: benhall/nginx-with-curl
+      image: nginx:alpine3.18

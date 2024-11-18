@@ -6,12 +6,12 @@
 
 - create new network with `network create`
 - run both redis image & python image builded from `03_build_python_image` task with `--network <name>`
-- redis container should have name `redis` or `REDIS_HOST` should be set in python with name of redis container
+- redis container should have name `redis` or env `REDIS_HOST` should be set in python with name of redis container
 - don't expose port on redis
 
 
 Check network
-```
+```sh
 curl 127.0.0.1:5002/healthz
 curl -XPOST 127.0.0.1:5002/api/v1/info
 curl -XPOST 127.0.0.1:5002/api/v1/info
@@ -34,7 +34,7 @@ curl 127.0.0.1:5002/api/v1/info
 ```sh
  -f "{{.Config.Volumes}}"
 ```
-- create redis again attached to volume - check counter
+- create redis container again attached to volume - check counter
 
 # Clean up
 - remove containers

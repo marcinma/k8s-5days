@@ -1,6 +1,6 @@
 # TASK
 
-1. Build nginx image from parent folder
+1. Build nginx image from parent folder `02_nginx_image`
 ```sh
 docker image build -t my-nginx -f nginx/Dockerfile nginx/
 ```
@@ -18,11 +18,11 @@ docker image build -t my-nginx -f nginx/Dockerfile nginx/
 ```sh
 docker container exec -ti <container_name> /bin/sh
 ```
-2. Navigate to ` /usr/html` folder and list files. Verify password file is inside.
+2. Navigate to ` /usr/html` folder and list files. Verify password file is inside. Exit from container with `exit`.
 
 # Ignore files
 
-Create `.dockerignore` in nginx folder
+Create `.dockerignore` in `nginx/` folder
 
 ```.dockerignore
 Dockerfile
@@ -61,7 +61,7 @@ curl localhost:8080
 EXPOSE 80
 ```
 
-2. Rebuild image as my-nginx:2 
+2. Rebuild image as `my-nginx:2`
 3. Remove previous my-nginx container
 4. Run container one more time with dynamic port assigned
 

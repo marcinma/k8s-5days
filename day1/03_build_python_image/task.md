@@ -24,7 +24,7 @@
 # Connect apps
 
 1. Run container from image `redis:5.0.10` and expose it on port 6379 targeting 6379 port in container
-2. Run python one more time with env parameter and name my-python-service
+2. Run python one more time with env parameter and name my-python-service use `ip address show`
 
 `docker container run -e REDIS_HOST=<host_ip> -d -P --name  my-python-service my-python`
 

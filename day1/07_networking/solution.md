@@ -48,7 +48,7 @@ map[/data:{}]
 
 # Clean
 ```sh
-docker container stop  my-redis
+docker container stop my-redis
 docker container stop my-python-service
 docker container prune -f
 docker network ls
