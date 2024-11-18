@@ -1,7 +1,7 @@
 
 ```sh
 docker image pull marcinmakowski/python-api:redis
-docker image inspect -f "{{.ContainerConfig.ExposedPorts}}" marcinmakowski/python-api:redis
+docker image inspect -f "{{.Config.ExposedPorts}}" marcinmakowski/python-api:redis
 kubectl apply -f pod.yml
 kubectl get pods -l app=python
 kubectl port-forward pod/python 5002:5002
