@@ -11,17 +11,9 @@ kubectl create -f hello-app/hello.ingress.yaml
 kubectl create -f hello-app/hello.ingress1.yaml  
 
 kubectl get ing
-PORT=$(kubectl get svc -n=ingress-nginx ingress-nginx-controller -o jsonpath='{.spec.ports[0].nodePort}')
+kubectl port-forward --namespace=ingress-nginx service/ingress-nginx-controller 8080:80
+curl --resolve mydomain.com:8080:127.0.0.1 http://mydomain.com:8080
+curl --resolve mydomain.com:8080:127.0.0.1 http://mydomain.com:8080/hello
+kubectl delete -f hello-app/.
 ```
 
-```sh
-sudo vim /etc/hosts
-```
-
-```/etc/hosts
-192.168.0.2     mydomain.com
-```
-
-```sh
-curl mydomain.com:$PORT/hello
-```

@@ -9,7 +9,7 @@
 4. Access to python with port-forward and check `/api/v1/info` endpoint (python listnens on 5002)
     - POST to this endpoint should work with *OK*
     - GET should return counter
-5. Delete everything
+5. Delete everything created in this task
 
 # Recreate wordpress + mysql
 
@@ -27,4 +27,4 @@
     - MYSQL_DATABASE
     - MYSQL_RANDOM_ROOT_PASSWORD=1
 5. Access to wordpress with port-forward (it listens on 80) - `/wp-admin/install.php` should work
-6. Delete everything
+6. Delete everything created in this task

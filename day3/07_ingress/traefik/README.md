@@ -12,7 +12,7 @@ kubectl apply -f 03-whoami.yml \
 kubectl port-forward svc/traefik-dashboard-service 8080:8080
 http://localhost:8080/dashboard/#/    
 kubectl port-forward svc/traefik-web-service 8080:80
-http://localhost:8080/dashboard/
+http://localhost:8080/
 
 kubectl apply -f 04-hello-ingress.yml
 kubectl port-forward svc/traefik-web-service 8080:80

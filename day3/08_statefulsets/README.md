@@ -10,8 +10,8 @@ ref:
 ```sh
 kubectl create -f nginx.statefulset.yaml
 
-kubectl exec -ti nginx-stsf-0 -- /bin/bash -c 'echo "nginx-stsf-0">index.html'
-kubectl exec -ti nginx-stsf-1 -- /bin/bash -c 'echo "nginx-stsf-1">index.html'
+kubectl exec -ti nginx-stsf-0 -- /bin/sh -c 'echo "nginx-stsf-0">/usr/share/nginx/html/index.html'
+kubectl exec -ti nginx-stsf-1 -- /bin/sh -c 'echo "nginx-stsf-1">/usr/share/nginx/html/index.html'
 
 kubectl exec -ti nginx-stsf-0 -- curl localhost
 kubectl exec -ti nginx-stsf-0 -- curl nginx-stsf-1.stsf-service
