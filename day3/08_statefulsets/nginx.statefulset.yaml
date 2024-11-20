@@ -38,7 +38,7 @@ spec:
             value: V1
         volumeMounts:
         - name: nginx-local-claim
-          mountPath: /usr/local/nginx/html
+          mountPath: /usr/share/nginx/html
   volumeClaimTemplates:
   - metadata:
       name: nginx-local-claim
