@@ -9,4 +9,5 @@ kubectl describe svc bluegreen-service
 kubectl patch service bluegreen-service -p '{"spec":{"selector":{"version":"v2"}}}'
 kubectl get svc bluegreen-service -o wide
 kubectl describe svc bluegreen-service
+kubectl delete -f .
 ```

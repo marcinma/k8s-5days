@@ -47,8 +47,8 @@ kubectl exec -ti configmap-volume-items -- cat /usr/local/nginx/html/myconfig
 
 Check pod with subpath
 ```sh
-kubectl exec -ti configmap-volume-subpath -- ls /usr/local/nginx/html/
-kubectl exec -ti configmap-volume-subpath -- cat /usr/local/nginx/html/service-b.config
+kubectl exec -ti configmap-volume-subpath -- ls /usr/share/nginx/html/
+kubectl exec -ti configmap-volume-subpath -- cat /usr/share/nginx/html/service-b.config
 ```
 
 # Autoupdates for mounted configmaps
@@ -68,7 +68,7 @@ kubectl exec -ti configmap-volume-items -- cat /usr/local/nginx/html/myconfig
 
 autoupdate doesn't work for subpath:
 ```sh
-kubectl exec -ti configmap-volume-subpath -- cat /usr/local/nginx/html/service-b.config
+kubectl exec -ti configmap-volume-subpath -- cat /usr/share/nginx/html/service-b.config
 ```
 
 # immutable

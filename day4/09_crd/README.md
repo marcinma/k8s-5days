@@ -20,7 +20,7 @@ kubectl apply -f bash-operator/example/example.missing-fields.yaml
 kubectl apply -f bash-operator/example/example.deploy-creator-beta.yaml
 kubectl get dc
 kubectl describe dc example-deploy-creator
-kubectl logs -l app=deploy-creator
+kubectl logs -l app=deploy-creator -f
 kubectl get deploy
 kubectl get deploy | grep marcin
 kubectl get po | grep marcin

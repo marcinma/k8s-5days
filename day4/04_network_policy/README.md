@@ -5,34 +5,13 @@ An empty podSelector selects all pods in the namespace
 
 ## Create policy
 
-Install kind with calico
+kind needs to have calico
 
-```yml
-kind: Cluster
-apiVersion: kind.x-k8s.io/v1alpha4
-nodes:
-- role: control-plane
-- role: worker
-  labels:
-    ingress-ready: true
-- role: worker
-  labels:
-    ingress-ready: true
-networking:
-  disableDefaultCNI: true
-  podSubnet: 192.168.0.0/16
-```
 
-```sh
-kind create cluster --name k8s-playground --config ../../k8sAdvancedTopics/02_kind_cluster/kind-config.yml
-kubectl create -f https://raw.githubusercontent.com/projectcalico/calico/v3.27.3/manifests/tigera-operator.yaml
-kubectl create -f https://raw.githubusercontent.com/projectcalico/calico/v3.27.3/manifests/custom-resources.yaml
-watch kubectl get pods -l k8s-app=calico-node -A
-```
 
 ```sh
 kubectl create -f ../../day3/08_statefulsets/nginx.statefulset.yaml
-kubectl get po
+kubectl rollout status sts nginx-stsf
 kubectl exec -ti nginx-stsf-0 -- curl stsf-service.default
 kubectl create -f deny.network.policy.yaml
 kubectl exec -ti nginx-stsf-0 -- curl stsf-service.default # wont work
@@ -46,6 +25,7 @@ kubectl exec -ti nginx-stsf-0 -- curl stsf-service.default #  work
 ```sh
 kubectl create -f pod-dnsConfig.yml
 kubectl exec -ti dnsconfig-pod -- cat /etc/resolv.conf
+kubectl delete -f pod-dnsConfig.yml
 ```
 
 # Docs

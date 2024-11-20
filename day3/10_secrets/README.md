@@ -17,7 +17,7 @@ volume
 
 ```sh
 kubectl create -f pod-volume.yaml
-kubectl exec -ti mypod -- /bin/bash
+kubectl exec -ti mypod -- /bin/sh
     cd /etc/foo
     cat my-secrets
     exit

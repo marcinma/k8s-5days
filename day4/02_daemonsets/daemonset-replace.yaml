@@ -5,12 +5,11 @@ metadata:
   labels:
     app: ds
 spec:
-  minReadySeconds: 20
+  minReadySeconds: 5
   updateStrategy:
     type: RollingUpdate
     rollingUpdate:
-      maxUnavailable: 0
-      maxSurge: 2 # good for 0 downtime with update
+      maxUnavailable: 1
   selector:
     matchLabels:
       app: ds

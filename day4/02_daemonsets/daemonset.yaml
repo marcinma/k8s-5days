@@ -5,7 +5,7 @@ metadata:
   labels:
     app: ds
 spec:
-  minReadySeconds: 20
+  minReadySeconds: 5
   updateStrategy:
     type: RollingUpdate
     rollingUpdate:

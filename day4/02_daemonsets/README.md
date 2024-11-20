@@ -4,6 +4,7 @@ A DaemonSet ensures that all (or some) Nodes run a copy of a Pod. As nodes are a
 remove previous stuff
 ```sh
 kubectl delete deploy --all
+kubectl delete sts --all
 kubectl delete pvc --all
 ```
 
@@ -14,6 +15,7 @@ kubectl get pod -l app=ds -o wide
 kubectl rollout status ds/nginx-ds
 kubectl replace -f daemonset-replace.yaml
 kubectl rollout status ds/nginx-ds
+kubectl get pod -l app=ds -o wide
 kubectl rollout history ds/nginx-ds --revision 2
 watch kubectl get pod -l app=ds -o wide
 kubectl delete -f daemonset.yaml
@@ -29,4 +31,5 @@ kubectl label node k8s-playground-worker2 color=red
 kubectl get pod -l app=ds-node -o wide
 kubectl label node k8s-playground-worker2 color-
 kubectl get pod -l app=ds-node -o wide
+kubectl delete -f daemonset-node-selector.yaml
 ```

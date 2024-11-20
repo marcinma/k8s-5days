@@ -12,6 +12,6 @@ spec:
       image: nginx:alpine3.18
       volumeMounts:
         - name: myconfig
-          mountPath: /usr/local/nginx/html/service-b.config
+          mountPath: /usr/share/nginx/html/service-b.config
           subPath: service-b.config # won't refresh
   restartPolicy: Never
