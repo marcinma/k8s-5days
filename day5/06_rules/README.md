@@ -33,4 +33,6 @@ kubectl taint nodes k8s-playground-worker2 key=value1:NoExecute
 kubectl get pods
 kubectl taint nodes k8s-playground-worker key=value1:NoExecute-
 kubectl taint nodes k8s-playground-worker2 key=value1:NoExecute-
+kubectl delete -f python-deployment-toleration.yml
+kubectl delete po --all
 ```

@@ -5,6 +5,7 @@ mkdir -p my-repository
 docker run --name chartmuseum -d -p 8080:8080 -v $(pwd)/my-repository:/bitnami/data bitnami/chartmuseum-archived:0.14.0-debian-10-r120
 helm package ../00_example-app
 mv example-project-0.1.0.tgz my-repository
+ls my-repository
 helm repo index my-repository --url http://localhost:8080
 ls my-repository
 helm repo add my-repository http://localhost:8080

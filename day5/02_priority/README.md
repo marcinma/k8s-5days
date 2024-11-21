@@ -12,6 +12,7 @@ kubectl get pod -l app=remove
 kubectl create -f preemptive-pod.yml
 kubectl get pod -l app=remove
 kubectl get po
+kubectl delete po --all
 ```
 
 critical pods for **shutdownGracePeriodCriticalPods**

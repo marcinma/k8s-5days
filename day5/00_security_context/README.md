@@ -17,6 +17,7 @@ kubectl create -f pod-scx.yml
 kubectl exec -ti pod-scx -- id
 kubectl exec -ti pod-scx -- ps
 kubectl exec -ti pod-scx -- ls -l /data
+kubectl delete -f pod-scx.yml
 ```
 
 
@@ -26,6 +27,7 @@ kubectl exec -ti pod-scx -- ls -l /data
 kubectl create -f pod-log.yml
 kubectl exec -ti cant-read-vol-log -- /bin/sh
 cd /var/log/pods
+kubectl delete -f pod-log.yml
 ```
 
 
@@ -33,5 +35,6 @@ cd /var/log/pods
 kubectl create -f pod-log-can-read.yml
 kubectl exec -ti read-vol-log -- /bin/sh
 cd /var/log/pods
+kubectl delete -f pod-log-can-read.yml
 ```
 

@@ -13,4 +13,4 @@ python:
   port: 5002
 
 replicaCount: 1
-storageClassName: default
+storageClassName: standard

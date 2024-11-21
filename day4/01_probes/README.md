@@ -16,11 +16,13 @@ It disables liveness and readiness checks until it succeeds. If a container fail
 
 ```sh
 kubectl create -f python-deployment.yml
+kubectl rollout status deployment.apps/python-deployment
 PO=$(kubectl get pods -l app=python -o jsonpath='{.items[0].metadata.name}')
 kubectl get po $PO
 sleep 60
 kubectl describe po $PO
 kubectl create -f redis-deployment.yml
+kubectl rollout status deployment.apps/redis-deployment
 kubectl expose deploy redis-deployment --port 6379 --name redis-service
 sleep 30
 kubectl get po $PO

@@ -12,10 +12,10 @@ data:
   print: {{ printf "{%s}" .Values.req }}
   hash: {{ include (print $.Template.BasePath "/secret.yml") . | sha256sum }}
   rep: {{ repeat 3 .Values.req }}
-  {{ if eq .Values.req "test2" }}test2: "true"{{ end -}}
-  {{- if eq .Values.req "test2" }}
+  {{ if eq .Values.req "test2" }}test2: "true"{{ end }}
+{{- if eq .Values.req "test2" }}
   testIndent: "true"
-  {{- end -}}
-  {{- with .Values.User -}}
+{{- end -}}
+{{- with .Values.User }}
   name: {{ .name }}
-  {{- end }}
+{{- end }}
