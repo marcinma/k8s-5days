@@ -112,7 +112,8 @@ docker image build -t my-nginx:2 -f nginx/Dockerfile nginx/
 docker container rm -f my-nginx
 docker container run --name my-nginx -P -d my-nginx:2
 docker container port my-nginx
-curl localhost:49158
+PORT=$(docker container port my-nginx | awk 'NR==1{split($0,a,":");print a[2]}')
+curl localhost:$PORT
 docker container rm -f my-nginx
 ```
 
