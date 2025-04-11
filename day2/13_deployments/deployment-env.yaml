@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
       - name: myapp-container
-        image: ewoutp/docker-nginx-curl
+        image: rlind/nginx:curl-latest
         ports:
           - containerPort: 80
         env:

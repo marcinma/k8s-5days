@@ -1,4 +1,4 @@
-FROM gradle:4.10.2-jdk8 as builder
+FROM gradle:4.10.2-jdk8 AS builder
 USER root
 RUN mkdir -p /app
 WORKDIR /app

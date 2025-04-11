@@ -18,7 +18,7 @@ spec:
     spec:
       containers:
       - name: myapp-container
-        image: ewoutp/docker-nginx-curl
+        image: rlind/nginx:curl-latest
         env:
           - name: Test2
             value: Test

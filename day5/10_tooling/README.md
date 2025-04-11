@@ -40,6 +40,7 @@ sudo ln -s /opt/kubectx/kubens /usr/local/bin/kubens
 - https://github.com/derailed/k9s
 
 ```sh
+mkdir k9s && cd k9s
 wget https://github.com/derailed/k9s/releases/download/v0.26.6/k9s_Linux_x86_64.tar.gz
 tar -zxvf k9s_Linux_x86_64.tar.gz
 chmod +x k9s

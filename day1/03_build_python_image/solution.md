@@ -59,14 +59,15 @@ docker container run -e REDIS_HOST=$(ip route get 1.2.3.4 | awk '{print $7}') -d
 ```
 
 ```sh
-docker container port my-python-service
-curl localhost:45002/api/v1/info
-curl -XPOST localhost:45002/api/v1/info
-curl localhost:45002/api/v1/info
+PORT=$(docker container port my-python-service | awk 'NR==1{split($3,a,":"); print a[2]}')
+curl localhost:$PORT/api/v1/info
+curl -XPOST localhost:$PORT/api/v1/info
+curl localhost:$PORT/api/v1/info
 docker container logs my-python-service
 docker container rm -f my-python-service
-docker container run -e REDIS_HOST=$(ip route get 1.2.3.4 | awk '{print $7}') -d -p 45002:5002 -e LOG_LEVEL=DEBUG --name  my-python-service my-python
-curl localhost:45002/api/v1/info
+docker container run -e REDIS_HOST=$(ip route get 1.2.3.4 | awk '{print $7}') -d -p $PORT:5002 -e LOG_LEVEL=DEBUG --name  my-python-service my-python
+PORT=$(docker container port my-python-service | awk 'NR==1{split($3,a,":"); print a[2]}')
+curl localhost:$PORT/api/v1/info
 docker container logs my-python-service
 docker container rm -f my-python-service
 ocker rm -f <redis_id>

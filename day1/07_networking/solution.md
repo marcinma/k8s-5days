@@ -50,9 +50,10 @@ map[/data:{}]
 ```sh
 docker container stop my-redis
 docker container stop my-python-service
-docker container prune -f
+docker container rm my-redis
+docker container rm my-python-service
 docker network ls
-docker network prune
+docker network rm python-redis-network 
 docker volume ls
-docker volume prune -f
+docker volume rm $ID
 ```

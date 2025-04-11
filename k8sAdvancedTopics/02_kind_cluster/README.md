@@ -1,3 +1,14 @@
+# Requirements
+
+This version requires docker < 25
+
+```sh
+curl -LO https://download.docker.com/linux/static/stable/x86_64/docker-24.0.7.tgz
+tar xzvf docker-24.0.7.tgz
+sudo mv docker/* /usr/local/bin/
+sudo dockerd &
+```
+
 # Kind install
 
 ```sh

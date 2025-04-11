@@ -4,6 +4,7 @@ helm template --output-dir=./output .
 helm template --output-dir=./output --values ./production.values.yaml .
 helm template --output-dir=./output --values ./production.values.yaml --set postgresqlWriter.tag=release-2 .
 cat ./output/example-project/templates/postgresql.cronjob.yaml
+helm template --output-dir=./output .
 ```
 
 # Validate templates
@@ -19,16 +20,14 @@ kubectl create -R -f output/.
 helm install my-app ./
 
 # fix by adding labels and annotations
-kubectl -n mynamespace annotate cronjob.batch/writer-customer-a meta.helm.sh/release-name=my-app
-kubectl -n mynamespace annotate cronjob.batch/writer-customer-a meta.helm.sh/release-namespace=default
-kubectl -n mynamespace label cronjob.batch/writer-customer-a app.kubernetes.io/managed-by=Helm
-
-kubectl -n mynamespace annotate secret/postgresql meta.helm.sh/release-name=my-app
-kubectl -n mynamespace annotate secret/postgresql meta.helm.sh/release-namespace=default
-kubectl -n mynamespace label secret/postgresql app.kubernetes.io/managed-by=Helm
-
-kubectl annotate ns mynamespace meta.helm.sh/release-name=my-app
-kubectl annotate ns mynamespace meta.helm.sh/release-namespace=default
+kubectl -n mynamespace annotate cronjob.batch/writer-customer-a meta.helm.sh/release-name=my-app && \
+kubectl -n mynamespace annotate cronjob.batch/writer-customer-a meta.helm.sh/release-namespace=default && \
+kubectl -n mynamespace label cronjob.batch/writer-customer-a app.kubernetes.io/managed-by=Helm && \
+kubectl -n mynamespace annotate secret/postgresql meta.helm.sh/release-name=my-app && \
+kubectl -n mynamespace annotate secret/postgresql meta.helm.sh/release-namespace=default && \
+kubectl -n mynamespace label secret/postgresql app.kubernetes.io/managed-by=Helm && \
+kubectl annotate ns mynamespace meta.helm.sh/release-name=my-app && \
+kubectl annotate ns mynamespace meta.helm.sh/release-namespace=default && \
 kubectl label ns mynamespace app.kubernetes.io/managed-by=Helm
 
 # works

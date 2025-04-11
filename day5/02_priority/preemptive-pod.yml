@@ -21,7 +21,7 @@ spec:
         imagePullPolicy: IfNotPresent
         resources:
           requests:
-            cpu: 6
+            cpu: 2
           limits:
-            cpu: 6
+            cpu: 2
       priorityClassName: high-priority

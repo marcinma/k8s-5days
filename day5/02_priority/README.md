@@ -7,12 +7,13 @@ kubectl delete sts --all
 kubectl delete ds --all
 kubectl create -f high-priority.yml
 kubectl get pc
-kubectl create -f pod-to-be-removed.yml 
+kubectl create -f pod-to-be-removed.yml
 kubectl get pod -l app=remove
 kubectl create -f preemptive-pod.yml
 kubectl get pod -l app=remove
 kubectl get po
 kubectl delete po --all
+kubectl delete -f preemptive-pod.yml
 ```
 
 critical pods for **shutdownGracePeriodCriticalPods**

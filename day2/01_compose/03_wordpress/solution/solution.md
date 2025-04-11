@@ -1,6 +1,6 @@
 ```sh
-docker-compose up -d
+docker compose up -d
 docker volume ls
-docker-compose ps
-docker-compose down
+docker compose ps
+docker compose down
 ```

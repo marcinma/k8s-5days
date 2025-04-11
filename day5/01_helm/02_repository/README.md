@@ -36,8 +36,10 @@ helm install --version 0.1.1 --generate-name --dry-run --namespace test my-repos
 kubectl create ns test
 helm install --version 0.1.1 my-name --namespace test my-repository/py-redis
 helm list --pending -A
-helm uninstall my-name
+helm uninstall my-name # fail
 helm uninstall my-name -n test
 kubectl delete ns test
 helm pull --untar my-repository/py-redis
+docker stop chartmuseum
+docker rm chartmuseum
 ```

@@ -8,4 +8,6 @@ docker image build -t python-redis .
 docker container run --name test -d -p 5008:5002 python-redis
 curl localhost:5008/healthz
 docker rm -f test
+docker rmi python-redis
+docker rmi base-python:on-build
 ```

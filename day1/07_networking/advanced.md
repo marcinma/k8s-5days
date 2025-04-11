@@ -1,9 +1,12 @@
 ```sh
 docker container run --network none -d --name nonet nginx:alpine3.18
 docker container exec -ti nonet curl google.com
+docker rm -f nonet
 
 docker container run --network bridge -d --name bridgenet nginx:alpine3.18
 docker container exec -ti bridgenet curl google.com
+docker rm -f bridgenet
+
 ```
 **output network none**
 ```

@@ -50,4 +50,5 @@ kubectl --context=ubuntu-context --user=ubuntu get pods -n workshop
 kubectl auth can-i get pods --namespace=workshop --as=ubuntu
 kubectl delete -f role-binding.yml -f role.yml
 kubectl auth can-i get pods --namespace=workshop --as=ubuntu
+rm -rf .certs
 ```
