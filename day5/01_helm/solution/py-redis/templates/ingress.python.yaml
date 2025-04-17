@@ -13,7 +13,7 @@ spec:
   - host: {{ .Values.dns }}
     http:
       paths:
-      - pathType: Prefix
+      - pathType: ImplementationSpecific
         path: "/{{ .Values.python.name }}(/|$)(.*)"
         backend:
           service:
