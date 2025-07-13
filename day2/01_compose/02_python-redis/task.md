@@ -10,17 +10,17 @@
 - alternatively you can use hub image `marcinmakowski/python-api:redis`
 - add `depends_on:` to python to depend on `redis` service
 - don't use port forward nginx
-- scale service `docker-compose up -d --scale web=3`
-- `docker-compose exec python curl web` should access created index.htm
-- `docker-compose down` stops & removes all stuff (see help)
-- run single service `docker-compose up -d python`, should start redis
+- scale service `docker compose up -d --scale web=3`
+- `docker compose exec python curl web` should access created index.htm
+- `docker compose down` stops & removes all stuff (see help)
+- run single service `docker compose up -d python`, should start redis
 
 3. Redis service
 - add service with image `redis:5.0.10`
 
 # check containers 
 
-`docker-compose up -d`
+`docker compose up -d`
 enter into service
 
 ```sh

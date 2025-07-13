@@ -1,3 +1,12 @@
+# KubeBench
+
+https://github.com/aquasecurity/kube-bench
+
+```sh
+cd kube-bench
+kubectl apply -f job.yaml
+```
+
 # apps
 kubeless - no longer supported - consider OpenFaas 
 

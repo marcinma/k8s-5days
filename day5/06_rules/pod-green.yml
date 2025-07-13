@@ -7,5 +7,5 @@ spec:
     color: green
   containers:
   - name: sec-ctx-demo
-    image: busybox
+    image: busybox:1.37.0
     command: [ "sh", "-c", "sleep 1h" ]

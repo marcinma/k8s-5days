@@ -7,5 +7,5 @@ spec:
     runAsNonRoot: true # will fail container if it starts with pid 0
   containers:
   - name: nonroot
-    image: busybox
+    image: busybox:1.37.0
     command: [ "sh", "-c", "sleep 1h" ]

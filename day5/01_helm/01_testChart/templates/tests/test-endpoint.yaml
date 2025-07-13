@@ -9,6 +9,6 @@ metadata:
 spec:
   containers:
   - name: myapp-container
-    image: busybox:1.28
+    image: busybox:1.37.0
     command: ['wget', 'nginx:80']
   restartPolicy: Never

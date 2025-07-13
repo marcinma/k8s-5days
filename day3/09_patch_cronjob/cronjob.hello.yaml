@@ -17,7 +17,7 @@ spec:
         spec:
           containers:
           - name: hello
-            image: busybox
+            image: busybox:1.37.0
             args:
             - notworking
           restartPolicy: Never

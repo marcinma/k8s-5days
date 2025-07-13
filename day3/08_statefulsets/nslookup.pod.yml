@@ -7,6 +7,6 @@ metadata:
 spec:
   containers:
   - name: nslookup-container
-    image: busybox:1.28
+    image: busybox:1.37.0
     command: ['sh', '-c', 'nslookup stsf-service']
   restartPolicy: Never

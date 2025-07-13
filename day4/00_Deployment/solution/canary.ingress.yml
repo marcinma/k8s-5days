@@ -11,7 +11,7 @@ spec:
   - host: mydomain.com
     http:
       paths:
-      - pathType: Prefix
+      - pathType: ImplementationSpecific
         path: "/canary(/|$)(.*)"
         backend:
           service:

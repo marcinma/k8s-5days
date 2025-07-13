@@ -40,7 +40,7 @@ curl 127.0.0.1:5002/api/v1/info
 - remove containers
 
 - list network
-- prune network
+- delete network
 
 - list volumes
-- prune volumes
+- delete volumes

@@ -25,4 +25,4 @@ docker image ls -f label=imagetype=workshops
 5. Remove container by id
 6. Run container providing name and find its logs by name of container
 7. Remove container by name
-8. Remove all exited containers with `prune` command
+8. Remove all exited containers with `rm` command

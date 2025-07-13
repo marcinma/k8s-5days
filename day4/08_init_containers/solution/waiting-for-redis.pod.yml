@@ -7,9 +7,9 @@ metadata:
 spec:
   containers:
   - name: myapp-container
-    image: busybox:1.28
+    image: busybox:1.37.0
     command: ['sh', '-c', 'echo The app is running! && sleep 3600']
   initContainers:
   - name: init-myservice
-    image: busybox:1.28
-    command: ['sh', '-c', 'until nslookup redis-service; do echo waiting for redis-service; sleep 2; done;']
+    image: busybox:1.37.0
+    command: ['sh', '-c', 'until nslookup redis-service.default.svc.cluster.local; do echo waiting for redis-service; sleep 2; done;']

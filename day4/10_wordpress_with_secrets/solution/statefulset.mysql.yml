@@ -18,7 +18,7 @@ spec:
     spec:
       initContainers:
       - name: remove-lost-found
-        image: busybox:1.28
+        image: busybox:1.37.0
         command: ['rm', '-rf', '/var/lib/mysql/lost+found']
         volumeMounts:
         - name: mysql-db

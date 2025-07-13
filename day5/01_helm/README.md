@@ -30,8 +30,10 @@ Removing created resources is sometimes tricky
 
 # Configmap update
 
- annotations:
-    checksum/secret: {{ include (print $.Template.BasePath "/postgresql.secret.yaml") . | sha256sum }}
+```yml
+annotations:
+  checksum/secret: {{ include (print $.Template.BasePath "/postgresql.secret.yaml") . | sha256sum }}
+```
 
 kubectl patch deployment python-deployment -p '{"spec":{"template":{"metadata":{"annotations":{"checksum/secret":"1"}}}}}'
 
